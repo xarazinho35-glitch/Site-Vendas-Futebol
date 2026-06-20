@@ -112,13 +112,24 @@ body {
     text-align: center;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION (BANNER) ===== */
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, #7c3aed 100%);
     color: white;
     padding: 120px 0 80px;
-    text-align: center;
     margin-top: 70px;
+}
+
+/* Container do banner com Flexbox para alinhar lado a lado */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Distância entre o texto e a logo */
+}
+
+.hero-text {
+    text-align: left;
 }
 
 .hero h1 {
@@ -130,6 +141,14 @@ body {
 .hero p {
     font-size: 1.25rem;
     opacity: 0.9;
+}
+
+/* Estilização da Logo do Brasileirão */
+.hero-logo {
+    width: 90px; /* Tamanho controlado para não quebrar o layout */
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.15)); /* Sombra leve na logo */
 }
 
 /* ===== SEÇÃO DE PRODUTOS ===== */
@@ -568,8 +587,19 @@ body {
         border-top: 1px solid var(--border-color);
     }
 
+    /* Ajustes responsivos para o Banner */
     .hero {
         padding: 100px 0 60px;
+    }
+
+    .hero-content {
+        flex-direction: column; /* Empilha a imagem abaixo do texto no mobile */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .hero-text {
+        text-align: center;
     }
 
     .hero h1 {
@@ -578,6 +608,10 @@ body {
 
     .hero p {
         font-size: 1rem;
+    }
+
+    .hero-logo {
+        width: 75px; /* Diminui levemente a logo em telas menores */
     }
 
     .products-grid {
@@ -712,4 +746,22 @@ body {
 .menu-overlay.active{
     opacity:1;
     visibility:visible;
+}
+
+/* Aumenta o tamanho apenas das logos que tiverem a classe .logo-maior */
+.hero-logo.logo-maior {
+    width: 125px; /* Altere este valor para o tamanho que achar melhor */
+}
+
+/* Ajuste opcional para o mobile não ficar gigante */
+@media (max-width: 768px) {
+    .hero-logo.logo-maior {
+        width: 100px; 
+    }
+}
+
+/* Faz a imagem da camisa diminuir e aparecer inteira sem cortes */
+.product-image img {
+    object-fit: contain; /* Mostra a camisa inteira */
+    padding: 15px;       /* Cria um espaço nas laterais, diminuindo a foto */
 }

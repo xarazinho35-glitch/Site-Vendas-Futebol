@@ -14,7 +14,6 @@ const cartTotalValue = document.getElementById('cart-total-value');
 const checkoutBtn = document.getElementById('checkout-btn');
 const clearCartBtn = document.getElementById('clear-cart-btn');
 const notification = document.getElementById('notification');
-const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
 // ===== FUNÇÕES DO CARRINHO =====
 
@@ -211,19 +210,25 @@ clearCartBtn.addEventListener('click', clearCart);
 // Botão finalizar compra
 checkoutBtn.addEventListener('click', checkout);
 
-// Botões "Adicionar ao Carrinho"
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const card = this.closest('.product-card');
-        const product = {
-            id: card.dataset.id,
-            name: card.dataset.name,
-            price: parseFloat(card.dataset.price),
-            image: card.querySelector('.product-image img').src
-        };
+// CORREÇÃO: Monitorar cliques nos botões "Adicionar ao Carrinho" sem bugar os novos links
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-cart-btn')) {
+        // Bloqueia a troca de página do card para rodar apenas a função do carrinho
+        e.preventDefault();
+        e.stopPropagation(); 
         
-        addToCart(product);
-    });
+        const card = e.target.closest('.product-card');
+        if (card) {
+            const product = {
+                id: card.dataset.id,
+                name: card.dataset.name,
+                price: parseFloat(card.dataset.price),
+                image: card.querySelector('.product-image img').src
+            };
+            
+            addToCart(product);
+        }
+    }
 });
 
 // Fechar carrinho com tecla ESC
@@ -238,6 +243,7 @@ document.addEventListener('keydown', function(e) {
 // Carregar carrinho ao iniciar
 document.addEventListener('DOMContentLoaded', loadCart);
 
+// ===== MENU LATERAL =====
 const menuBtn = document.getElementById("menu-btn");
 const menuSidebar = document.getElementById("menu-sidebar");
 const menuOverlay = document.getElementById("menu-overlay");

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header com carrinho -->
     <header class="header">
         <div class="container header-content">
             <a href="#" class="logo">🛒 Esportes Pioli</a>
@@ -18,31 +17,31 @@
             </nav>
             <button class="menu-btn" id="menu-btn">
                 ☰
-        </button>
+            </button>
 
-        <button class="cart-btn" id="cart-btn"> 
+            <button class="cart-btn" id="cart-btn"> 
                 <span class="cart-icon">🛒</span>
                 <span class="cart-count" id="cart-count">0</span>
             </button>
         </div>
     </header>
 
-    <!-- Banner principal -->
     <section class="hero">
-        <div class="container">
-            <h1>Camisas Série A</h1>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Camisas Série A</h1>
                 <p>Os principais clubes do Brasil.</p>
+            </div>
+            <img src="logobrasileirao.png" alt="Logo Brasileirão" class="hero-logo">
         </div>
     </section>
 
-    <!-- Seção de produtos -->
     <main class="main-content" id="produtos">
         <div class="container">
             <h2 class="section-title">Nossos Produtos</h2>
             
             <div class="products-grid" id="products-grid">
-                <!-- Produto 1 -->
-                <div class="product-card" data-id="1" data-name="Camisa Santos" data-price="1299.90">
+                <a href="santos.html" class="product-card" data-id="1" data-name="Camisa Santos" data-price="1299.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="santos.png" alt="Produto 1">
                         <span class="product-badge">Novo</span>
@@ -53,10 +52,9 @@
                         <div class="product-price">R$ 1299,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 2 -->
-                <div class="product-card" data-id="2" data-name="Camisa Corinthians" data-price="349.90">
+                <a href="corinthians.html" class="product-card" data-id="2" data-name="Camisa Corinthians" data-price="349.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="corinthians.png" alt="Produto 2">
                         <span class="product-badge sale">Promoção</span>
@@ -67,10 +65,9 @@
                         <div class="product-price">R$ 349,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 3 -->
-                <div class="product-card" data-id="3" data-name="Camisa São Paulo" data-price="359.90">
+                <a href="saopaulo.html" class="product-card" data-id="3" data-name="Camisa São Paulo" data-price="359.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="saopaulo.png" alt="Produto 3">
                     </div>
@@ -80,10 +77,9 @@
                         <div class="product-price">R$ 359,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 4 -->
-                <div class="product-card" data-id="4" data-name="Camisa Palmeiras" data-price="349.90">
+                <a href="palmeiras.html" class="product-card" data-id="4" data-name="Camisa Palmeiras" data-price="349.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="palmeiras.png" alt="Produto 4">
                         <span class="product-badge">Novo</span>
@@ -94,10 +90,9 @@
                         <div class="product-price">R$ 359,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 5 -->
-                <div class="product-card" data-id="5" data-name="Camisa Flamengo" data-price="359.90">
+                <a href="flamengo.html" class="product-card" data-id="5" data-name="Camisa Flamengo" data-price="359.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="flamengo.png" alt="Produto 5">
                     </div>
@@ -107,10 +102,9 @@
                         <div class="product-price">R$ 359,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 6 -->
-                <div class="product-card" data-id="6" data-name="Camisa Fluminense" data-price="379.90">
+                <a href="fluminense.html" class="product-card" data-id="6" data-name="Camisa Fluminense" data-price="379.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="fluminense.png" alt="Produto 6">
                         <span class="product-badge sale">Promoção</span>
@@ -121,10 +115,9 @@
                         <div class="product-price">R$ 379,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 7 -->
-                <div class="product-card" data-id="7" data-name="Camisa Vasco" data-price="59.90">
+                <a href="vasco.html" class="product-card" data-id="7" data-name="Camisa Vasco" data-price="59.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="vasco.png" alt="Produto 7">
                     </div>
@@ -134,10 +127,9 @@
                         <div class="product-price">R$ 59,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 8 -->
-                <div class="product-card" data-id="8" data-name="Camisa Botafogo" data-price="199.90">
+                <a href="botafogo.html" class="product-card" data-id="8" data-name="Camisa Botafogo" data-price="199.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="botafogo.png" alt="Produto 8">
                         <span class="product-badge">Novo</span>
@@ -148,10 +140,9 @@
                         <div class="product-price">R$ 199,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 9 -->
-                <div class="product-card" data-id="9" data-name="Camisa Atlético MG" data-price="319.90">
+                <a href="atleticomg.html" class="product-card" data-id="9" data-name="Camisa Atlético MG" data-price="319.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="atleticomg.png" alt="Produto 9">
                     </div>
@@ -161,10 +152,9 @@
                         <div class="product-price">R$ 319,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 10 -->
-                <div class="product-card" data-id="10" data-name="Camisa Cruzeiro" data-price="299.90">
+                <a href="cruzeiro.html" class="product-card" data-id="10" data-name="Camisa Cruzeiro" data-price="299.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="cruzeiro.png" alt="Produto 10">
                         <span class="product-badge sale">Promoção</span>
@@ -175,10 +165,9 @@
                         <div class="product-price">R$ 299,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 11 -->
-                <div class="product-card" data-id="11" data-name="Camisa Mirassol" data-price="499.90">
+                <a href="mirassol.html" class="product-card" data-id="11" data-name="Camisa Mirassol" data-price="499.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="mirassol.png" alt="Produto 11">
                     </div>
@@ -188,10 +177,9 @@
                         <div class="product-price">R$ 499,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 12 -->
-                <div class="product-card" data-id="12" data-name="Camisa Red Bull Bragantino" data-price="159.90">
+                <a href="redbullbragantino.html" class="product-card" data-id="12" data-name="Camisa Red Bull Bragantino" data-price="159.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="redbull.png" alt="Produto 12">
                         <span class="product-badge">Novo</span>
@@ -202,10 +190,9 @@
                         <div class="product-price">R$ 159,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 13 -->
-                <div class="product-card" data-id="13" data-name="Camisa Atlético Paranaense" data-price="109.90">
+                <a href="atleticopr.html" class="product-card" data-id="13" data-name="Camisa Atlético Paranaense" data-price="109.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="atleticopr.png" alt="Produto 13">
                     </div>
@@ -215,10 +202,9 @@
                         <div class="product-price">R$ 109,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 14 -->
-                <div class="product-card" data-id="14" data-name="Camisa Chapecoense" data-price="219.90">
+                <a href="chapecoense.html" class="product-card" data-id="14" data-name="Camisa Chapecoense" data-price="219.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="chapecoense.png" alt="Produto 14">
                         <span class="product-badge sale">Promoção</span>
@@ -229,10 +215,9 @@
                         <div class="product-price">R$ 219,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 15 -->
-                <div class="product-card" data-id="15" data-name="Camisa Coritiba" data-price="49.90">
+                <a href="coritiba.html" class="product-card" data-id="15" data-name="Camisa Coritiba" data-price="49.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="coritiba.png" alt="Produto 15">
                     </div>
@@ -242,10 +227,9 @@
                         <div class="product-price">R$ 49,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 16 -->
-                <div class="product-card" data-id="16" data-name="Camisa Grêmio" data-price="189.90">
+                <a href="gremio.html" class="product-card" data-id="16" data-name="Camisa Grêmio" data-price="189.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="gremio.png" alt="Produto 16">
                         <span class="product-badge">Novo</span>
@@ -256,10 +240,9 @@
                         <div class="product-price">R$ 189,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 17 -->
-                <div class="product-card" data-id="17" data-name="Camisa Internacional" data-price="139.90">
+                <a href="internacional.html" class="product-card" data-id="17" data-name="Camisa Internacional" data-price="139.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="internacional.png" alt="Produto 17">
                     </div>
@@ -269,10 +252,9 @@
                         <div class="product-price">R$ 139,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 18 -->
-                <div class="product-card" data-id="18" data-name="Camisa Bahia" data-price="349.90">
+                <a href="bahia.html" class="product-card" data-id="18" data-name="Camisa Bahia" data-price="349.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="bahia.png" alt="Produto 18">
                         <span class="product-badge sale">Promoção</span>
@@ -283,10 +265,9 @@
                         <div class="product-price">R$ 349,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 19 -->
-                <div class="product-card" data-id="19" data-name="Camisa Vitória" data-price="79.90">
+                <a href="vitoria.html" class="product-card" data-id="19" data-name="Camisa Vitória" data-price="79.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="vitoria.png" alt="Produto 19">
                     </div>
@@ -296,10 +277,9 @@
                         <div class="product-price">R$ 79,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
 
-                <!-- Produto 20 -->
-                <div class="product-card" data-id="20" data-name="Camisa Remo" data-price="269.90">
+                <a href="remo.html" class="product-card" data-id="20" data-name="Camisa Remo" data-price="269.90" style="text-decoration: none; color: inherit;">
                     <div class="product-image">
                         <img src="remo.png" alt="Produto 20">
                         <span class="product-badge">Novo</span>
@@ -310,12 +290,11 @@
                         <div class="product-price">R$ 269,90</div>
                         <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </main>
 
-    <!-- Sidebar do carrinho -->
     <div class="cart-overlay" id="cart-overlay"></div>
     <aside class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
@@ -323,8 +302,7 @@
             <button class="close-cart-btn" id="close-cart-btn">&times;</button>
         </div>
         <div class="cart-items" id="cart-items">
-            <!-- Itens do carrinho serão inseridos aqui via JavaScript -->
-        </div>
+            </div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
@@ -335,12 +313,10 @@
         </div>
     </aside>
 
-    <!-- Notificação -->
     <div class="notification" id="notification">
         Produto adicionado ao carrinho!
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -369,23 +345,23 @@
         </div>
     </footer>
 
-    <!-- Menu lateral -->
-<div class="menu-overlay" id="menu-overlay"></div>
+    <div class="menu-overlay" id="menu-overlay"></div>
 
-<aside class="menu-sidebar" id="menu-sidebar">
-    <div class="menu-header">
-        <h2>Times</h2>
-        <button class="close-menu-btn" id="close-menu-btn">&times;</button>
-    </div>
+    <aside class="menu-sidebar" id="menu-sidebar">
+        <div class="menu-header">
+            <h2>Times</h2>
+            <button class="close-menu-btn" id="close-menu-btn">&times;</button>
+        </div>
 
-<ul class="menu-list">
-    <li><a href="index.html">Série A</a></li>
-    <li><a href="serieb.html">Série B</a></li>
-    <li><a href="premierleague.html">Premier League</a></li>
-    <li><a href="laliga.html">La Liga Santander</a></li>
-    <li><a href="bundesliga.html">Bundesliga</a></li>
-</ul>
-</aside>
+        <ul class="menu-list">
+            <li><a href="index.html">Série A</a></li>
+            <li><a href="serieb.html">Série B</a></li>
+            <li><a href="premierleague.html">Premier League</a></li>
+            <li><a href="laliga.html">La Liga Santander</a></li>
+            <li><a href="bundesliga.html">Bundesliga</a></li>
+            <li><a href="copadomundo.html">Copa Do Mundo</a></li>
+        </ul>
+    </aside>
 
     <script src="script.js"></script>
 </body>
