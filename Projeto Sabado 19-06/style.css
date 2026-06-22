@@ -112,24 +112,38 @@ body {
     text-align: center;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION (MODIFICADO) ===== */
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, #7c3aed 100%);
     color: white;
     padding: 120px 0 80px;
-    text-align: center;
     margin-top: 70px;
 }
 
+/* Alinha a logo à esquerda entre o texto e a borda da caixa azul */
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 15px;
     font-weight: 700;
+    display: flex;
+    align-items: center;         /* Alinha verticalmente no centro */
+    justify-content: flex-start; /* Alinha o conteúdo no início (esquerda) */
+    padding-left: 80px;          /* Empurra todo o bloco um pouco para dentro da borda azul */
+    gap: 40px;                   /* Dá o espaçamento perfeito entre a logo e o texto */
+    flex-wrap: wrap;
+}
+
+/* Tamanho maior e padronizado para as logos de todas as páginas */
+.hero-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;         /* Garante que a imagem não fique distorcida */
 }
 
 .hero p {
     font-size: 1.25rem;
     opacity: 0.9;
+    padding-left: 80px;          /* Alinha o texto menor com a posição do título */
 }
 
 /* ===== SEÇÃO DE PRODUTOS ===== */
@@ -166,18 +180,24 @@ body {
     box-shadow: var(--shadow-xl);
 }
 
+/* Quadrado flexível para centralizar escudos/camisas */
 .product-image {
-    position: relative;
     width: 100%;
-    height: 220px;
+    height: 200px;
+    background-color: #f9f9f9;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    background-color: #f1f5f9;
 }
 
 .product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 75%;
+    max-height: 75%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     transition: var(--transition);
 }
 
@@ -196,6 +216,7 @@ body {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
+    z-index: 10;
 }
 
 .product-badge.sale {
@@ -439,47 +460,6 @@ body {
     color: var(--text-primary);
 }
 
-#cart-total-value {
-    color: var(--primary-color);
-}
-
-.checkout-btn {
-    width: 100%;
-    padding: 15px;
-    background: var(--success-color);
-    color: white;
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-bottom: 10px;
-}
-
-.checkout-btn:hover {
-    background: #059669;
-    transform: scale(1.02);
-}
-
-.clear-cart-btn {
-    width: 100%;
-    padding: 12px;
-    background: transparent;
-    color: var(--danger-color);
-    border: 2px solid var(--danger-color);
-    border-radius: var(--radius-md);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.clear-cart-btn:hover {
-    background: var(--danger-color);
-    color: white;
-}
-
 /* ===== NOTIFICAÇÃO ===== */
 .notification {
     position: fixed;
@@ -574,10 +554,18 @@ body {
 
     .hero h1 {
         font-size: 2rem;
+        padding-left: 20px;
+        gap: 20px;
     }
 
     .hero p {
         font-size: 1rem;
+        padding-left: 20px;
+    }
+
+    .hero-logo {
+        width: 60px;
+        height: 60px;
     }
 
     .products-grid {
