@@ -3,16 +3,16 @@
 // Estado do carrinho
 let cart = [];
 
-// Elementos do DOM
-const cartBtn = document.getElementById('cart-btn');
+// Elementos do DOM - Carrinho
+const cartBtn = document.getElementById('open-cart'); // Ajustado para bater com o HTML
 const cartSidebar = document.getElementById('cart-sidebar');
 const cartOverlay = document.getElementById('cart-overlay');
-const closeCartBtn = document.getElementById('close-cart-btn');
-const cartItems = document.getElementById('cart-items');
-const cartCount = document.getElementById('cart-count');
+const closeCartBtn = document.getElementById('close-cart'); // Ajustado para bater com o HTML
+const cartItems = document.getElementById('cart-items-container'); // Ajustado para bater com o HTML
+const cartCount = document.getElementById('cart-count-val'); // Ajustado para bater com o HTML
 const cartTotalValue = document.getElementById('cart-total-value');
-const checkoutBtn = document.getElementById('checkout-btn');
-const clearCartBtn = document.getElementById('clear-cart-btn');
+const checkoutBtn = document.querySelector('.checkout-btn');
+const clearCartBtn = document.querySelector('.clear-cart-btn');
 const notification = document.getElementById('notification');
 const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
@@ -60,7 +60,7 @@ function removeFromCart(productId) {
 }
 
 // Atualizar quantidade do produto
-function updateQuantity(productId, change) {
+window.updateQuantity = function(productId, change) {
     const item = cart.find(item => item.id === productId);
     
     if (item) {
@@ -73,6 +73,14 @@ function updateQuantity(productId, change) {
             updateCartUI();
         }
     }
+}
+
+// Remover item completamente
+window.removeFromCart = function(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCart();
+    updateCartUI();
+    showNotification('Produto removido do carrinho!');
 }
 
 // Limpar carrinho
@@ -108,6 +116,8 @@ function formatPrice(price) {
 // ===== ATUALIZAÇÃO DA INTERFACE =====
 
 function updateCartUI() {
+    if (!cartCount || !cartTotalValue || !cartItems) return;
+
     // Atualizar contador
     const itemCount = countItems();
     cartCount.textContent = itemCount;
@@ -148,6 +158,7 @@ function updateCartUI() {
 // ===== ANIMAÇÕES E NOTIFICAÇÕES =====
 
 function showNotification(message) {
+    if (!notification) return;
     notification.textContent = message;
     notification.classList.add('show');
     
@@ -157,21 +168,24 @@ function showNotification(message) {
 }
 
 function animateCartCount() {
+    if (!cartCount) return;
     cartCount.classList.add('pulse');
     setTimeout(() => {
         cartCount.classList.remove('pulse');
     }, 300);
 }
 
-// ===== CONTROLE DO SIDEBAR =====
+// ===== CONTROLE DO SIDEBAR DO CARRINHO =====
 
 function openCart() {
+    if (!cartSidebar || !cartOverlay) return;
     cartSidebar.classList.add('active');
     cartOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function closeCart() {
+    if (!cartSidebar || !cartOverlay) return;
     cartSidebar.classList.remove('active');
     cartOverlay.classList.remove('active');
     document.body.style.overflow = '';
@@ -198,28 +212,28 @@ function checkout() {
 
 // ===== EVENT LISTENERS =====
 
-// Botão do carrinho no header
-cartBtn.addEventListener('click', openCart);
+if (cartBtn) cartBtn.addEventListener('click', openCart);
+if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+if (clearCartBtn) clearCartBtn.addEventListener('click', clearCart);
+if (checkoutBtn) checkoutBtn.addEventListener('click', checkout);
 
-// Fechar carrinho
-closeCartBtn.addEventListener('click', closeCart);
-cartOverlay.addEventListener('click', closeCart);
-
-// Botão limpar carrinho
-clearCartBtn.addEventListener('click', clearCart);
-
-// Botão finalizar compra
-checkoutBtn.addEventListener('click', checkout);
-
-// Botões "Adicionar ao Carrinho"
+// Botões "Adicionar ao Carrinho" extraindo dados do botão ou do card estruturado
 addToCartButtons.forEach(button => {
     button.addEventListener('click', function() {
+        // Tenta pegar direto do botão (como no HTML enviado da Copa), se não conseguir busca no card
+        const id = this.getAttribute('data-id') || this.closest('.product-card').dataset.id;
+        const name = this.getAttribute('data-name') || this.closest('.product-card').dataset.name;
+        const price = this.getAttribute('data-price') || this.closest('.product-card').dataset.price;
+        
         const card = this.closest('.product-card');
+        const image = card.querySelector('.product-image img').src;
+        
         const product = {
-            id: card.dataset.id,
-            name: card.dataset.name,
-            price: parseFloat(card.dataset.price),
-            image: card.querySelector('.product-image img').src
+            id: id,
+            name: name,
+            price: parseFloat(price),
+            image: image
         };
         
         addToCart(product);
@@ -230,28 +244,38 @@ addToCartButtons.forEach(button => {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeCart();
+        fecharMenu();
     }
 });
-
-// ===== INICIALIZAÇÃO =====
 
 // Carregar carrinho ao iniciar
 document.addEventListener('DOMContentLoaded', loadCart);
 
-const menuBtn = document.getElementById("menu-btn");
+
+// ===== CONTROLE DO MENU LATERAL (CORRIGIDO PARA RESPONDER AOS DOIS NOMES) =====
+
+// Procura o botão usando o id antigo ou o novo
+const menuBtn = document.getElementById("open-menu") || document.getElementById("menu-btn"); 
 const menuSidebar = document.getElementById("menu-sidebar");
 const menuOverlay = document.getElementById("menu-overlay");
-const closeMenuBtn = document.getElementById("close-menu-btn");
+// Procura o botão de fechar usando o id antigo ou o novo
+const closeMenuBtn = document.getElementById("close-menu") || document.getElementById("close-menu-btn"); 
 
-menuBtn.addEventListener("click", () => {
-    menuSidebar.classList.add("active");
-    menuOverlay.classList.add("active");
-});
+if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+        if (menuSidebar && menuOverlay) {
+            menuSidebar.classList.add("active");
+            menuOverlay.classList.add("active");
+        }
+    });
+}
 
-closeMenuBtn.addEventListener("click", fecharMenu);
-menuOverlay.addEventListener("click", fecharMenu);
+if (closeMenuBtn) closeMenuBtn.addEventListener("click", fecharMenu);
+if (menuOverlay) menuOverlay.addEventListener("click", fecharMenu);
 
 function fecharMenu() {
-    menuSidebar.classList.remove("active");
-    menuOverlay.classList.remove("active");
+    if (menuSidebar && menuOverlay) {
+        menuSidebar.classList.remove("active");
+        menuOverlay.classList.remove("active");
+    }
 }

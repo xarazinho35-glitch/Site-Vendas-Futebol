@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo - Loja de Camisas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+    <div class="container header-content">
+
+        <a href="index.html" class="logo">🛒 Esportes Pioli</a>
+
+        <nav class="nav">
+            <a href="#produtos">Produtos</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+
+        <button class="menu-btn" id="menu-btn">
+            ☰
+        </button>
+
+        <button class="cart-btn" id="cart-btn">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
+
+    </div>
+</header>
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <aside class="menu-sidebar" id="menu-sidebar">
+        <div class="menu-header">
+            <h2>Times / Ligas</h2>
+            <button class="close-menu-btn" id="close-menu">&times;</button>
+        </div>
+        <ul class="menu-list">
+            <li><a href="index.html">Série A</a></li>
+            <li><a href="serieb.html">Série B</a></li>
+            <li><a href="premierleague.html">Premier League</a></li> 
+            <li><a href="laliga.html">La Liga Santander</a></li>
+            <li><a href="bundesliga.html">Bundesliga</a></li>
+            <li><a href="copadomundo.html" class="ativo">Copa do Mundo</a></li>
+        </ul>
+    </aside>
+
+    <section class="hero">
+        <div class="container">
+            <h1>
+                <img src="logocopadomundo.png" alt="Logo Copa do Mundo" class="hero-logo">
+                Copa do Mundo
+            </h1>
+            <p>As mantas sagradas das maiores seleções do planeta.</p>
+        </div>
+    </section>
+
+    <main class="container main-content">
+        <h2 class="section-title">Camisas de Seleções</h2>
+        
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Mais Vendida</span>
+                    <img src="brasil.png" alt="Camisa do Brasil">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Camisa Brasil Home 2026</h3>
+                    <p class="product-description">A clássica amarelinha com tecnologia de alta absorção.</p>
+                    <div class="product-price">R$ 749,90</div>
+                    <button class="add-to-cart-btn" data-id="copa-brasil" data-name="Camisa Brasil Home 2026" data-price="299.90">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge sale">Oferta</span>
+                    <img src="argentina.png" alt="Camisa da Argentina">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Camisa Argentina Home</h3>
+                    <p class="product-description">A tradicional alviceleste dos atuais campeões do mundo.</p>
+                    <div class="product-price">R$ 279,90</div>
+                    <button class="add-to-cart-btn" data-id="copa-argentina" data-name="Camisa Argentina Home" data-price="279.90">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="franca.png" alt="Camisa da França">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Camisa França Home</h3>
+                    <p class="product-description">Elegância e imponência no manto azul dos Les Bleus.</p>
+                    <div class="product-price">R$ 289,90</div>
+                    <button class="add-to-cart-btn" data-id="copa-franca" data-name="Camisa França Home" data-price="289.90">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="japao.png" alt="Camisa do Japão">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Camisa Japão Home</h3>
+                    <p class="product-description">Design exclusivo e moderno inspirado nos tradicionais mangás.</p>
+                    <div class="product-price">R$ 289,90</div>
+                    <button class="add-to-cart-btn" data-id="copa-japao" data-name="Camisa Japão Home" data-price="289.90">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Menu lateral -->
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<aside class="menu-sidebar" id="menu-sidebar">
+
+<div class="menu-header">
+<h2>Times</h2>
+<button class="close-menu-btn" id="close-menu-btn">&times;</button>
+</div>
+
+<ul class="menu-list">
+    <li><a href="index.html">Série A</a></li>
+<li><a href="serieb.html">Série B</a></li>
+<li><a href="premierleague.html">Premier League</a></li> 
+<li><a href="laliga.html">La Liga Santander</a></li>
+<li><a href="bundesliga.html">Bundesliga</a></li>
+<li><a href="copadomundo.html">Copa do Mundo</a></li>
+</ul>
+
+
+</aside>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <button class="close-cart-btn" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Seu carrinho está vazio</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-value">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
+            <button class="clear-cart-btn">Limpar Carrinho</button>
+        </div>
+    </aside>
+
+    <div class="notification" id="notification">Produto adicionado ao carrinho!</div>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>FutStore</h3>
+                <p>A melhor loja de mantos esportivos da internet.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="copadomundo.html">Copa do Mundo</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>suporte@futstore.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 FutStore. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
