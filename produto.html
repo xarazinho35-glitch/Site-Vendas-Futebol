@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto - Esportes Pioli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="index.html" class="logo">🛒 Esportes Pioli</a>
+
+        <button class="cart-btn" id="cart-btn">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
+    </div>
+</header>
+
+<main class="produto-page">
+
+    <section class="produto-detalhe">
+
+        <div class="produto-foto">
+            <img id="produto-imagem" src="" alt="">
+        </div>
+
+        <div class="produto-info-detalhe">
+
+            <button class="voltar-btn" onclick="history.back()">← Voltar</button>
+
+            <h1 id="produto-nome">Nome do produto</h1>
+
+            <div class="produto-avaliacao">
+                ⭐⭐⭐⭐⭐ <span>4.9 | 235 avaliações</span>
+            </div>
+
+            <h2 id="produto-preco">R$ 0,00</h2>
+
+            <p id="produto-descricao">
+                Descrição do produto
+            </p>
+
+            <div class="produto-opcoes">
+                <h3>Tamanho</h3>
+
+                <div class="tamanhos">
+                    <button>P</button>
+                    <button>M</button>
+                    <button>G</button>
+                    <button>GG</button>
+                </div>
+            </div>
+
+            <div class="produto-quantidade">
+                <h3>Quantidade</h3>
+                <input type="number" id="produto-quantidade" value="1" min="1">
+            </div>
+
+            <div class="produto-botoes">
+                <button id="btn-comprar-agora">Comprar Agora</button>
+                <button id="btn-add-produto">Adicionar ao Carrinho</button>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+
+<aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+        <h2>Seu Carrinho</h2>
+        <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cart-items"></div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-value">R$ 0,00</span>
+        </div>
+
+        <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        <button class="clear-cart-btn" id="clear-cart-btn">Limpar Carrinho</button>
+    </div>
+</aside>
+
+<div class="notification" id="notification">
+    Produto adicionado ao carrinho!
+</div>
+
+<script src="script.js"></script>
+
+<script>
+const produto = JSON.parse(localStorage.getItem("produtoSelecionado"));
+
+if (!produto) {
+    document.querySelector(".produto-page").innerHTML = `
+        <div style="padding:150px 30px;text-align:center;">
+            <h1>Produto não encontrado</h1>
+            <p>Volte para a loja e escolha uma camisa.</p>
+            <br>
+            <a href="index.html">Voltar para a loja</a>
+        </div>
+    `;
+} else {
+    document.title = produto.name + " - Esportes Pioli";
+
+    document.getElementById("produto-nome").textContent = produto.name;
+    document.getElementById("produto-imagem").src = produto.image;
+    document.getElementById("produto-imagem").alt = produto.name;
+    document.getElementById("produto-descricao").textContent = produto.description;
+
+    document.getElementById("produto-preco").textContent =
+        Number(produto.price).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
+}
+
+document.getElementById("btn-add-produto").addEventListener("click", function () {
+    const quantidade = parseInt(document.getElementById("produto-quantidade").value);
+
+    for (let i = 0; i < quantidade; i++) {
+        addToCart({
+            id: produto.id,
+            name: produto.name,
+            price: parseFloat(produto.price),
+            image: produto.image
+        });
+    }
+});
+
+document.getElementById("btn-comprar-agora").addEventListener("click", function () {
+    document.getElementById("btn-add-produto").click();
+    openCart();
+});
+</script>
+
+</body>
+</html>

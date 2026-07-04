@@ -210,25 +210,43 @@ clearCartBtn.addEventListener('click', clearCart);
 // Botão finalizar compra
 checkoutBtn.addEventListener('click', checkout);
 
-// CORREÇÃO: Monitorar cliques nos botões "Adicionar ao Carrinho" sem bugar os novos links
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('add-to-cart-btn')) {
-        // Bloqueia a troca de página do card para rodar apenas a função do carrinho
+// ================================
+// Clique no card ou no botão
+// ================================
+
+document.addEventListener("click", function (e) {
+
+    const card = e.target.closest(".product-card");
+
+    if (!card) return;
+
+    // Se clicou no botão do carrinho
+    if (e.target.classList.contains("add-to-cart-btn")) {
+
         e.preventDefault();
-        e.stopPropagation(); 
-        
-        const card = e.target.closest('.product-card');
-        if (card) {
-            const product = {
-                id: card.dataset.id,
-                name: card.dataset.name,
-                price: parseFloat(card.dataset.price),
-                image: card.querySelector('.product-image img').src
-            };
-            
-            addToCart(product);
-        }
+        e.stopPropagation();
+
+        const product = {
+            id: card.dataset.id,
+            name: card.dataset.name,
+            price: parseFloat(card.dataset.price),
+            image: card.querySelector("img").src
+        };
+
+        addToCart(product);
+        return;
     }
+
+    // Clique em qualquer outro lugar do card
+    localStorage.setItem("produtoSelecionado", JSON.stringify({
+        id: card.dataset.id,
+        name: card.dataset.name,
+        price: card.dataset.price,
+        image: card.querySelector("img").src,
+        description: card.querySelector(".product-description").innerText
+    }));
+
+    window.location.href = "produto.html";
 });
 
 // Fechar carrinho com tecla ESC
@@ -260,4 +278,38 @@ menuOverlay.addEventListener("click", fecharMenu);
 function fecharMenu() {
     menuSidebar.classList.remove("active");
     menuOverlay.classList.remove("active");
+}
+
+// ==========================
+// Pesquisa de Produtos
+// ==========================
+
+const searchInput = document.getElementById("search-input");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function(){
+
+        const texto = this.value.toLowerCase();
+
+        const produtos = document.querySelectorAll(".product-card");
+
+        produtos.forEach(produto=>{
+
+            const nome = produto.dataset.name.toLowerCase();
+
+            if(nome.includes(texto)){
+
+                produto.style.display="block";
+
+            }else{
+
+                produto.style.display="none";
+
+            }
+
+        });
+
+    });
+
 }
