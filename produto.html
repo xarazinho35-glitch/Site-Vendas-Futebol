@@ -1,67 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto - Esportes Pioli</title>
+
+    <title>Produto - Flores Pioli</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header class="header">
+
     <div class="container header-content">
-        <a href="index.html" class="logo">🛒 Esportes Pioli</a>
+
+        <a href="CoroasTradicionais.html" class="logo">
+            🌸 Flores Pioli
+        </a>
+
+        <nav class="nav">
+            <a href="CoroasTradicionais.html">Início</a>
+        </nav>
+
+        <button class="menu-btn" id="menu-btn">
+            ☰
+        </button>
 
         <button class="cart-btn" id="cart-btn">
-            <span class="cart-icon">🛒</span>
-            <span class="cart-count" id="cart-count">0</span>
+
+            <span class="cart-icon">
+                🛒
+            </span>
+
+            <span class="cart-count" id="cart-count">
+                0
+            </span>
+
         </button>
+
     </div>
+
 </header>
+
+
+<!-- ================= PRODUTO ================= -->
 
 <main class="produto-page">
 
     <section class="produto-detalhe">
 
+
         <div class="produto-foto">
-            <img id="produto-imagem" src="" alt="">
+
+            <img
+                id="produto-imagem"
+                src=""
+                alt="Produto"
+            >
+
         </div>
+
 
         <div class="produto-info-detalhe">
 
-            <button class="voltar-btn" onclick="history.back()">← Voltar</button>
+            <button
+                class="voltar-btn"
+                onclick="history.back()"
+            >
+                ← Voltar
+            </button>
 
-            <h1 id="produto-nome">Nome do produto</h1>
+
+            <span class="hero-kicker">
+                Flores Pioli
+            </span>
+
+
+            <h1 id="produto-nome">
+                Produto
+            </h1>
+
 
             <div class="produto-avaliacao">
-                ⭐⭐⭐⭐⭐ <span>4.9 | 235 avaliações</span>
+                ⭐⭐⭐⭐⭐
+                <span>Clientes satisfeitos</span>
             </div>
 
-            <h2 id="produto-preco">R$ 0,00</h2>
+
+            <h2 id="produto-preco">
+                R$ 0,00
+            </h2>
+
 
             <p id="produto-descricao">
                 Descrição do produto
             </p>
 
+
+            <!-- TAMANHO -->
+
             <div class="produto-opcoes">
-                <h3>Tamanho</h3>
+
+                <h3>
+                    Tamanho da composição
+                </h3>
 
                 <div class="tamanhos">
-                    <button>P</button>
-                    <button>M</button>
-                    <button>G</button>
-                    <button>GG</button>
+
+                    <button
+                        type="button"
+                        data-tamanho="Pequeno"
+                    >
+                        P
+                    </button>
+
+                    <button
+                        type="button"
+                        data-tamanho="Médio"
+                        class="active"
+                    >
+                        M
+                    </button>
+
+                    <button
+                        type="button"
+                        data-tamanho="Grande"
+                    >
+                        G
+                    </button>
+
                 </div>
+
             </div>
+
+
+            <!-- MENSAGEM -->
+
+            <div class="produto-mensagem">
+
+                <h3>
+                    Mensagem personalizada
+                </h3>
+
+                <textarea
+                    id="produto-mensagem"
+                    maxlength="120"
+                    placeholder="Ex.: Com carinho de toda a família."
+                ></textarea>
+
+                <small>
+                    Opcional
+                </small>
+
+            </div>
+
+
+            <!-- QUANTIDADE -->
 
             <div class="produto-quantidade">
-                <h3>Quantidade</h3>
-                <input type="number" id="produto-quantidade" value="1" min="1">
+
+                <h3>
+                    Quantidade
+                </h3>
+
+                <input
+                    type="number"
+                    id="produto-quantidade"
+                    value="1"
+                    min="1"
+                    max="10"
+                >
+
             </div>
 
+
+            <!-- BOTÕES -->
+
             <div class="produto-botoes">
-                <button id="btn-comprar-agora">Comprar Agora</button>
-                <button id="btn-add-produto">Adicionar ao Carrinho</button>
+
+                <button id="btn-comprar-agora">
+                    Comprar Agora
+                </button>
+
+                <button id="btn-add-produto">
+                    Adicionar ao Carrinho
+                </button>
+
+            </div>
+
+
+            <div class="produto-beneficios">
+
+                <p>🌸 Flores selecionadas</p>
+                <p>💌 Mensagem personalizada</p>
+                <p>🎀 Montagem feita com cuidado</p>
+                <p>🚚 Consulte disponibilidade de entrega</p>
+
             </div>
 
         </div>
@@ -70,78 +209,350 @@
 
 </main>
 
-<div class="cart-overlay" id="cart-overlay"></div>
 
-<aside class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-header">
-        <h2>Seu Carrinho</h2>
-        <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+<!-- ================= MENU ================= -->
+
+<div
+    class="menu-overlay"
+    id="menu-overlay"
+></div>
+
+
+<aside
+    class="menu-sidebar"
+    id="menu-sidebar"
+>
+
+    <div class="menu-header">
+
+        <h2>
+            Categorias
+        </h2>
+
+        <button
+            class="close-menu-btn"
+            id="close-menu-btn"
+        >
+            &times;
+        </button>
+
     </div>
 
-    <div class="cart-items" id="cart-items"></div>
 
-    <div class="cart-footer">
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total-value">R$ 0,00</span>
-        </div>
+    <ul class="menu-list">
 
-        <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
-        <button class="clear-cart-btn" id="clear-cart-btn">Limpar Carrinho</button>
-    </div>
+        <li>
+            <a href="CoroasTradicionais.html">
+                Coroas Tradicionais
+            </a>
+        </li>
+
+        <li>
+            <a href="CoroasEspeciais.html">
+                Coroas Especiais
+            </a>
+        </li>
+
+        <li>
+            <a href="CoroasPremium.html">
+                Coroas Premium
+            </a>
+        </li>
+
+        <li>
+            <a href="ArranjosDeFlores.html">
+                Arranjos de Flores
+            </a>
+        </li>
+
+        <li>
+            <a href="Buques.html">
+                Buquês
+            </a>
+        </li>
+
+        <li>
+            <a href="HomenagensEspeciais.html">
+                Homenagens Especiais
+            </a>
+        </li>
+
+    </ul>
+
 </aside>
 
-<div class="notification" id="notification">
+
+<!-- ================= CARRINHO ================= -->
+
+<div
+    class="cart-overlay"
+    id="cart-overlay"
+></div>
+
+
+<aside
+    class="cart-sidebar"
+    id="cart-sidebar"
+>
+
+    <div class="cart-header">
+
+        <h2>
+            Seu Carrinho
+        </h2>
+
+        <button
+            class="close-cart-btn"
+            id="close-cart-btn"
+        >
+            &times;
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cart-items"
+    ></div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>
+                Total:
+            </span>
+
+            <span id="cart-total-value">
+                R$ 0,00
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout-btn"
+            id="checkout-btn"
+        >
+            Finalizar Pedido
+        </button>
+
+
+        <button
+            class="clear-cart-btn"
+            id="clear-cart-btn"
+        >
+            Limpar Carrinho
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= NOTIFICAÇÃO ================= -->
+
+<div
+    class="notification"
+    id="notification"
+>
     Produto adicionado ao carrinho!
 </div>
 
+
+<!-- ================= SCRIPT PRINCIPAL ================= -->
+
 <script src="script.js"></script>
 
+
+<!-- ================= SCRIPT DO PRODUTO ================= -->
+
 <script>
-const produto = JSON.parse(localStorage.getItem("produtoSelecionado"));
 
-if (!produto) {
-    document.querySelector(".produto-page").innerHTML = `
-        <div style="padding:150px 30px;text-align:center;">
-            <h1>Produto não encontrado</h1>
-            <p>Volte para a loja e escolha uma camisa.</p>
-            <br>
-            <a href="index.html">Voltar para a loja</a>
-        </div>
-    `;
-} else {
-    document.title = produto.name + " - Esportes Pioli";
+const produtoSalvo = JSON.parse(
+    localStorage.getItem("produtoSelecionado")
+);
 
-    document.getElementById("produto-nome").textContent = produto.name;
-    document.getElementById("produto-imagem").src = produto.image;
-    document.getElementById("produto-imagem").alt = produto.name;
-    document.getElementById("produto-descricao").textContent = produto.description;
 
-    document.getElementById("produto-preco").textContent =
-        Number(produto.price).toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        });
+if (produtoSalvo) {
+
+    document.getElementById(
+        "produto-nome"
+    ).textContent =
+        produtoSalvo.name;
+
+
+    document.getElementById(
+        "produto-preco"
+    ).textContent =
+        Number(
+            produtoSalvo.price
+        ).toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
+
+
+    document.getElementById(
+        "produto-descricao"
+    ).textContent =
+        produtoSalvo.description;
+
+
+    const imagemProduto =
+        document.getElementById(
+            "produto-imagem"
+        );
+
+
+    imagemProduto.src =
+        produtoSalvo.image;
+
+
+    imagemProduto.alt =
+        produtoSalvo.name;
+
 }
 
-document.getElementById("btn-add-produto").addEventListener("click", function () {
-    const quantidade = parseInt(document.getElementById("produto-quantidade").value);
 
-    for (let i = 0; i < quantidade; i++) {
-        addToCart({
-            id: produto.id,
-            name: produto.name,
-            price: parseFloat(produto.price),
-            image: produto.image
-        });
+// ================= TAMANHO =================
+
+let tamanhoSelecionado =
+    "Médio";
+
+
+const botoesTamanho =
+    document.querySelectorAll(
+        ".tamanhos button"
+    );
+
+
+botoesTamanho.forEach(
+    botao => {
+
+        botao.addEventListener(
+            "click",
+            function () {
+
+                botoesTamanho.forEach(
+                    outro => {
+                        outro.classList.remove(
+                            "active"
+                        );
+                    }
+                );
+
+                this.classList.add(
+                    "active"
+                );
+
+                tamanhoSelecionado =
+                    this.dataset.tamanho;
+
+            }
+        );
+
     }
-});
+);
 
-document.getElementById("btn-comprar-agora").addEventListener("click", function () {
-    document.getElementById("btn-add-produto").click();
-    openCart();
-});
+
+// ================= ADICIONAR PRODUTO =================
+
+function adicionarProdutoDaPagina() {
+
+    if (!produtoSalvo) {
+        return;
+    }
+
+
+    const quantidade =
+        parseInt(
+            document.getElementById(
+                "produto-quantidade"
+            ).value
+        ) || 1;
+
+
+    const mensagem =
+        document.getElementById(
+            "produto-mensagem"
+        ).value.trim();
+
+
+    for (
+        let i = 0;
+        i < quantidade;
+        i++
+    ) {
+
+        addToCart({
+
+            id:
+                produtoSalvo.id,
+
+            name:
+                produtoSalvo.name,
+
+            price:
+                Number(
+                    produtoSalvo.price
+                ),
+
+            image:
+                produtoSalvo.image,
+
+            tamanho:
+                tamanhoSelecionado,
+
+            mensagem:
+                mensagem
+
+        });
+
+    }
+
+}
+
+
+// ================= BOTÃO CARRINHO =================
+
+document.getElementById(
+    "btn-add-produto"
+).addEventListener(
+    "click",
+    function () {
+
+        adicionarProdutoDaPagina();
+
+        openCart();
+
+    }
+);
+
+
+// ================= COMPRAR AGORA =================
+
+document.getElementById(
+    "btn-comprar-agora"
+).addEventListener(
+    "click",
+    function () {
+
+        adicionarProdutoDaPagina();
+
+        openCart();
+
+    }
+);
+
 </script>
 
+
 </body>
+
 </html>
