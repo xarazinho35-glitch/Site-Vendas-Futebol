@@ -13,42 +13,76 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- =========================================
+     BARRA SUPERIOR
+========================================= -->
 
-<header class="header">
+<div class="top-bar">
 
-    <div class="container header-content">
+    <div class="container top-bar-content">
 
-        <a href="CoroasTradicionais.html" class="logo">
-            🌸 Flores Pioli
+        <div class="top-info">
+            🌸 Flores com carinho para momentos especiais
+        </div>
+
+        <div class="top-links">
+            <a href="#">Entrar</a>
+            <a href="#">Cadastre-se</a>
+            <a href="#">Acompanhar pedido</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     CABEÇALHO PRINCIPAL
+========================================= -->
+
+<header class="main-header">
+
+    <div class="container main-header-content">
+
+        <a href="CoroasTradicionais.html" class="brand">
+
+            <img
+                src="logo-flores.png"
+                alt="Flores Pioli"
+                class="brand-logo"
+            >
+
         </a>
 
 
-        <nav class="nav">
+        <div class="header-contact">
 
-            <a href="#produtos">
-                Produtos
-            </a>
+            <div class="contact-block">
 
-            <a href="#sobre">
-                Sobre
-            </a>
+                <span class="contact-label">
+                    Atendimento
+                </span>
 
-            <a href="#contato">
-                Contato
-            </a>
+                <strong>
+                    ☎ (34) 99999-9999
+                </strong>
 
-        </nav>
+            </div>
 
 
-        <button
-            class="menu-btn"
-            id="menu-btn"
-        >
-            ☰
-        </button>
+            <div class="contact-block">
+
+                <span class="contact-label">
+                    Dúvidas ou pedidos
+                </span>
+
+                <strong>
+                    💬 WhatsApp
+                </strong>
+
+            </div>
+
+        </div>
 
 
         <button
@@ -58,6 +92,10 @@
 
             <span class="cart-icon">
                 🛒
+            </span>
+
+            <span class="cart-text">
+                Carrinho
             </span>
 
             <span
@@ -74,53 +112,136 @@
 </header>
 
 
+<!-- =========================================
+     CATEGORIAS
+========================================= -->
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<nav class="category-bar">
 
-<section class="hero">
+    <div class="container category-content">
 
-    <div class="container hero-content">
+        <a href="CoroasTradicionais.html">
+            Coroas Tradicionais
+        </a>
+
+        <a href="CoroasEspeciais.html">
+            Coroas Especiais
+        </a>
+
+        <a href="CoroasPremium.html">
+            Coroas Premium
+        </a>
+
+        <a href="ArranjosDeFlores.html">
+            Arranjos
+        </a>
+
+        <a href="Buques.html">
+            Buquês
+        </a>
+
+        <a
+            href="HomenagensEspeciais.html"
+            class="category-active"
+        >
+            Homenagens
+        </a>
+
+    </div>
+
+</nav>
 
 
-        <div class="hero-text">
+<!-- =========================================
+     BENEFÍCIOS
+========================================= -->
 
-            <span class="hero-kicker">
-                Carinho e respeito em cada detalhe
-            </span>
+<section class="benefits-bar">
 
+    <div class="container benefits-content">
 
-            <h1>
-                Homenagens Especiais
-            </h1>
+        <div class="benefit-item">
 
+            <span>🚚</span>
 
-            <p>
-                Flores preparadas com delicadeza para expressar
-                carinho, respeito, saudade e sentimentos que
-                muitas vezes não cabem em palavras.
-            </p>
+            <div>
+                <strong>Entrega rápida</strong>
+                <small>Consulte disponibilidade</small>
+            </div>
 
         </div>
 
 
-        <img
-            src="logo-flores.png"
-            alt="Flores Pioli"
-            class="hero-logo"
-        >
+        <div class="benefit-item">
 
+            <span>🕐</span>
+
+            <div>
+                <strong>Atendimento rápido</strong>
+                <small>Estamos prontos para ajudar</small>
+            </div>
+
+        </div>
+
+
+        <div class="benefit-item">
+
+            <span>💳</span>
+
+            <div>
+                <strong>Pagamento seguro</strong>
+                <small>Compra com praticidade</small>
+            </div>
+
+        </div>
+
+
+        <div class="benefit-item">
+
+            <span>💌</span>
+
+            <div>
+                <strong>Faixa personalizada</strong>
+                <small>Inclua sua homenagem</small>
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
+<!-- =========================================
+     APRESENTAÇÃO
+========================================= -->
 
-<!-- =====================================================
+<section class="page-intro">
+
+    <div class="container">
+
+        <span class="page-kicker">
+            Flores Pioli
+        </span>
+
+        <h1>
+            Homenagens Especiais em Uberlândia
+        </h1>
+
+        <p>
+            Flores preparadas com delicadeza para expressar
+            carinho, respeito, saudade e sentimentos que
+            muitas vezes não cabem em palavras.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
      PRODUTOS
-===================================================== -->
+========================================= -->
 
 <main
     class="main-content"
@@ -129,17 +250,14 @@
 
     <div class="container">
 
-
         <h2 class="section-title">
             Homenagens Especiais
         </h2>
-
 
         <p class="section-subtitle">
             Escolha uma homenagem preparada com carinho
             e atenção aos detalhes.
         </p>
-
 
 
         <div
@@ -148,9 +266,7 @@
         >
 
 
-            <!-- =========================================
-                 PRODUTO 1
-            ========================================== -->
+            <!-- PRODUTO 1 -->
 
             <div
                 class="product-card"
@@ -159,32 +275,25 @@
                 data-price="299.90"
             >
 
-
                 <div class="product-image">
-
 
                     <img
                         src="homenagem1.png"
                         alt="Homenagem Paz Eterna"
                     >
 
-
                     <span class="product-badge">
                         Especial
                     </span>
 
-
                 </div>
-
 
 
                 <div class="product-info">
 
-
                     <h3 class="product-name">
                         Homenagem Paz Eterna
                     </h3>
-
 
                     <p class="product-description">
                         Flores claras e delicadas em uma
@@ -193,46 +302,51 @@
                     </p>
 
 
+                    <div class="product-benefits-mini">
+
+                        <span>
+                            ✓ Faixa personalizada
+                        </span>
+
+                        <span>
+                            ✓ Entrega rápida
+                        </span>
+
+                    </div>
+
+
                     <div class="product-price">
                         R$ 299,90
                     </div>
 
 
-
                     <div class="product-buttons">
-
 
                         <button class="view-product-btn">
                             Ver Detalhes
                         </button>
 
-
                         <button class="add-to-cart-btn">
                             Adicionar ao Carrinho
                         </button>
 
-
                     </div>
 
-
                 </div>
-
 
             </div>
 
 
         </div>
 
-
     </div>
 
 </main>
 
 
-
-<!-- =====================================================
+<!-- =========================================
      SOBRE
-===================================================== -->
+========================================= -->
 
 <section
     class="about-section"
@@ -241,11 +355,9 @@
 
     <div class="container">
 
-
         <h2 class="section-title">
             Homenagens Flores Pioli
         </h2>
-
 
         <p>
             Entendemos que alguns momentos exigem cuidado,
@@ -254,16 +366,14 @@
             e atenção especial a cada detalhe.
         </p>
 
-
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================
      CONTATO
-===================================================== -->
+========================================= -->
 
 <section
     class="contact-section"
@@ -272,11 +382,9 @@
 
     <div class="container">
 
-
         <h2 class="section-title">
             Precisa de uma homenagem personalizada?
         </h2>
-
 
         <p>
             Entre em contato conosco para escolher flores,
@@ -284,16 +392,14 @@
             feita especialmente para você.
         </p>
 
-
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================
      MENU LATERAL
-===================================================== -->
+========================================= -->
 
 <div
     class="menu-overlay"
@@ -306,14 +412,11 @@
     id="menu-sidebar"
 >
 
-
     <div class="menu-header">
-
 
         <h2>
             Categorias
         </h2>
-
 
         <button
             class="close-menu-btn"
@@ -322,81 +425,58 @@
             &times;
         </button>
 
-
     </div>
-
 
 
     <ul class="menu-list">
 
-
         <li>
-
             <a href="CoroasTradicionais.html">
                 Coroas Tradicionais
             </a>
-
         </li>
 
-
         <li>
-
             <a href="CoroasEspeciais.html">
                 Coroas Especiais
             </a>
-
         </li>
 
-
         <li>
-
             <a href="CoroasPremium.html">
                 Coroas Premium
             </a>
-
         </li>
 
-
         <li>
-
             <a href="ArranjosDeFlores.html">
                 Arranjos de Flores
             </a>
-
         </li>
 
-
         <li>
-
             <a href="Buques.html">
                 Buquês
             </a>
-
         </li>
 
-
         <li>
-
             <a
                 href="HomenagensEspeciais.html"
                 class="ativo"
             >
                 Homenagens Especiais
             </a>
-
         </li>
 
-
     </ul>
-
 
 </aside>
 
 
-
-<!-- =====================================================
+<!-- =========================================
      CARRINHO
-===================================================== -->
+========================================= -->
 
 <div
     class="cart-overlay"
@@ -409,14 +489,11 @@
     id="cart-sidebar"
 >
 
-
     <div class="cart-header">
-
 
         <h2>
             Seu Carrinho
         </h2>
-
 
         <button
             class="close-cart-btn"
@@ -425,9 +502,7 @@
             &times;
         </button>
 
-
     </div>
-
 
 
     <div
@@ -436,25 +511,19 @@
     ></div>
 
 
-
     <div class="cart-footer">
 
-
         <div class="cart-total">
-
 
             <span>
                 Total:
             </span>
 
-
             <span id="cart-total-value">
                 R$ 0,00
             </span>
 
-
         </div>
-
 
 
         <button
@@ -465,7 +534,6 @@
         </button>
 
 
-
         <button
             class="clear-cart-btn"
             id="clear-cart-btn"
@@ -473,17 +541,14 @@
             Limpar Carrinho
         </button>
 
-
     </div>
-
 
 </aside>
 
 
-
-<!-- =====================================================
+<!-- =========================================
      NOTIFICAÇÃO
-===================================================== -->
+========================================= -->
 
 <div
     class="notification"
@@ -493,115 +558,90 @@
 </div>
 
 
+<!-- =========================================
+     BOTÃO WHATSAPP
+========================================= -->
 
-<!-- =====================================================
+<a
+    href="#"
+    class="whatsapp-float"
+>
+    <span>💬</span>
+    Fale conosco
+</a>
+
+
+<!-- =========================================
      FOOTER
-===================================================== -->
+========================================= -->
 
 <footer class="footer">
 
-
     <div class="container">
-
 
         <div class="footer-content">
 
-
             <div class="footer-section">
-
 
                 <h3>
                     🌸 Flores Pioli
                 </h3>
 
-
                 <p>
-                    Flores e homenagens preparadas com
-                    carinho para momentos especiais.
+                    Flores e homenagens preparadas
+                    com carinho para momentos especiais.
                 </p>
-
 
             </div>
 
 
-
             <div class="footer-section">
-
 
                 <h3>
                     Categorias
                 </h3>
 
-
-                <p>
-                    Coroas de Flores
-                </p>
-
-
-                <p>
-                    Arranjos
-                </p>
-
-
-                <p>
-                    Buquês
-                </p>
-
+                <p>Coroas de Flores</p>
+                <p>Arranjos</p>
+                <p>Buquês</p>
 
             </div>
 
 
-
             <div class="footer-section">
-
 
                 <h3>
                     Contato
                 </h3>
 
-
                 <p>
                     📧 contato@florespioli.com
                 </p>
-
 
                 <p>
                     📞 (34) 99999-9999
                 </p>
 
-
             </div>
-
 
         </div>
 
 
-
         <div class="footer-bottom">
-
 
             <p>
                 &copy; 2026 Flores Pioli.
                 Todos os direitos reservados.
             </p>
 
-
         </div>
 
-
     </div>
-
 
 </footer>
 
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script src="script.js"></script>
-
 
 </body>
 

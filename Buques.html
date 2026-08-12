@@ -4,65 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Buquês - Flores Pioli</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- BARRA SUPERIOR -->
+<div class="top-bar">
+    <div class="container top-bar-content">
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+        <div class="top-info">
+            🌸 Flores com carinho para momentos especiais
+        </div>
 
-<header class="header">
+        <div class="top-links">
+            <a href="#">Entrar</a>
+            <a href="#">Cadastre-se</a>
+            <a href="#">Acompanhar pedido</a>
+        </div>
 
-    <div class="container header-content">
+    </div>
+</div>
 
-        <a href="CoroasTradicionais.html" class="logo">
-            🌸 Flores Pioli
+
+<!-- CABEÇALHO PRINCIPAL -->
+<header class="main-header">
+
+    <div class="container main-header-content">
+
+        <a href="CoroasTradicionais.html" class="brand">
+            <img
+                src="logo-flores.png"
+                alt="Flores Pioli"
+                class="brand-logo"
+            >
         </a>
 
-        <nav class="nav">
+        <div class="header-contact">
 
-            <a href="#produtos">
-                Produtos
-            </a>
+            <div class="contact-block">
+                <span class="contact-label">Atendimento</span>
+                <strong>☎ (34) 99999-9999</strong>
+            </div>
 
-            <a href="#sobre">
-                Sobre
-            </a>
+            <div class="contact-block">
+                <span class="contact-label">Dúvidas ou pedidos</span>
+                <strong>💬 WhatsApp</strong>
+            </div>
 
-            <a href="#contato">
-                Contato
-            </a>
+        </div>
 
-        </nav>
+        <button class="cart-btn" id="cart-btn">
 
+            <span class="cart-icon">🛒</span>
 
-        <button
-            class="menu-btn"
-            id="menu-btn"
-        >
-            ☰
-        </button>
-
-
-        <button
-            class="cart-btn"
-            id="cart-btn"
-        >
-
-            <span class="cart-icon">
-                🛒
+            <span class="cart-text">
+                Carrinho
             </span>
 
-            <span
-                class="cart-count"
-                id="cart-count"
-            >
+            <span class="cart-count" id="cart-count">
                 0
             </span>
 
@@ -73,84 +74,143 @@
 </header>
 
 
+<!-- CATEGORIAS -->
+<nav class="category-bar">
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <div class="container category-content">
 
-<section class="hero">
+        <a href="CoroasTradicionais.html">
+            Coroas Tradicionais
+        </a>
 
-    <div class="container hero-content">
+        <a href="CoroasEspeciais.html">
+            Coroas Especiais
+        </a>
+
+        <a href="CoroasPremium.html">
+            Coroas Premium
+        </a>
+
+        <a href="ArranjosDeFlores.html">
+            Arranjos
+        </a>
+
+        <a
+            href="Buques.html"
+            class="category-active"
+        >
+            Buquês
+        </a>
+
+        <a href="HomenagensEspeciais.html">
+            Homenagens
+        </a>
+
+    </div>
+
+</nav>
 
 
-        <div class="hero-text">
+<!-- BENEFÍCIOS -->
+<section class="benefits-bar">
 
-            <span class="hero-kicker">
-                Um gesto especial em forma de flores
-            </span>
+    <div class="container benefits-content">
 
+        <div class="benefit-item">
 
-            <h1>
-                Buquês
-            </h1>
+            <span>🚚</span>
 
-
-            <p>
-                Buquês delicados, românticos e elegantes
-                para presentear alguém especial e transformar
-                momentos em lembranças.
-            </p>
+            <div>
+                <strong>Entrega rápida</strong>
+                <small>Consulte disponibilidade</small>
+            </div>
 
         </div>
 
 
-        <img
-            src="logo-flores.png"
-            alt="Flores Pioli"
-            class="hero-logo"
-        >
+        <div class="benefit-item">
 
+            <span>🕐</span>
+
+            <div>
+                <strong>Atendimento rápido</strong>
+                <small>Estamos prontos para ajudar</small>
+            </div>
+
+        </div>
+
+
+        <div class="benefit-item">
+
+            <span>💳</span>
+
+            <div>
+                <strong>Pagamento seguro</strong>
+                <small>Compra com praticidade</small>
+            </div>
+
+        </div>
+
+
+        <div class="benefit-item">
+
+            <span>💌</span>
+
+            <div>
+                <strong>Mensagem personalizada</strong>
+                <small>Inclua sua mensagem especial</small>
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
-     PRODUTOS
-===================================================== -->
-
-<main
-    class="main-content"
-    id="produtos"
->
+<!-- APRESENTAÇÃO -->
+<section class="page-intro">
 
     <div class="container">
 
+        <span class="page-kicker">
+            Flores Pioli
+        </span>
+
+        <h1>
+            Buquês de Flores em Uberlândia
+        </h1>
+
+        <p>
+            Buquês delicados, românticos e elegantes
+            para presentear alguém especial e transformar
+            momentos em lembranças.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUTOS -->
+<main class="main-content" id="produtos">
+
+    <div class="container">
 
         <h2 class="section-title">
             Nossos Buquês
         </h2>
 
-
         <p class="section-subtitle">
-            Escolha flores que expressem
-            exatamente o que você sente.
+            Escolha flores que expressem exatamente
+            o que você sente.
         </p>
 
 
-
-        <div
-            class="products-grid"
-            id="products-grid"
-        >
+        <div class="products-grid" id="products-grid">
 
 
-            <!-- =========================================
-                 PRODUTO 1
-            ========================================== -->
-
+            <!-- PRODUTO 1 -->
             <div
                 class="product-card"
                 data-id="75"
@@ -158,32 +218,25 @@
                 data-price="189.90"
             >
 
-
                 <div class="product-image">
-
 
                     <img
                         src="buque1.png"
                         alt="Buquê Amor em Rosas"
                     >
 
-
                     <span class="product-badge">
                         Mais escolhido
                     </span>
 
-
                 </div>
-
 
 
                 <div class="product-info">
 
-
                     <h3 class="product-name">
                         Buquê Amor em Rosas
                     </h3>
-
 
                     <p class="product-description">
                         Rosas selecionadas para demonstrar
@@ -191,59 +244,55 @@
                     </p>
 
 
+                    <div class="product-benefits-mini">
+
+                        <span>
+                            ✓ Mensagem personalizada
+                        </span>
+
+                        <span>
+                            ✓ Entrega rápida
+                        </span>
+
+                    </div>
+
+
                     <div class="product-price">
                         R$ 189,90
                     </div>
 
 
-
                     <div class="product-buttons">
-
 
                         <button class="view-product-btn">
                             Ver Detalhes
                         </button>
 
-
                         <button class="add-to-cart-btn">
                             Adicionar ao Carrinho
                         </button>
 
-
                     </div>
-
 
                 </div>
 
-
             </div>
 
-
         </div>
-
 
     </div>
 
 </main>
 
 
-
-<!-- =====================================================
-     SOBRE
-===================================================== -->
-
-<section
-    class="about-section"
-    id="sobre"
->
+<!-- SOBRE -->
+<section class="about-section" id="sobre">
 
     <div class="container">
-
 
         <h2 class="section-title">
             Buquês Flores Pioli
         </h2>
-
 
         <p>
             Nossos buquês são preparados com flores
@@ -252,29 +301,19 @@
             simplesmente para demonstrar carinho.
         </p>
 
-
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
-     CONTATO
-===================================================== -->
-
-<section
-    class="contact-section"
-    id="contato"
->
+<!-- CONTATO -->
+<section class="contact-section" id="contato">
 
     <div class="container">
-
 
         <h2 class="section-title">
             Quer montar um buquê especial?
         </h2>
-
 
         <p>
             Entre em contato conosco para escolher flores,
@@ -282,36 +321,19 @@
             personalizada.
         </p>
 
-
     </div>
 
 </section>
 
 
+<!-- MENU LATERAL -->
+<div class="menu-overlay" id="menu-overlay"></div>
 
-<!-- =====================================================
-     MENU LATERAL
-===================================================== -->
-
-<div
-    class="menu-overlay"
-    id="menu-overlay"
-></div>
-
-
-<aside
-    class="menu-sidebar"
-    id="menu-sidebar"
->
-
+<aside class="menu-sidebar" id="menu-sidebar">
 
     <div class="menu-header">
 
-
-        <h2>
-            Categorias
-        </h2>
-
+        <h2>Categorias</h2>
 
         <button
             class="close-menu-btn"
@@ -320,101 +342,65 @@
             &times;
         </button>
 
-
     </div>
-
 
 
     <ul class="menu-list">
 
-
         <li>
-
             <a href="CoroasTradicionais.html">
                 Coroas Tradicionais
             </a>
-
         </li>
 
-
         <li>
-
             <a href="CoroasEspeciais.html">
                 Coroas Especiais
             </a>
-
         </li>
 
-
         <li>
-
             <a href="CoroasPremium.html">
                 Coroas Premium
             </a>
-
         </li>
 
-
         <li>
-
             <a href="ArranjosDeFlores.html">
                 Arranjos de Flores
             </a>
-
         </li>
 
-
         <li>
-
             <a
                 href="Buques.html"
                 class="ativo"
             >
                 Buquês
             </a>
-
         </li>
 
-
         <li>
-
             <a href="HomenagensEspeciais.html">
                 Homenagens Especiais
             </a>
-
         </li>
 
-
     </ul>
-
 
 </aside>
 
 
+<!-- CARRINHO -->
+<div class="cart-overlay" id="cart-overlay"></div>
 
-<!-- =====================================================
-     CARRINHO
-===================================================== -->
-
-<div
-    class="cart-overlay"
-    id="cart-overlay"
-></div>
-
-
-<aside
-    class="cart-sidebar"
-    id="cart-sidebar"
->
-
+<aside class="cart-sidebar" id="cart-sidebar">
 
     <div class="cart-header">
-
 
         <h2>
             Seu Carrinho
         </h2>
-
 
         <button
             class="close-cart-btn"
@@ -423,9 +409,7 @@
             &times;
         </button>
 
-
     </div>
-
 
 
     <div
@@ -434,25 +418,17 @@
     ></div>
 
 
-
     <div class="cart-footer">
-
 
         <div class="cart-total">
 
-
-            <span>
-                Total:
-            </span>
-
+            <span>Total:</span>
 
             <span id="cart-total-value">
                 R$ 0,00
             </span>
 
-
         </div>
-
 
 
         <button
@@ -463,7 +439,6 @@
         </button>
 
 
-
         <button
             class="clear-cart-btn"
             id="clear-cart-btn"
@@ -471,135 +446,92 @@
             Limpar Carrinho
         </button>
 
-
     </div>
-
 
 </aside>
 
 
-
-<!-- =====================================================
-     NOTIFICAÇÃO
-===================================================== -->
-
-<div
-    class="notification"
-    id="notification"
->
+<!-- NOTIFICAÇÃO -->
+<div class="notification" id="notification">
     Produto adicionado ao carrinho!
 </div>
 
 
+<!-- WHATSAPP -->
+<a href="#" class="whatsapp-float">
+    <span>💬</span>
+    Fale conosco
+</a>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
+<!-- FOOTER -->
 <footer class="footer">
-
 
     <div class="container">
 
-
         <div class="footer-content">
 
-
             <div class="footer-section">
-
 
                 <h3>
                     🌸 Flores Pioli
                 </h3>
-
 
                 <p>
                     Flores e homenagens preparadas
                     com carinho para momentos especiais.
                 </p>
 
-
             </div>
 
 
-
             <div class="footer-section">
-
 
                 <h3>
                     Categorias
                 </h3>
 
-
-                <p>
-                    Coroas de Flores
-                </p>
-
-
-                <p>
-                    Arranjos
-                </p>
-
-
-                <p>
-                    Buquês
-                </p>
-
+                <p>Coroas de Flores</p>
+                <p>Arranjos</p>
+                <p>Buquês</p>
 
             </div>
 
 
-
             <div class="footer-section">
-
 
                 <h3>
                     Contato
                 </h3>
 
-
                 <p>
                     📧 contato@florespioli.com
                 </p>
-
 
                 <p>
                     📞 (34) 99999-9999
                 </p>
 
-
             </div>
-
 
         </div>
 
 
-
         <div class="footer-bottom">
-
 
             <p>
                 &copy; 2026 Flores Pioli.
                 Todos os direitos reservados.
             </p>
 
-
         </div>
 
-
     </div>
-
 
 </footer>
 
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script src="script.js"></script>
-
 
 </body>
 

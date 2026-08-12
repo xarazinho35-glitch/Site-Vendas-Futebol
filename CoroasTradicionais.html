@@ -12,33 +12,92 @@
 
 <body>
 
-
 <!-- =========================================
-     HEADER
+     BARRA SUPERIOR
 ========================================= -->
 
-<header class="header">
+<div class="top-bar">
 
-    <div class="container header-content">
+    <div class="container top-bar-content">
 
-        <a href="CoroasTradicionais.html" class="logo">
-            🌸 Flores Pioli
+        <div class="top-info">
+            🌸 Flores com carinho para momentos especiais
+        </div>
+
+        <div class="top-links">
+            <a href="#">Entrar</a>
+            <a href="#">Cadastre-se</a>
+            <a href="#">Acompanhar pedido</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     CABEÇALHO PRINCIPAL
+========================================= -->
+
+<header class="main-header">
+
+    <div class="container main-header-content">
+
+        <!-- LOGO -->
+
+        <a href="CoroasTradicionais.html" class="brand">
+
+            <img
+                src="logo-flores.png"
+                alt="Flores Pioli"
+                class="brand-logo"
+            >
+
         </a>
 
-        <nav class="nav">
-            <a href="#produtos">Produtos</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
-        </nav>
 
-        <button class="menu-btn" id="menu-btn">
-            ☰
-        </button>
+        <!-- CONTATOS -->
+
+        <div class="header-contact">
+
+            <div class="contact-block">
+
+                <span class="contact-label">
+                    Atendimento
+                </span>
+
+                <strong>
+                    ☎ (34) 99999-9999
+                </strong>
+
+            </div>
+
+
+            <div class="contact-block">
+
+                <span class="contact-label">
+                    Dúvidas ou pedidos
+                </span>
+
+                <strong>
+                    💬 WhatsApp
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARRINHO -->
 
         <button class="cart-btn" id="cart-btn">
 
             <span class="cart-icon">
                 🛒
+            </span>
+
+            <span class="cart-text">
+                Carrinho
             </span>
 
             <span class="cart-count" id="cart-count">
@@ -53,39 +112,125 @@
 
 
 <!-- =========================================
-     HERO
+     CATEGORIAS
 ========================================= -->
 
-<section class="hero">
+<nav class="category-bar">
 
-    <div class="container hero-content">
+    <div class="container category-content">
 
-        <div class="hero-text">
+        <a
+            href="CoroasTradicionais.html"
+            class="category-active"
+        >
+            Coroas Tradicionais
+        </a>
 
-            <span class="hero-kicker">
-                Flores que expressam sentimentos
-            </span>
+        <a href="CoroasEspeciais.html">
+            Coroas Especiais
+        </a>
 
-            <h1>
-                Coroas Tradicionais
-            </h1>
+        <a href="CoroasPremium.html">
+            Coroas Premium
+        </a>
 
-            <p>
-                Coroas de flores preparadas com carinho,
-                respeito e delicadeza para prestar uma
-                homenagem especial.
-            </p>
+        <a href="ArranjosDeFlores.html">
+            Arranjos
+        </a>
+
+        <a href="Buques.html">
+            Buquês
+        </a>
+
+        <a href="HomenagensEspeciais.html">
+            Homenagens
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================
+     BENEFÍCIOS
+========================================= -->
+
+<section class="benefits-bar">
+
+    <div class="container benefits-content">
+
+        <div class="benefit-item">
+
+            <span>🚚</span>
+
+            <div>
+                <strong>Entrega rápida</strong>
+                <small>Consulte disponibilidade</small>
+            </div>
 
         </div>
 
 
-        <!-- Logo principal -->
+        <div class="benefit-item">
 
-        <img
-            src="logo-flores.png"
-            alt="Flores Pioli"
-            class="hero-logo"
-        >
+            <span>🕐</span>
+
+            <div>
+                <strong>Atendimento rápido</strong>
+                <small>Estamos prontos para ajudar</small>
+            </div>
+
+        </div>
+
+
+        <div class="benefit-item">
+
+            <span>💳</span>
+
+            <div>
+                <strong>Pagamento seguro</strong>
+                <small>Compra com praticidade</small>
+            </div>
+
+        </div>
+
+
+        <div class="benefit-item">
+
+            <span>💌</span>
+
+            <div>
+                <strong>Faixa personalizada</strong>
+                <small>Inclua sua homenagem</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     INTRODUÇÃO
+========================================= -->
+
+<section class="page-intro">
+
+    <div class="container">
+
+        <span class="page-kicker">
+            Flores Pioli
+        </span>
+
+        <h1>
+            Coroas de Flores em Uberlândia
+        </h1>
+
+        <p>
+            Homenagens preparadas com carinho,
+            respeito e delicadeza para momentos especiais.
+        </p>
 
     </div>
 
@@ -100,14 +245,21 @@
 
     <div class="container">
 
-        <h2 class="section-title">
-            Coroas Tradicionais
-        </h2>
+        <div class="products-heading">
 
-        <p class="section-subtitle">
-            Escolha uma homenagem preparada com flores
-            selecionadas e atenção aos detalhes.
-        </p>
+            <div>
+
+                <h2 class="section-title">
+                    Coroas Tradicionais
+                </h2>
+
+                <p class="section-subtitle">
+                    Escolha a homenagem ideal.
+                </p>
+
+            </div>
+
+        </div>
 
 
         <div class="products-grid" id="products-grid">
@@ -125,11 +277,6 @@
             >
 
                 <div class="product-image">
-
-                    <!--
-                        A imagem agora está dentro da pasta:
-                        Coroas Tradicionais
-                    -->
 
                     <img
                         src="Coroas Tradicionais/coroa1.png"
@@ -155,6 +302,16 @@
                         respeito e serenidade.
                     </p>
 
+
+                    <div class="product-benefits-mini">
+
+                        <span>✓ Faixa personalizada</span>
+
+                        <span>✓ Entrega rápida</span>
+
+                    </div>
+
+
                     <div class="product-price">
                         R$ 299,90
                     </div>
@@ -175,6 +332,7 @@
                 </div>
 
             </div>
+
 
             <!-- =========================================
                  PRODUTO 2
@@ -189,18 +347,13 @@
 
                 <div class="product-image">
 
-                    <!--
-                        A imagem agora está dentro da pasta:
-                        Coroas Tradicionais
-                    -->
-
                     <img
                         src="Coroas Tradicionais/coroa2.png"
                         alt="Coroa de Flores Tradicional B"
                     >
 
                     <span class="product-badge">
-                        Destaque
+                        Mais Vendida
                     </span>
 
                 </div>
@@ -213,8 +366,20 @@
                     </h3>
 
                     <p class="product-description">
-                        COROA DE FLORES COM EXCELENTE PREÇO, FLORES DE QUALIDADE E ENTREGA RÁPIDA E URGENTE | FAIXA DE HOMENAGEM GRÁTIS! 
+                        Coroa de flores preparada com flores
+                        selecionadas, acabamento delicado e
+                        atenção especial aos detalhes.
                     </p>
+
+
+                    <div class="product-benefits-mini">
+
+                        <span>✓ Faixa personalizada</span>
+
+                        <span>✓ Entrega rápida</span>
+
+                    </div>
+
 
                     <div class="product-price">
                         R$ 299,90
@@ -236,6 +401,7 @@
                 </div>
 
             </div>
+
 
         </div>
 
@@ -453,6 +619,19 @@
 
 
 <!-- =========================================
+     BOTÃO WHATSAPP
+========================================= -->
+
+<a
+    href="#"
+    class="whatsapp-float"
+>
+    <span>💬</span>
+    Fale conosco
+</a>
+
+
+<!-- =========================================
      FOOTER
 ========================================= -->
 
@@ -522,12 +701,7 @@
 </footer>
 
 
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
 <script src="script.js"></script>
-
 
 </body>
 
