@@ -7,7 +7,33 @@
 
     <title>Arranjos de Flores - Flores Pioli</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Coroas Tradicionais - Flores Pioli
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- ÍCONES -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
 </head>
 
 <body>
@@ -24,14 +50,17 @@
         <div class="top-info">
             🌸 Flores com carinho para momentos especiais
         </div>
+<div class="top-links" id="user-area">
 
-        <div class="top-links" id="user-area">
-
-    <a href="login.html">
+    <a
+        href="https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/login.html"
+    >
         Entrar
     </a>
 
-    <a href="cadastro.html">
+    <a
+        href="https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/cadastro.html"
+    >
         Cadastre-se
     </a>
 
@@ -659,16 +688,40 @@
 
 </footer>
 
+<!-- WHATSAPP -->
 
-<!-- JAVASCRIPT -->
+<button
+    type="button"
+    class="whatsapp-float"
+    onclick="abrirWhatsApp()"
+>
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Fale conosco</span>
+</button>
+
+
+<script>
+function abrirWhatsApp() {
+
+    const numero = "5534999999999";
+
+    const mensagem =
+        "Olá! Vim pelo site da Flores Pioli e gostaria de mais informações.";
+
+    const link =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensagem);
+
+    window.open(link, "_blank");
+}
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="script.js"></script>
-
 <script src="auth.js"></script>
 
-
 </body>
-
 </html>

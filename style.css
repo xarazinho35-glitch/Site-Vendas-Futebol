@@ -1805,7 +1805,7 @@ body {
 }
 
 /* =========================================
-   BOTÃO FLUTUANTE WHATSAPP
+   WHATSAPP FLUTUANTE
 ========================================= */
 
 .whatsapp-float {
@@ -1823,19 +1823,23 @@ body {
     padding: 14px 22px;
 
     background: #25d366 !important;
-    color: #ffffff !important;
+    color: white !important;
 
+    border: none !important;
     border-radius: 50px;
 
-    text-decoration: none !important;
-
+    font-family: inherit;
     font-size: 16px;
     font-weight: 700;
 
     box-shadow:
-        0 6px 20px rgba(0, 0, 0, 0.22);
+        0 6px 22px rgba(0, 0, 0, 0.22);
 
-    z-index: 999999 !important;
+    z-index: 2147483647 !important;
+
+    cursor: pointer !important;
+
+    pointer-events: auto !important;
 
     opacity: 1 !important;
     visibility: visible !important;
@@ -1844,13 +1848,28 @@ body {
 }
 
 .whatsapp-float i {
-    font-size: 28px;
+    font-size: 29px;
+
     color: white;
+
+    pointer-events: none;
+}
+
+.whatsapp-float span {
+    pointer-events: none;
 }
 
 .whatsapp-float:hover {
     background: #1ebe5d !important;
+
     transform: translateY(-3px);
+
+    box-shadow:
+        0 9px 25px rgba(0, 0, 0, 0.26);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.97);
 }
 
 @media (max-width: 600px) {
