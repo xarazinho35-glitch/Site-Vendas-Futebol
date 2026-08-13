@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastre-se - Flores Pioli</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f6,
+                    #fffafd
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .cadastro-card {
+            width: 100%;
+            max-width: 480px;
+
+            background: #ffffff;
+
+            border: 1px solid #f1cbdc;
+            border-radius: 22px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 15px 45px rgba(190, 70, 120, 0.14);
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-area img {
+            width: 190px;
+            max-height: 100px;
+
+            object-fit: contain;
+        }
+
+        h1 {
+            color: #4a2938;
+
+            text-align: center;
+
+            font-size: 2rem;
+
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #806674;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #4a2938;
+
+            font-weight: 700;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border: 1px solid #f1cbdc;
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            border-color: #df4c8b;
+
+            box-shadow:
+                0 0 0 3px rgba(223, 76, 139, 0.10);
+        }
+
+        .cadastro-button {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 5px;
+
+            background: #df4c8b;
+
+            color: white;
+
+            border: none;
+            border-radius: 10px;
+
+            font-size: 1rem;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .cadastro-button:hover {
+            background: #c93676;
+        }
+
+        .message {
+            display: none;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        .message.error {
+            display: block;
+
+            background: #fff0f3;
+
+            color: #b42350;
+        }
+
+        .message.success {
+            display: block;
+
+            background: #edf9f1;
+
+            color: #287544;
+        }
+
+        .message.info {
+            display: block;
+
+            background: #fff0f6;
+
+            color: #c93676;
+        }
+
+        .login-link {
+            margin-top: 22px;
+
+            text-align: center;
+
+            color: #806674;
+        }
+
+        .login-link a {
+            color: #df4c8b;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .back {
+            display: block;
+
+            margin-top: 15px;
+
+            color: #806674;
+
+            text-align: center;
+
+            text-decoration: none;
+        }
+
+        .back:hover,
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 520px) {
+            .cadastro-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="cadastro-card">
+
+
+    <div class="logo-area">
+
+        <a href="CoroasTradicionais.html">
+
+            <img
+                src="logo-flores.png"
+                alt="Flores Pioli"
+            >
+
+        </a>
+
+    </div>
+
+
+    <h1>
+        Crie sua conta
+    </h1>
+
+
+    <p class="subtitle">
+        Cadastre-se na Flores Pioli
+    </p>
+
+
+    <div
+        id="cadastro-message"
+        class="message"
+    ></div>
+
+
+    <form id="cadastro-form">
+
+
+        <div class="form-group">
+
+            <label for="nome">
+                Nome completo
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="telefone">
+                Telefone
+            </label>
+
+            <input
+                type="tel"
+                id="telefone"
+                placeholder="(34) 99999-9999"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="email">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="senha">
+                Senha
+            </label>
+
+            <input
+                type="password"
+                id="senha"
+                placeholder="Mínimo de 6 caracteres"
+                minlength="6"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="confirmar-senha">
+                Confirmar senha
+            </label>
+
+            <input
+                type="password"
+                id="confirmar-senha"
+                placeholder="Digite a senha novamente"
+                minlength="6"
+                required
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="cadastro-button"
+        >
+            Criar minha conta
+        </button>
+
+
+    </form>
+
+
+    <p class="login-link">
+
+        Já possui cadastro?
+
+        <a href="login.html">
+            Entrar
+        </a>
+
+    </p>
+
+
+    <a
+        href="CoroasTradicionais.html"
+        class="back"
+    >
+        ← Voltar para a loja
+    </a>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+const SUPABASE_URL =
+    "https://tcvnebejasfjznspooho.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_Ov7Yyge12AxE-etlD4VVxg_ZZTfQUlJ";
+
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+const cadastroForm =
+    document.getElementById(
+        "cadastro-form"
+    );
+
+
+const mensagem =
+    document.getElementById(
+        "cadastro-message"
+    );
+
+
+function mostrarMensagem(
+    texto,
+    tipo
+) {
+
+    mensagem.textContent =
+        texto;
+
+    mensagem.className =
+        "message " + tipo;
+}
+
+
+cadastroForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const nome =
+            document
+                .getElementById("nome")
+                .value
+                .trim();
+
+
+        const telefone =
+            document
+                .getElementById("telefone")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim()
+                .toLowerCase();
+
+
+        const senha =
+            document
+                .getElementById("senha")
+                .value;
+
+
+        const confirmarSenha =
+            document
+                .getElementById(
+                    "confirmar-senha"
+                )
+                .value;
+
+
+        if (senha !== confirmarSenha) {
+
+            mostrarMensagem(
+                "As senhas não são iguais.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if (senha.length < 6) {
+
+            mostrarMensagem(
+                "A senha precisa ter pelo menos 6 caracteres.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        mostrarMensagem(
+            "Criando sua conta...",
+            "info"
+        );
+
+
+        try {
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient
+                    .auth
+                    .signUp({
+
+                        email: email,
+
+                        password: senha,
+
+                        options: {
+
+                            data: {
+                                nome: nome,
+                                telefone: telefone
+                            },
+
+                            emailRedirectTo:
+                                "https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/login.html"
+
+                        }
+
+                    });
+
+
+            if (error) {
+
+                console.error(
+                    error
+                );
+
+
+                mostrarMensagem(
+                    error.message,
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (
+                data.user &&
+                !data.session
+            ) {
+
+                mostrarMensagem(
+                    "Cadastro realizado! Verifique seu e-mail para confirmar sua conta.",
+                    "success"
+                );
+
+
+                cadastroForm.reset();
+
+                return;
+            }
+
+
+            mostrarMensagem(
+                "Conta criada com sucesso!",
+                "success"
+            );
+
+
+            cadastroForm.reset();
+
+
+            setTimeout(
+                function() {
+
+                    window.location.href =
+                        "CoroasTradicionais.html";
+
+                },
+                1000
+            );
+
+
+        } catch (erro) {
+
+            console.error(
+                erro
+            );
+
+
+            mostrarMensagem(
+                "Não foi possível criar a conta. Tente novamente.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

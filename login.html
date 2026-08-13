@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Entrar - Flores Pioli</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f6,
+                    #fffafd
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 440px;
+
+            background: #ffffff;
+
+            border: 1px solid #f1cbdc;
+            border-radius: 22px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 15px 45px rgba(190, 70, 120, 0.14);
+        }
+
+        .logo-area {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .logo-area img {
+            width: 190px;
+            max-height: 100px;
+
+            object-fit: contain;
+        }
+
+        h1 {
+            color: #4a2938;
+
+            text-align: center;
+
+            font-size: 2rem;
+
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #806674;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #4a2938;
+
+            font-weight: 700;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border: 1px solid #f1cbdc;
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            border-color: #df4c8b;
+
+            box-shadow:
+                0 0 0 3px rgba(223, 76, 139, 0.10);
+        }
+
+        .login-button {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 5px;
+
+            background: #df4c8b;
+
+            color: white;
+
+            border: none;
+            border-radius: 10px;
+
+            font-size: 1rem;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background: #c93676;
+        }
+
+        .message {
+            display: none;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        .message.error {
+            display: block;
+
+            background: #fff0f3;
+
+            color: #b42350;
+        }
+
+        .message.success {
+            display: block;
+
+            background: #edf9f1;
+
+            color: #287544;
+        }
+
+        .message.info {
+            display: block;
+
+            background: #fff0f6;
+
+            color: #c93676;
+        }
+
+        .register {
+            margin-top: 22px;
+
+            text-align: center;
+
+            color: #806674;
+        }
+
+        .register a {
+            color: #df4c8b;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .back {
+            display: block;
+
+            margin-top: 15px;
+
+            color: #806674;
+
+            text-align: center;
+
+            text-decoration: none;
+        }
+
+        .back:hover,
+        .register a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-card">
+
+
+    <div class="logo-area">
+
+        <a href="CoroasTradicionais.html">
+
+            <img
+                src="logo-flores.png"
+                alt="Flores Pioli"
+            >
+
+        </a>
+
+    </div>
+
+
+    <h1>
+        Bem-vindo
+    </h1>
+
+
+    <p class="subtitle">
+        Entre na sua conta Flores Pioli
+    </p>
+
+
+    <div
+        id="login-message"
+        class="message"
+    ></div>
+
+
+    <form id="login-form">
+
+
+        <div class="form-group">
+
+            <label for="login-email">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="login-email"
+                placeholder="Digite seu e-mail"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="login-senha">
+                Senha
+            </label>
+
+            <input
+                type="password"
+                id="login-senha"
+                placeholder="Digite sua senha"
+                required
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="login-button"
+        >
+            Entrar
+        </button>
+
+
+    </form>
+
+
+    <p class="register">
+
+        Ainda não possui cadastro?
+
+        <a href="cadastro.html">
+            Cadastre-se
+        </a>
+
+    </p>
+
+
+    <a
+        href="CoroasTradicionais.html"
+        class="back"
+    >
+        ← Voltar para a loja
+    </a>
+
+
+</div>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+const SUPABASE_URL =
+    "https://tcvnebejasfjznspooho.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_Ov7Yyge12AxE-etlD4VVxg_ZZTfQUlJ";
+
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+const loginForm =
+    document.getElementById(
+        "login-form"
+    );
+
+
+const mensagem =
+    document.getElementById(
+        "login-message"
+    );
+
+
+function mostrarMensagem(
+    texto,
+    tipo
+) {
+
+    mensagem.textContent =
+        texto;
+
+    mensagem.className =
+        "message " + tipo;
+}
+
+
+loginForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+                .getElementById(
+                    "login-email"
+                )
+                .value
+                .trim()
+                .toLowerCase();
+
+
+        const senha =
+            document
+                .getElementById(
+                    "login-senha"
+                )
+                .value;
+
+
+        mostrarMensagem(
+            "Entrando...",
+            "info"
+        );
+
+
+        try {
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient
+                    .auth
+                    .signInWithPassword({
+
+                        email: email,
+
+                        password: senha
+
+                    });
+
+
+            if (error) {
+
+                mostrarMensagem(
+                    "E-mail ou senha incorretos, ou sua conta ainda não foi confirmada.",
+                    "error"
+                );
+
+                console.error(
+                    error
+                );
+
+                return;
+            }
+
+
+            mostrarMensagem(
+                "Login realizado com sucesso!",
+                "success"
+            );
+
+
+            setTimeout(
+                function() {
+
+                    window.location.href =
+                        "CoroasTradicionais.html";
+
+                },
+                800
+            );
+
+
+        } catch (erro) {
+
+            console.error(
+                erro
+            );
+
+
+            mostrarMensagem(
+                "Não foi possível conectar ao sistema. Tente novamente.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
