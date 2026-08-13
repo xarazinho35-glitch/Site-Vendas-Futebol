@@ -1884,3 +1884,8 @@ body {
     }
 
 }
+
+.whatsapp-float {
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
