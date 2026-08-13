@@ -1885,7 +1885,47 @@ body {
 
 }
 
+/* =========================================
+   BOTÃO WHATSAPP
+========================================= */
+
 .whatsapp-float {
-    text-decoration: none !important;
-    cursor: pointer !important;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 22px;
+
+    background: #25d366;
+    color: white;
+
+    border: none;
+    border-radius: 50px;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+
+    z-index: 99999;
+
+    transition: 0.2s;
 }
+
+.whatsapp-float i {
+    font-size: 28px;
+}
+
+.whatsapp-float:hover {
+    background: #1ebe5d;
+    transform: translateY(-3px);
+}
+
