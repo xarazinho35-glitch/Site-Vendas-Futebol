@@ -10,17 +10,26 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="Coroas de flores especiais em Uberlândia preparadas com flores selecionadas, delicadeza e atenção aos detalhes."
+    >
+
     <title>
         Coroas Especiais - Flores Pioli
     </title>
 
+
     <!-- CSS PRINCIPAL -->
+
     <link
         rel="stylesheet"
         href="style.css"
     >
 
-    <!-- ÍCONES -->
+
+    <!-- FONT AWESOME -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -41,7 +50,7 @@
     <div class="container top-bar-content">
 
         <div class="top-info">
-            🌸 Flores com carinho para momentos especiais
+            Atendimento cuidadoso para momentos especiais
         </div>
 
 
@@ -77,15 +86,13 @@
 
 
 <!-- =========================================
-     CABEÇALHO PRINCIPAL
+     HEADER
 ========================================= -->
 
 <header class="main-header">
 
     <div class="container main-header-content">
 
-
-        <!-- LOGO -->
 
         <a
             href="CoroasTradicionais.html"
@@ -102,33 +109,48 @@
 
 
 
-        <!-- ATENDIMENTO -->
-
         <div class="header-contact">
 
 
             <div class="contact-block">
 
-                <span class="contact-label">
-                    Atendimento
+                <span class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
                 </span>
 
-                <strong>
-                    ☎ (34) 99248-0848
-                </strong>
+                <div>
+
+                    <span class="contact-label">
+                        Atendimento
+                    </span>
+
+                    <strong>
+                        (34) 99248-0848
+                    </strong>
+
+                </div>
 
             </div>
 
 
+
             <div class="contact-block">
 
-                <span class="contact-label">
-                    Dúvidas ou pedidos
+                <span class="contact-icon whatsapp-header-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
                 </span>
 
-                <strong>
-                    💬 WhatsApp
-                </strong>
+                <div>
+
+                    <span class="contact-label">
+                        Dúvidas ou pedidos
+                    </span>
+
+                    <strong>
+                        Fale pelo WhatsApp
+                    </strong>
+
+                </div>
 
             </div>
 
@@ -142,10 +164,11 @@
         <button
             class="cart-btn"
             id="cart-btn"
+            type="button"
         >
 
             <span class="cart-icon">
-                🛒
+                <i class="fa-solid fa-bag-shopping"></i>
             </span>
 
             <span class="cart-text">
@@ -176,11 +199,9 @@
 
     <div class="container category-content">
 
-
         <a href="CoroasTradicionais.html">
             Coroas Tradicionais
         </a>
-
 
         <a
             href="CoroasEspeciais.html"
@@ -189,30 +210,126 @@
             Coroas Especiais
         </a>
 
-
         <a href="CoroasPremium.html">
             Coroas Premium
         </a>
-
 
         <a href="ArranjosDeFlores.html">
             Arranjos
         </a>
 
-
         <a href="Buques.html">
             Buquês
         </a>
-
 
         <a href="HomenagensEspeciais.html">
             Homenagens
         </a>
 
-
     </div>
 
 </nav>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="store-hero">
+
+    <div class="container store-hero-content">
+
+
+        <div class="store-hero-text">
+
+            <span class="store-hero-eyebrow">
+                Coroas Especiais
+            </span>
+
+
+            <h1>
+                Uma homenagem especial,
+                preparada com delicadeza.
+            </h1>
+
+
+            <p>
+                Composições diferenciadas com flores
+                selecionadas, acabamento cuidadoso e
+                atenção a cada detalhe para transmitir
+                carinho, respeito e consideração.
+            </p>
+
+
+            <div class="store-hero-actions">
+
+                <a
+                    href="#produtos"
+                    class="hero-primary-btn"
+                >
+                    Ver coroas especiais
+                </a>
+
+
+                <a
+                    href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20coroas%20especiais%20da%20Flores%20Pioli."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hero-secondary-btn"
+                >
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    Falar com atendimento
+
+                </a>
+
+            </div>
+
+
+            <div class="store-hero-note">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Atendimento e entregas em Uberlândia
+
+            </div>
+
+        </div>
+
+
+
+        <div class="store-hero-visual">
+
+            <div class="hero-visual-card">
+
+                <img
+                    src="coroaespecial1.png"
+                    alt="Coroa Encanto de Rosas"
+                >
+
+                <div class="hero-visual-info">
+
+                    <span>
+                        Composição Especial
+                    </span>
+
+                    <strong>
+                        Flores selecionadas e acabamento
+                        delicado para uma homenagem única.
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 
@@ -227,43 +344,54 @@
 
         <div class="benefit-item">
 
-            <span>🚚</span>
+            <span class="benefit-icon">
+                <i class="fa-solid fa-truck-fast"></i>
+            </span>
 
             <div>
-                <strong>Entrega rápida</strong>
+                <strong>Entrega ágil</strong>
                 <small>Consulte disponibilidade</small>
             </div>
 
         </div>
 
 
+
         <div class="benefit-item">
 
-            <span>🕐</span>
+            <span class="benefit-icon">
+                <i class="fa-regular fa-clock"></i>
+            </span>
 
             <div>
                 <strong>Atendimento rápido</strong>
-                <small>Estamos prontos para ajudar</small>
+                <small>Suporte durante o pedido</small>
             </div>
 
         </div>
 
 
+
         <div class="benefit-item">
 
-            <span>💳</span>
+            <span class="benefit-icon">
+                <i class="fa-solid fa-heart"></i>
+            </span>
 
             <div>
-                <strong>Pagamento seguro</strong>
-                <small>Compra com praticidade</small>
+                <strong>Composição especial</strong>
+                <small>Preparada com delicadeza</small>
             </div>
 
         </div>
 
 
+
         <div class="benefit-item">
 
-            <span>💌</span>
+            <span class="benefit-icon">
+                <i class="fa-solid fa-ribbon"></i>
+            </span>
 
             <div>
                 <strong>Faixa personalizada</strong>
@@ -280,56 +408,40 @@
 
 
 <!-- =========================================
-     APRESENTAÇÃO
-========================================= -->
-
-<section class="page-intro">
-
-    <div class="container">
-
-        <span class="page-kicker">
-            Flores Pioli
-        </span>
-
-
-        <h1>
-            Coroas Especiais em Uberlândia
-        </h1>
-
-
-        <p>
-            Composições diferenciadas com flores selecionadas,
-            preparadas com carinho, respeito e atenção
-            especial aos detalhes.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
      PRODUTOS
 ========================================= -->
 
 <main
-    class="main-content"
+    class="main-content redesigned-products"
     id="produtos"
 >
 
     <div class="container">
 
 
-        <h2 class="section-title">
-            Coroas Especiais
-        </h2>
+        <div class="products-heading redesigned-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    Seleção especial
+                </span>
 
 
-        <p class="section-subtitle">
-            Homenagens diferenciadas preparadas com
-            delicadeza, respeito e atenção a cada detalhe.
-        </p>
+                <h2 class="section-title">
+                    Coroas Especiais
+                </h2>
+
+
+                <p class="section-subtitle">
+                    Homenagens diferenciadas preparadas
+                    com flores selecionadas, delicadeza
+                    e atenção especial aos detalhes.
+                </p>
+
+            </div>
+
+        </div>
 
 
 
@@ -339,9 +451,7 @@
         >
 
 
-            <!-- =========================================
-                 PRODUTO 1
-            ========================================== -->
+            <!-- PRODUTO 1 -->
 
             <div
                 class="product-card"
@@ -358,6 +468,7 @@
                         alt="Coroa Encanto de Rosas"
                     >
 
+
                     <span class="product-badge">
                         Especial
                     </span>
@@ -369,6 +480,11 @@
                 <div class="product-info">
 
 
+                    <div class="product-category-label">
+                        Coroa Especial
+                    </div>
+
+
                     <h3 class="product-name">
                         Coroa Encanto de Rosas
                     </h3>
@@ -377,7 +493,8 @@
                     <p class="product-description">
                         Elegante composição com rosas
                         selecionadas, flores claras e
-                        folhagens delicadas.
+                        folhagens delicadas para uma
+                        homenagem especial.
                     </p>
 
 
@@ -385,31 +502,61 @@
                     <div class="product-benefits-mini">
 
                         <span>
-                            ✓ Faixa personalizada
+                            <i class="fa-solid fa-check"></i>
+                            Faixa personalizada
                         </span>
 
                         <span>
-                            ✓ Entrega rápida
+                            <i class="fa-solid fa-check"></i>
+                            Entrega rápida
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                            Flores selecionadas
                         </span>
 
                     </div>
 
 
 
-                    <div class="product-price">
-                        R$ 449,90
+                    <div class="product-purchase-area">
+
+                        <div>
+
+                            <span class="price-label">
+                                A partir de
+                            </span>
+
+                            <div class="product-price">
+                                R$ 449,90
+                            </div>
+
+                        </div>
+
                     </div>
 
 
 
                     <div class="product-buttons">
 
-                        <button class="view-product-btn">
+                        <button
+                            type="button"
+                            class="view-product-btn"
+                        >
                             Ver Detalhes
                         </button>
 
-                        <button class="add-to-cart-btn">
+
+                        <button
+                            type="button"
+                            class="add-to-cart-btn"
+                        >
+
+                            <i class="fa-solid fa-bag-shopping"></i>
+
                             Adicionar ao Carrinho
+
                         </button>
 
                     </div>
@@ -417,11 +564,42 @@
 
                 </div>
 
-
             </div>
 
 
         </div>
+
+
+
+        <div class="products-support">
+
+            <i class="fa-regular fa-circle-question"></i>
+
+            <div>
+
+                <strong>
+                    Precisa de ajuda para escolher?
+                </strong>
+
+                <p>
+                    Nossa equipe pode orientar você
+                    sobre composição, personalização
+                    e disponibilidade.
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20para%20escolher%20uma%20coroa%20especial."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Pedir ajuda
+            </a>
+
+        </div>
+
 
     </div>
 
@@ -434,24 +612,93 @@
 ========================================= -->
 
 <section
-    class="about-section"
+    class="about-section redesigned-about"
     id="sobre"
 >
 
-    <div class="container">
+    <div class="container about-layout">
 
 
-        <h2 class="section-title">
-            Sobre a Flores Pioli
-        </h2>
+        <div class="about-copy">
+
+            <span class="section-eyebrow">
+                Coroas Especiais
+            </span>
 
 
-        <p>
-            Cada homenagem é preparada com cuidado,
-            respeito e atenção aos detalhes.
-            Trabalhamos com flores selecionadas para
-            proporcionar composições delicadas e especiais.
-        </p>
+            <h2 class="section-title">
+                Uma composição pensada
+                para tornar a homenagem única
+            </h2>
+
+
+            <p>
+                Nossa linha especial combina flores
+                selecionadas e composições diferenciadas
+                para oferecer uma homenagem de maior
+                presença e delicadeza.
+            </p>
+
+
+            <p>
+                Cada peça é preparada cuidadosamente,
+                respeitando o significado do momento
+                e buscando transmitir carinho através
+                de cada detalhe.
+            </p>
+
+
+            <div class="about-points">
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    <span>Flores selecionadas</span>
+                </div>
+
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    <span>Composição diferenciada</span>
+                </div>
+
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    <span>Acabamento cuidadoso</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="about-highlight">
+
+            <span class="about-highlight-icon">
+                <i class="fa-solid fa-heart"></i>
+            </span>
+
+
+            <span class="about-highlight-small">
+                Flores Pioli
+            </span>
+
+
+            <strong>
+                Flores que ajudam a expressar
+                sentimentos quando palavras
+                não são suficientes.
+            </strong>
+
+
+            <p>
+                Conte com nosso atendimento
+                para escolher uma homenagem
+                adequada para cada momento.
+            </p>
+
+        </div>
 
 
     </div>
@@ -465,23 +712,53 @@
 ========================================= -->
 
 <section
-    class="contact-section"
+    class="contact-section redesigned-contact"
     id="contato"
 >
 
     <div class="container">
 
 
-        <h2 class="section-title">
-            Precisa de ajuda?
-        </h2>
+        <div class="contact-card">
 
 
-        <p>
-            Entre em contato conosco para informações
-            sobre modelos, personalização, mensagens
-            e entrega.
-        </p>
+            <div class="contact-card-copy">
+
+                <span class="section-eyebrow">
+                    Atendimento personalizado
+                </span>
+
+
+                <h2>
+                    Tem alguma dúvida sobre a homenagem?
+                </h2>
+
+
+                <p>
+                    Fale conosco para consultar modelos,
+                    personalização da faixa, disponibilidade
+                    das flores e informações de entrega.
+                </p>
+
+            </div>
+
+
+
+            <a
+                href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20uma%20coroa%20especial."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-whatsapp-btn"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Falar pelo WhatsApp
+
+            </a>
+
+
+        </div>
 
 
     </div>
@@ -516,6 +793,7 @@
         <button
             class="close-menu-btn"
             id="close-menu-btn"
+            type="button"
         >
             &times;
         </button>
@@ -528,59 +806,47 @@
 
 
         <li>
-
             <a href="CoroasTradicionais.html">
                 Coroas Tradicionais
             </a>
-
         </li>
 
 
         <li>
-
             <a
                 href="CoroasEspeciais.html"
                 class="ativo"
             >
                 Coroas Especiais
             </a>
-
         </li>
 
 
         <li>
-
             <a href="CoroasPremium.html">
                 Coroas Premium
             </a>
-
         </li>
 
 
         <li>
-
             <a href="ArranjosDeFlores.html">
                 Arranjos de Flores
             </a>
-
         </li>
 
 
         <li>
-
             <a href="Buques.html">
                 Buquês
             </a>
-
         </li>
 
 
         <li>
-
             <a href="HomenagensEspeciais.html">
                 Homenagens Especiais
             </a>
-
         </li>
 
 
@@ -617,6 +883,7 @@
         <button
             class="close-cart-btn"
             id="close-cart-btn"
+            type="button"
         >
             &times;
         </button>
@@ -641,6 +908,7 @@
                 Total:
             </span>
 
+
             <span id="cart-total-value">
                 R$ 0,00
             </span>
@@ -652,6 +920,7 @@
         <button
             class="checkout-btn"
             id="checkout-btn"
+            type="button"
         >
             Finalizar Pedido
         </button>
@@ -661,6 +930,7 @@
         <button
             class="clear-cart-btn"
             id="clear-cart-btn"
+            type="button"
         >
             Limpar Carrinho
         </button>
@@ -690,65 +960,119 @@
      FOOTER
 ========================================= -->
 
-<footer class="footer">
-
+<footer class="footer redesigned-footer">
 
     <div class="container">
 
 
-        <div class="footer-content">
+        <div class="footer-top">
 
 
-            <div class="footer-section">
+            <div class="footer-brand">
 
-                <h3>
-                    🌸 Flores Pioli
-                </h3>
+                <img
+                    src="logo-flores.png"
+                    alt="Flores Pioli"
+                    class="footer-logo"
+                >
+
 
                 <p>
-                    Flores e homenagens preparadas
-                    com carinho para momentos especiais.
+                    Homenagens florais preparadas com
+                    cuidado, respeito e atenção aos detalhes.
                 </p>
+
+
+                <div class="footer-contact-quick">
+
+                    <a href="tel:+5534992480848">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        (34) 99248-0848
+
+                    </a>
+
+
+                    <a
+                        href="https://api.whatsapp.com/send?phone=5534992480848"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        WhatsApp
+
+                    </a>
+
+                </div>
 
             </div>
 
 
 
-            <div class="footer-section">
+            <div class="footer-column">
 
                 <h3>
-                    Categorias
+                    Coroas
                 </h3>
 
-                <p>
-                    Coroas de Flores
-                </p>
+                <a href="CoroasTradicionais.html">
+                    Tradicionais
+                </a>
 
-                <p>
+                <a href="CoroasEspeciais.html">
+                    Especiais
+                </a>
+
+                <a href="CoroasPremium.html">
+                    Premium
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Flores Pioli
+                </h3>
+
+                <a href="ArranjosDeFlores.html">
                     Arranjos
-                </p>
+                </a>
 
-                <p>
+                <a href="Buques.html">
                     Buquês
-                </p>
+                </a>
+
+                <a href="HomenagensEspeciais.html">
+                    Homenagens
+                </a>
 
             </div>
 
 
 
-            <div class="footer-section">
+            <div class="footer-column">
 
                 <h3>
-                    Contato
+                    Atendimento
                 </h3>
 
-                <p>
-                    📧 contato@florespioli.com
-                </p>
+                <span>
+                    Uberlândia - MG
+                </span>
 
-                <p>
-                    📞 (34) 99248-0848
-                </p>
+                <span>
+                    Consulte horários
+                </span>
+
+                <span>
+                    Consulte disponibilidade de entrega
+                </span>
 
             </div>
 
@@ -769,10 +1093,13 @@
 
     </div>
 
-
 </footer>
 
 
+
+<!-- =========================================
+     WHATSAPP FLUTUANTE
+========================================= -->
 
 <a
     class="whatsapp-float"
@@ -780,8 +1107,13 @@
     target="_blank"
     rel="noopener noreferrer"
 >
+
     <i class="fa-brands fa-whatsapp"></i>
-    <span>Fale conosco</span>
+
+    <span>
+        Fale conosco
+    </span>
+
 </a>
 
 
@@ -794,7 +1126,9 @@
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
 ></script>
 
+
 <script src="script.js"></script>
+
 
 <script src="auth.js"></script>
 

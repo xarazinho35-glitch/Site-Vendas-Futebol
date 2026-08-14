@@ -2,12 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buquês - Flores Pioli</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <head>
 
     <meta charset="UTF-8">
 
@@ -16,105 +10,195 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="Buquês de flores em Uberlândia preparados com flores selecionadas para presentear em momentos especiais."
+    >
+
     <title>
-        Coroas Tradicionais - Flores Pioli
+        Buquês - Flores Pioli
     </title>
+
+
+    <!-- CSS PRINCIPAL -->
 
     <link
         rel="stylesheet"
         href="style.css"
     >
 
-    <!-- ÍCONES -->
+
+    <!-- FONT AWESOME -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
 </head>
-</head>
+
 
 <body>
 
-<!-- BARRA SUPERIOR -->
+
+<!-- =========================================
+     BARRA SUPERIOR
+========================================= -->
+
 <div class="top-bar">
+
     <div class="container top-bar-content">
 
         <div class="top-info">
-            🌸 Flores com carinho para momentos especiais
+            Flores para transformar momentos em lembranças
         </div>
 
-        <div class="top-links" id="user-area">
 
-    <a
-        href="https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/login.html"
-    >
-        Entrar
-    </a>
+        <div
+            class="top-links"
+            id="user-area"
+        >
 
-    <a
-        href="https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/cadastro.html"
-    >
-        Cadastre-se
-    </a>
+            <a
+                href="https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/login.html"
+            >
+                Entrar
+            </a>
 
-    <a href="#">
-        Acompanhar pedido
-    </a>
 
-</div>
+            <a
+                href="https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/cadastro.html"
+            >
+                Cadastre-se
+            </a>
+
+
+            <a href="#">
+                Acompanhar pedido
+            </a>
+
+        </div>
 
     </div>
+
 </div>
 
 
-<!-- CABEÇALHO PRINCIPAL -->
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
 <header class="main-header">
 
     <div class="container main-header-content">
 
-        <a href="CoroasTradicionais.html" class="brand">
+
+        <!-- LOGO -->
+
+        <a
+            href="CoroasTradicionais.html"
+            class="brand"
+        >
+
             <img
                 src="logo-flores.png"
                 alt="Flores Pioli"
                 class="brand-logo"
             >
+
         </a>
+
+
+
+        <!-- CONTATO -->
 
         <div class="header-contact">
 
-            <div class="contact-block">
-                <span class="contact-label">Atendimento</span>
-                <strong>☎ (34) 99248-0848</strong>
-            </div>
 
             <div class="contact-block">
-                <span class="contact-label">Dúvidas ou pedidos</span>
-                <strong>💬 WhatsApp</strong>
+
+                <span class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </span>
+
+                <div>
+
+                    <span class="contact-label">
+                        Atendimento
+                    </span>
+
+                    <strong>
+                        (34) 99248-0848
+                    </strong>
+
+                </div>
+
             </div>
+
+
+
+            <div class="contact-block">
+
+                <span class="contact-icon whatsapp-header-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </span>
+
+                <div>
+
+                    <span class="contact-label">
+                        Dúvidas ou pedidos
+                    </span>
+
+                    <strong>
+                        Fale pelo WhatsApp
+                    </strong>
+
+                </div>
+
+            </div>
+
 
         </div>
 
-        <button class="cart-btn" id="cart-btn">
 
-            <span class="cart-icon">🛒</span>
+
+        <!-- CARRINHO -->
+
+        <button
+            class="cart-btn"
+            id="cart-btn"
+            type="button"
+        >
+
+            <span class="cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </span>
 
             <span class="cart-text">
                 Carrinho
             </span>
 
-            <span class="cart-count" id="cart-count">
+            <span
+                class="cart-count"
+                id="cart-count"
+            >
                 0
             </span>
 
         </button>
+
 
     </div>
 
 </header>
 
 
-<!-- CATEGORIAS -->
+
+<!-- =========================================
+     CATEGORIAS
+========================================= -->
+
 <nav class="category-bar">
 
     <div class="container category-content">
@@ -151,50 +235,167 @@
 </nav>
 
 
-<!-- BENEFÍCIOS -->
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="store-hero">
+
+    <div class="container store-hero-content">
+
+
+        <div class="store-hero-text">
+
+            <span class="store-hero-eyebrow">
+                Buquês Flores Pioli
+            </span>
+
+
+            <h1>
+                Flores para dizer aquilo
+                que palavras nem sempre conseguem.
+            </h1>
+
+
+            <p>
+                Buquês delicados, românticos e elegantes
+                preparados com flores selecionadas para
+                aniversários, encontros, comemorações
+                ou simplesmente para demonstrar carinho.
+            </p>
+
+
+            <div class="store-hero-actions">
+
+                <a
+                    href="#produtos"
+                    class="hero-primary-btn"
+                >
+                    Ver nossos buquês
+                </a>
+
+
+                <a
+                    href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20buqu%C3%AAs%20da%20Flores%20Pioli."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hero-secondary-btn"
+                >
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    Montar um buquê
+
+                </a>
+
+            </div>
+
+
+            <div class="store-hero-note">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Atendimento e entregas em Uberlândia
+
+            </div>
+
+        </div>
+
+
+
+        <div class="store-hero-visual">
+
+            <div class="hero-visual-card">
+
+                <img
+                    src="buque1.png"
+                    alt="Buquê Amor em Rosas"
+                >
+
+                <div class="hero-visual-info">
+
+                    <span>
+                        Para presentear
+                    </span>
+
+                    <strong>
+                        Flores escolhidas para criar
+                        momentos ainda mais especiais.
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     BENEFÍCIOS
+========================================= -->
+
 <section class="benefits-bar">
 
     <div class="container benefits-content">
 
+
         <div class="benefit-item">
 
-            <span>🚚</span>
+            <span class="benefit-icon">
+                <i class="fa-solid fa-truck-fast"></i>
+            </span>
 
             <div>
-                <strong>Entrega rápida</strong>
+                <strong>Entrega ágil</strong>
                 <small>Consulte disponibilidade</small>
             </div>
 
         </div>
 
 
+
         <div class="benefit-item">
 
-            <span>🕐</span>
+            <span class="benefit-icon">
+                <i class="fa-regular fa-clock"></i>
+            </span>
 
             <div>
                 <strong>Atendimento rápido</strong>
-                <small>Estamos prontos para ajudar</small>
+                <small>Suporte durante o pedido</small>
             </div>
 
         </div>
 
 
+
         <div class="benefit-item">
 
-            <span>💳</span>
+            <span class="benefit-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </span>
 
             <div>
-                <strong>Pagamento seguro</strong>
-                <small>Compra com praticidade</small>
+                <strong>Flores selecionadas</strong>
+                <small>Preparadas com cuidado</small>
             </div>
 
         </div>
 
 
+
         <div class="benefit-item">
 
-            <span>💌</span>
+            <span class="benefit-icon">
+                <i class="fa-regular fa-message"></i>
+            </span>
 
             <div>
                 <strong>Mensagem personalizada</strong>
@@ -203,60 +404,68 @@
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- APRESENTAÇÃO -->
-<section class="page-intro">
-
-    <div class="container">
-
-        <span class="page-kicker">
-            Flores Pioli
-        </span>
-
-        <h1>
-            Buquês de Flores em Uberlândia
-        </h1>
-
-        <p>
-            Buquês delicados, românticos e elegantes
-            para presentear alguém especial e transformar
-            momentos em lembranças.
-        </p>
 
     </div>
 
 </section>
 
 
-<!-- PRODUTOS -->
-<main class="main-content" id="produtos">
+
+<!-- =========================================
+     PRODUTOS
+========================================= -->
+
+<main
+    class="main-content redesigned-products"
+    id="produtos"
+>
 
     <div class="container">
 
-        <h2 class="section-title">
-            Nossos Buquês
-        </h2>
 
-        <p class="section-subtitle">
-            Escolha flores que expressem exatamente
-            o que você sente.
-        </p>
+        <div class="products-heading redesigned-heading">
 
+            <div>
 
-        <div class="products-grid" id="products-grid">
+                <span class="section-eyebrow">
+                    Para presentear
+                </span>
 
 
-            <!-- PRODUTO 1 -->
+                <h2 class="section-title">
+                    Nossos Buquês
+                </h2>
+
+
+                <p class="section-subtitle">
+                    Escolha uma composição preparada
+                    para expressar carinho, amor e
+                    sentimentos especiais.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div
+            class="products-grid"
+            id="products-grid"
+        >
+
+
+            <!-- =========================================
+                 PRODUTO 1
+            ========================================== -->
+
             <div
                 class="product-card"
                 data-id="75"
                 data-name="Buquê Amor em Rosas"
                 data-price="189.90"
             >
+
 
                 <div class="product-image">
 
@@ -265,6 +474,7 @@
                         alt="Buquê Amor em Rosas"
                     >
 
+
                     <span class="product-badge">
                         Mais escolhido
                     </span>
@@ -272,47 +482,210 @@
                 </div>
 
 
+
                 <div class="product-info">
+
+
+                    <div class="product-category-label">
+                        Buquê de Rosas
+                    </div>
+
 
                     <h3 class="product-name">
                         Buquê Amor em Rosas
                     </h3>
 
+
                     <p class="product-description">
-                        Rosas selecionadas para demonstrar
-                        amor, carinho e sentimentos especiais.
+                        Rosas selecionadas em uma composição
+                        elegante para demonstrar amor,
+                        carinho e sentimentos especiais.
                     </p>
+
 
 
                     <div class="product-benefits-mini">
 
                         <span>
-                            ✓ Mensagem personalizada
+                            <i class="fa-solid fa-check"></i>
+                            Mensagem personalizada
                         </span>
 
                         <span>
-                            ✓ Entrega rápida
+                            <i class="fa-solid fa-check"></i>
+                            Entrega rápida
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-check"></i>
+                            Flores selecionadas
                         </span>
 
                     </div>
 
 
-                    <div class="product-price">
-                        R$ 189,90
+
+                    <div class="product-purchase-area">
+
+                        <div>
+
+                            <span class="price-label">
+                                A partir de
+                            </span>
+
+                            <div class="product-price">
+                                R$ 189,90
+                            </div>
+
+                        </div>
+
                     </div>
+
 
 
                     <div class="product-buttons">
 
-                        <button class="view-product-btn">
+                        <button
+                            type="button"
+                            class="view-product-btn"
+                        >
                             Ver Detalhes
                         </button>
 
-                        <button class="add-to-cart-btn">
+
+                        <button
+                            type="button"
+                            class="add-to-cart-btn"
+                        >
+
+                            <i class="fa-solid fa-bag-shopping"></i>
+
                             Adicionar ao Carrinho
+
                         </button>
 
                     </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="products-support">
+
+            <i class="fa-regular fa-circle-question"></i>
+
+            <div>
+
+                <strong>
+                    Quer criar um buquê personalizado?
+                </strong>
+
+                <p>
+                    Consulte combinações de flores,
+                    cores, tamanhos e disponibilidade.
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Gostaria%20de%20montar%20um%20buqu%C3%AA%20personalizado."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Personalizar
+            </a>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+     SOBRE
+========================================= -->
+
+<section
+    class="about-section redesigned-about"
+    id="sobre"
+>
+
+    <div class="container about-layout">
+
+
+        <div class="about-copy">
+
+            <span class="section-eyebrow">
+                Buquês Flores Pioli
+            </span>
+
+
+            <h2 class="section-title">
+                Um presente feito para
+                transformar pequenos momentos
+            </h2>
+
+
+            <p>
+                Nossos buquês são preparados
+                com flores selecionadas e
+                combinações pensadas para
+                transmitir sentimentos de forma
+                delicada e especial.
+            </p>
+
+
+            <p>
+                Seja para um aniversário,
+                uma comemoração, um encontro
+                ou uma surpresa inesperada,
+                cada composição recebe atenção
+                aos detalhes.
+            </p>
+
+
+            <div class="about-points">
+
+                <div>
+
+                    <i class="fa-solid fa-check"></i>
+
+                    <span>
+                        Flores selecionadas
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-check"></i>
+
+                    <span>
+                        Composições delicadas
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-check"></i>
+
+                    <span>
+                        Mensagem personalizada
+                    </span>
 
                 </div>
 
@@ -320,64 +693,128 @@
 
         </div>
 
-    </div>
-
-</main>
 
 
-<!-- SOBRE -->
-<section class="about-section" id="sobre">
+        <div class="about-highlight">
 
-    <div class="container">
-
-        <h2 class="section-title">
-            Buquês Flores Pioli
-        </h2>
-
-        <p>
-            Nossos buquês são preparados com flores
-            selecionadas e combinações delicadas para
-            aniversários, encontros, comemorações ou
-            simplesmente para demonstrar carinho.
-        </p>
-
-    </div>
-
-</section>
+            <span class="about-highlight-icon">
+                <i class="fa-solid fa-heart"></i>
+            </span>
 
 
-<!-- CONTATO -->
-<section class="contact-section" id="contato">
+            <span class="about-highlight-small">
+                Presenteie com flores
+            </span>
 
-    <div class="container">
 
-        <h2 class="section-title">
-            Quer montar um buquê especial?
-        </h2>
+            <strong>
+                Às vezes, um buquê diz
+                exatamente aquilo que você sente.
+            </strong>
 
-        <p>
-            Entre em contato conosco para escolher flores,
-            cores, tamanhos e criar uma composição
-            personalizada.
-        </p>
+
+            <p>
+                Conte com nosso atendimento
+                para escolher flores, cores
+                e uma composição especial.
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- MENU LATERAL -->
-<div class="menu-overlay" id="menu-overlay"></div>
 
-<aside class="menu-sidebar" id="menu-sidebar">
+<!-- =========================================
+     CONTATO
+========================================= -->
+
+<section
+    class="contact-section redesigned-contact"
+    id="contato"
+>
+
+    <div class="container">
+
+
+        <div class="contact-card">
+
+
+            <div class="contact-card-copy">
+
+                <span class="section-eyebrow">
+                    Buquê personalizado
+                </span>
+
+
+                <h2>
+                    Quer montar algo especialmente para alguém?
+                </h2>
+
+
+                <p>
+                    Fale conosco para escolher flores,
+                    cores, tamanho e detalhes para criar
+                    um buquê personalizado.
+                </p>
+
+            </div>
+
+
+
+            <a
+                href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Gostaria%20de%20montar%20um%20buqu%C3%AA%20especial."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-whatsapp-btn"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Falar pelo WhatsApp
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     MENU LATERAL
+========================================= -->
+
+<div
+    class="menu-overlay"
+    id="menu-overlay"
+></div>
+
+
+<aside
+    class="menu-sidebar"
+    id="menu-sidebar"
+>
+
 
     <div class="menu-header">
 
-        <h2>Categorias</h2>
+        <h2>
+            Categorias
+        </h2>
+
 
         <button
             class="close-menu-btn"
             id="close-menu-btn"
+            type="button"
         >
             &times;
         </button>
@@ -385,7 +822,9 @@
     </div>
 
 
+
     <ul class="menu-list">
+
 
         <li>
             <a href="CoroasTradicionais.html">
@@ -393,11 +832,13 @@
             </a>
         </li>
 
+
         <li>
             <a href="CoroasEspeciais.html">
                 Coroas Especiais
             </a>
         </li>
+
 
         <li>
             <a href="CoroasPremium.html">
@@ -405,11 +846,13 @@
             </a>
         </li>
 
+
         <li>
             <a href="ArranjosDeFlores.html">
                 Arranjos de Flores
             </a>
         </li>
+
 
         <li>
             <a
@@ -420,21 +863,36 @@
             </a>
         </li>
 
+
         <li>
             <a href="HomenagensEspeciais.html">
                 Homenagens Especiais
             </a>
         </li>
 
+
     </ul>
+
 
 </aside>
 
 
-<!-- CARRINHO -->
-<div class="cart-overlay" id="cart-overlay"></div>
 
-<aside class="cart-sidebar" id="cart-sidebar">
+<!-- =========================================
+     CARRINHO
+========================================= -->
+
+<div
+    class="cart-overlay"
+    id="cart-overlay"
+></div>
+
+
+<aside
+    class="cart-sidebar"
+    id="cart-sidebar"
+>
+
 
     <div class="cart-header">
 
@@ -442,14 +900,17 @@
             Seu Carrinho
         </h2>
 
+
         <button
             class="close-cart-btn"
             id="close-cart-btn"
+            type="button"
         >
             &times;
         </button>
 
     </div>
+
 
 
     <div
@@ -458,11 +919,16 @@
     ></div>
 
 
+
     <div class="cart-footer">
+
 
         <div class="cart-total">
 
-            <span>Total:</span>
+            <span>
+                Total:
+            </span>
+
 
             <span id="cart-total-value">
                 R$ 0,00
@@ -471,82 +937,170 @@
         </div>
 
 
+
         <button
             class="checkout-btn"
             id="checkout-btn"
+            type="button"
         >
             Finalizar Pedido
         </button>
 
 
+
         <button
             class="clear-cart-btn"
             id="clear-cart-btn"
+            type="button"
         >
             Limpar Carrinho
         </button>
 
+
     </div>
+
 
 </aside>
 
 
-<!-- NOTIFICAÇÃO -->
-<div class="notification" id="notification">
+
+<!-- =========================================
+     NOTIFICAÇÃO
+========================================= -->
+
+<div
+    class="notification"
+    id="notification"
+>
     Produto adicionado ao carrinho!
 </div>
 
-<!-- FOOTER -->
-<footer class="footer">
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer redesigned-footer">
 
     <div class="container">
 
-        <div class="footer-content">
 
-            <div class="footer-section">
+        <div class="footer-top">
 
-                <h3>
-                    🌸 Flores Pioli
-                </h3>
+
+            <div class="footer-brand">
+
+                <img
+                    src="logo-flores.png"
+                    alt="Flores Pioli"
+                    class="footer-logo"
+                >
+
 
                 <p>
-                    Flores e homenagens preparadas
-                    com carinho para momentos especiais.
+                    Flores preparadas para presentear,
+                    homenagear e tornar momentos especiais
+                    ainda mais marcantes.
                 </p>
+
+
+                <div class="footer-contact-quick">
+
+                    <a href="tel:+5534992480848">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        (34) 99248-0848
+
+                    </a>
+
+
+                    <a
+                        href="https://api.whatsapp.com/send?phone=5534992480848"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        WhatsApp
+
+                    </a>
+
+                </div>
 
             </div>
 
 
-            <div class="footer-section">
+
+            <div class="footer-column">
 
                 <h3>
-                    Categorias
+                    Coroas
                 </h3>
 
-                <p>Coroas de Flores</p>
-                <p>Arranjos</p>
-                <p>Buquês</p>
+                <a href="CoroasTradicionais.html">
+                    Tradicionais
+                </a>
+
+                <a href="CoroasEspeciais.html">
+                    Especiais
+                </a>
+
+                <a href="CoroasPremium.html">
+                    Premium
+                </a>
 
             </div>
 
 
-            <div class="footer-section">
+
+            <div class="footer-column">
 
                 <h3>
-                    Contato
+                    Flores Pioli
                 </h3>
 
-                <p>
-                    📧 contato@florespioli.com
-                </p>
+                <a href="ArranjosDeFlores.html">
+                    Arranjos
+                </a>
 
-                <p>
-                    📞 (34) 99248-0848
-                </p>
+                <a href="Buques.html">
+                    Buquês
+                </a>
+
+                <a href="HomenagensEspeciais.html">
+                    Homenagens
+                </a>
 
             </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Atendimento
+                </h3>
+
+                <span>
+                    Uberlândia - MG
+                </span>
+
+                <span>
+                    Consulte horários
+                </span>
+
+                <span>
+                    Consulte disponibilidade de entrega
+                </span>
+
+            </div>
+
 
         </div>
+
 
 
         <div class="footer-bottom">
@@ -558,9 +1112,16 @@
 
         </div>
 
+
     </div>
 
 </footer>
+
+
+
+<!-- =========================================
+     WHATSAPP FLUTUANTE
+========================================= -->
 
 <a
     class="whatsapp-float"
@@ -568,14 +1129,30 @@
     target="_blank"
     rel="noopener noreferrer"
 >
+
     <i class="fa-brands fa-whatsapp"></i>
-    <span>Fale conosco</span>
+
+    <span>
+        Fale conosco
+    </span>
+
 </a>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
 <script src="script.js"></script>
+
 <script src="auth.js"></script>
 
+
 </body>
+
 </html>
