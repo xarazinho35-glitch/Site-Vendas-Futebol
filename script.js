@@ -207,10 +207,6 @@ function updateQuantity(
 }
 
 
-// ============================================
-// LIMPAR CARRINHO
-// ============================================
-
 function clearCart() {
 
     if (cart.length === 0) {
@@ -223,26 +219,19 @@ function clearCart() {
     }
 
 
-    const confirmar =
-        confirm(
-            "Tem certeza que deseja limpar o carrinho?"
-        );
-
-
-    if (!confirmar) {
-        return;
-    }
-
-
     cart = [];
+
 
     saveCart();
 
+
     updateCartUI();
 
+
     showNotification(
-        "Carrinho limpo."
+        "Carrinho limpo com sucesso."
     );
+
 }
 
 
