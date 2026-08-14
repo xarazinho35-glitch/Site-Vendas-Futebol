@@ -1747,7 +1747,7 @@ body {
     justify-content: center;
     gap: 10px;
 
-    padding: 14px 24px;
+    padding: 14px 22px;
 
     background: #25d366;
     color: #ffffff;
@@ -1770,26 +1770,32 @@ body {
     transition: 0.2s ease;
 }
 
+
 .whatsapp-float i {
-    font-size: 27px;
+    font-size: 28px;
     color: #ffffff;
 }
+
 
 .whatsapp-float span {
     color: #ffffff;
 }
+
 
 .whatsapp-float:hover {
     background: #1ebe5d;
     transform: translateY(-3px);
 }
 
+
 .whatsapp-float:active {
     transform: scale(0.97);
 }
 
 
-/* CELULAR */
+/* =========================================
+   CELULAR
+========================================= */
 
 @media (max-width: 600px) {
 
@@ -1797,13 +1803,13 @@ body {
         right: 15px;
         bottom: 15px;
 
-        padding: 12px 17px;
+        padding: 12px 18px;
 
         font-size: 14px;
     }
 
     .whatsapp-float i {
-        font-size: 24px;
+        font-size: 25px;
     }
 
 }
