@@ -501,9 +501,8 @@ function animateCartCount() {
     );
 }
 
-
 // ============================================
-// FINALIZAR PEDIDO
+// FINALIZAR PEDIDO - ABRIR FORMULÁRIO
 // ============================================
 
 function checkout() {
@@ -511,43 +510,558 @@ function checkout() {
     if (cart.length === 0) {
 
         showNotification(
-            "Adicione um produto primeiro."
+            "Adicione um produto ao carrinho primeiro."
+        );
+
+        return;
+    }
+
+    abrirFormularioPedido();
+}
+
+
+// ============================================
+// CRIAR FORMULÁRIO DE PEDIDO
+// ============================================
+
+function abrirFormularioPedido() {
+
+    // Evita criar mais de um modal
+    const existente =
+        document.getElementById(
+            "pedido-modal-overlay"
+        );
+
+    if (existente) {
+        existente.remove();
+    }
+
+
+    const overlay =
+        document.createElement("div");
+
+    overlay.id =
+        "pedido-modal-overlay";
+
+    overlay.className =
+        "pedido-modal-overlay";
+
+
+    overlay.innerHTML = `
+
+        <div class="pedido-modal">
+
+            <button
+                type="button"
+                class="pedido-modal-fechar"
+                id="pedido-modal-fechar"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                🌸 Finalizar Pedido
+            </h2>
+
+            <p class="pedido-modal-subtitulo">
+                Preencha os dados para enviarmos
+                seu pedido pelo WhatsApp.
+            </p>
+
+
+            <div class="pedido-form-group">
+
+                <label>
+                    Seu nome *
+                </label>
+
+                <input
+                    type="text"
+                    id="pedido-nome"
+                    placeholder="Digite seu nome"
+                >
+
+            </div>
+
+
+            <div class="pedido-form-group">
+
+                <label>
+                    Telefone *
+                </label>
+
+                <input
+                    type="tel"
+                    id="pedido-telefone"
+                    placeholder="(34) 99999-9999"
+                >
+
+            </div>
+
+
+            <div class="pedido-form-group">
+
+                <label>
+                    Nome do destinatário
+                </label>
+
+                <input
+                    type="text"
+                    id="pedido-destinatario"
+                    placeholder="Quem irá receber?"
+                >
+
+            </div>
+
+
+            <div class="pedido-form-group">
+
+                <label>
+                    Endereço de entrega *
+                </label>
+
+                <input
+                    type="text"
+                    id="pedido-endereco"
+                    placeholder="Rua, número, bairro..."
+                >
+
+            </div>
+
+
+            <div class="pedido-form-row">
+
+                <div class="pedido-form-group">
+
+                    <label>
+                        Data da entrega
+                    </label>
+
+                    <input
+                        type="date"
+                        id="pedido-data"
+                    >
+
+                </div>
+
+
+                <div class="pedido-form-group">
+
+                    <label>
+                        Horário
+                    </label>
+
+                    <input
+                        type="time"
+                        id="pedido-horario"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="pedido-form-group">
+
+                <label>
+                    Mensagem da faixa/cartão
+                </label>
+
+                <textarea
+                    id="pedido-mensagem"
+                    placeholder="Digite a mensagem que deseja enviar..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="pedido-form-group">
+
+                <label>
+                    Observações
+                </label>
+
+                <textarea
+                    id="pedido-observacoes"
+                    placeholder="Alguma observação especial?"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="pedido-enviar-btn"
+                id="pedido-enviar-btn"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+                Enviar pedido pelo WhatsApp
+            </button>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(
+        overlay
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+
+    const fechar =
+        document.getElementById(
+            "pedido-modal-fechar"
+        );
+
+
+    const enviar =
+        document.getElementById(
+            "pedido-enviar-btn"
+        );
+
+
+    fechar.addEventListener(
+        "click",
+        fecharFormularioPedido
+    );
+
+
+    overlay.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target === overlay
+            ) {
+
+                fecharFormularioPedido();
+
+            }
+
+        }
+    );
+
+
+    enviar.addEventListener(
+        "click",
+        enviarPedidoWhatsApp
+    );
+}
+
+
+// ============================================
+// FECHAR FORMULÁRIO
+// ============================================
+
+function fecharFormularioPedido() {
+
+    const overlay =
+        document.getElementById(
+            "pedido-modal-overlay"
+        );
+
+
+    if (overlay) {
+
+        overlay.remove();
+
+    }
+
+
+    document.body.style.overflow =
+        "";
+}
+
+
+// ============================================
+// ENVIAR PEDIDO PARA WHATSAPP
+// ============================================
+
+function enviarPedidoWhatsApp() {
+
+    const nome =
+        document
+            .getElementById(
+                "pedido-nome"
+            )
+            .value
+            .trim();
+
+
+    const telefone =
+        document
+            .getElementById(
+                "pedido-telefone"
+            )
+            .value
+            .trim();
+
+
+    const destinatario =
+        document
+            .getElementById(
+                "pedido-destinatario"
+            )
+            .value
+            .trim();
+
+
+    const endereco =
+        document
+            .getElementById(
+                "pedido-endereco"
+            )
+            .value
+            .trim();
+
+
+    const dataEntrega =
+        document
+            .getElementById(
+                "pedido-data"
+            )
+            .value;
+
+
+    const horario =
+        document
+            .getElementById(
+                "pedido-horario"
+            )
+            .value;
+
+
+    const mensagemFaixa =
+        document
+            .getElementById(
+                "pedido-mensagem"
+            )
+            .value
+            .trim();
+
+
+    const observacoes =
+        document
+            .getElementById(
+                "pedido-observacoes"
+            )
+            .value
+            .trim();
+
+
+    // Campos obrigatórios
+    if (
+        !nome ||
+        !telefone ||
+        !endereco
+    ) {
+
+        alert(
+            "Preencha seu nome, telefone e endereço de entrega."
         );
 
         return;
     }
 
 
-    const total =
-        formatPrice(
-            calculateTotal()
-        );
+    const numeroWhatsApp =
+        "5534992480848";
 
 
-    const quantidade =
-        countItems();
+    let mensagem =
+        "🌸 *NOVO PEDIDO - FLORES PIOLI* 🌸\n\n";
 
 
-    alert(
-        "🌸 Pedido Flores Pioli\n\n" +
-        "Quantidade de itens: " +
-        quantidade +
-        "\n" +
-        "Valor total: " +
-        total +
-        "\n\n" +
-        "Obrigado pela preferência!"
+    mensagem +=
+        "*DADOS DO CLIENTE*\n";
+
+
+    mensagem +=
+        "Nome: " +
+        nome +
+        "\n";
+
+
+    mensagem +=
+        "Telefone: " +
+        telefone +
+        "\n";
+
+
+    if (destinatario) {
+
+        mensagem +=
+            "Destinatário: " +
+            destinatario +
+            "\n";
+
+    }
+
+
+    mensagem +=
+        "Endereço: " +
+        endereco +
+        "\n";
+
+
+    if (dataEntrega) {
+
+        mensagem +=
+            "Data da entrega: " +
+            formatarDataPedido(
+                dataEntrega
+            ) +
+            "\n";
+
+    }
+
+
+    if (horario) {
+
+        mensagem +=
+            "Horário: " +
+            horario +
+            "\n";
+
+    }
+
+
+    mensagem +=
+        "\n━━━━━━━━━━━━━━━━━━━━\n\n";
+
+
+    mensagem +=
+        "*PRODUTOS*\n\n";
+
+
+    cart.forEach(
+        function (item, index) {
+
+            const subtotal =
+                Number(item.price) *
+                item.quantity;
+
+
+            mensagem +=
+                "*" +
+                (index + 1) +
+                ". " +
+                item.name +
+                "*\n";
+
+
+            mensagem +=
+                "Quantidade: " +
+                item.quantity +
+                "\n";
+
+
+            mensagem +=
+                "Valor unitário: " +
+                formatPrice(
+                    item.price
+                ) +
+                "\n";
+
+
+            mensagem +=
+                "Subtotal: " +
+                formatPrice(
+                    subtotal
+                ) +
+                "\n\n";
+
+        }
     );
 
 
-    cart = [];
+    mensagem +=
+        "━━━━━━━━━━━━━━━━━━━━\n\n";
 
-    saveCart();
 
-    updateCartUI();
+    mensagem +=
+        "🛒 *Itens:* " +
+        countItems() +
+        "\n";
 
-    closeCart();
+
+    mensagem +=
+        "💰 *TOTAL: " +
+        formatPrice(
+            calculateTotal()
+        ) +
+        "*\n";
+
+
+    if (mensagemFaixa) {
+
+        mensagem +=
+            "\n💌 *Mensagem da faixa/cartão:*\n" +
+            mensagemFaixa +
+            "\n";
+
+    }
+
+
+    if (observacoes) {
+
+        mensagem +=
+            "\n📝 *Observações:*\n" +
+            observacoes +
+            "\n";
+
+    }
+
+
+    mensagem +=
+        "\nGostaria de confirmar a disponibilidade e a entrega. 🌷";
+
+
+    const link =
+        "https://api.whatsapp.com/send?phone=" +
+        numeroWhatsApp +
+        "&text=" +
+        encodeURIComponent(
+            mensagem
+        );
+
+
+    window.open(
+        link,
+        "_blank"
+    );
 }
+
+
+// ============================================
+// FORMATAR DATA
+// ============================================
+
+function formatarDataPedido(data) {
+
+    const partes =
+        data.split("-");
+
+
+    if (partes.length !== 3) {
+        return data;
+    }
+
+
+    return (
+        partes[2] +
+        "/" +
+        partes[1] +
+        "/" +
+        partes[0]
+    );
+}
+           
 
 
 // ============================================

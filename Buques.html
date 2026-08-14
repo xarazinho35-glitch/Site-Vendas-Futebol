@@ -85,7 +85,7 @@
 
             <div class="contact-block">
                 <span class="contact-label">Atendimento</span>
-                <strong>☎ (34) 99999-9999</strong>
+                <strong>☎ (34) 99248-0848</strong>
             </div>
 
             <div class="contact-block">
@@ -496,14 +496,6 @@
     Produto adicionado ao carrinho!
 </div>
 
-
-<!-- WHATSAPP -->
-<a href="#" class="whatsapp-float">
-    <span>💬</span>
-    Fale conosco
-</a>
-
-
 <!-- FOOTER -->
 <footer class="footer">
 
@@ -549,7 +541,7 @@
                 </p>
 
                 <p>
-                    📞 (34) 99999-9999
+                    📞 (34) 99248-0848
                 </p>
 
             </div>
@@ -570,35 +562,15 @@
 
 </footer>
 
-<!-- WHATSAPP -->
-
-<button
-    type="button"
+<a
     class="whatsapp-float"
-    onclick="abrirWhatsApp()"
+    href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Flores%20Pioli%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+    target="_blank"
+    rel="noopener noreferrer"
 >
     <i class="fa-brands fa-whatsapp"></i>
     <span>Fale conosco</span>
-</button>
-
-
-<script>
-function abrirWhatsApp() {
-
-    const numero = "5534999999999";
-
-    const mensagem =
-        "Olá! Vim pelo site da Flores Pioli e gostaria de mais informações.";
-
-    const link =
-        "https://wa.me/" +
-        numero +
-        "?text=" +
-        encodeURIComponent(mensagem);
-
-    window.open(link, "_blank");
-}
-</script>
+</a>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

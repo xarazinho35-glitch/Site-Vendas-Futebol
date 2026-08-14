@@ -1813,3 +1813,213 @@ body {
     }
 
 }
+
+/* =========================================
+   MODAL FINALIZAR PEDIDO
+========================================= */
+
+.pedido-modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(40, 20, 30, 0.65);
+
+    z-index: 999999;
+
+    overflow-y: auto;
+}
+
+
+.pedido-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 620px;
+
+    max-height: 92vh;
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.pedido-modal h2 {
+    margin-bottom: 8px;
+
+    color: var(--texto);
+
+    text-align: center;
+
+    font-size: 1.8rem;
+}
+
+
+.pedido-modal-subtitulo {
+    margin-bottom: 25px;
+
+    color: var(--texto-claro);
+
+    text-align: center;
+}
+
+
+.pedido-modal-fechar {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+
+    width: 36px;
+    height: 36px;
+
+    background: var(--rosa-claro);
+
+    color: var(--rosa);
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+.pedido-modal-fechar:hover {
+    background: var(--rosa);
+
+    color: white;
+}
+
+
+.pedido-form-group {
+    margin-bottom: 16px;
+}
+
+
+.pedido-form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--texto);
+
+    font-weight: 700;
+}
+
+
+.pedido-form-group input,
+.pedido-form-group textarea {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    background: #fffafd;
+
+    color: var(--texto);
+
+    border: 1px solid var(--rosa-borda);
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 15px;
+}
+
+
+.pedido-form-group input:focus,
+.pedido-form-group textarea:focus {
+    border-color: var(--rosa);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(223, 76, 139, 0.10);
+}
+
+
+.pedido-form-group textarea {
+    min-height: 95px;
+
+    resize: vertical;
+}
+
+
+.pedido-form-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+
+.pedido-enviar-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 8px;
+
+    padding: 14px 18px;
+
+    background: #25d366;
+
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.pedido-enviar-btn i {
+    font-size: 23px;
+}
+
+
+.pedido-enviar-btn:hover {
+    background: #1ebe5d;
+
+    transform: translateY(-2px);
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .pedido-modal {
+        padding: 28px 18px;
+    }
+
+    .pedido-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+}
