@@ -766,89 +766,52 @@ function fecharFormularioPedido() {
         "";
 }
 
+async function enviarPedidoWhatsApp() {
 
-// ============================================
-// ENVIAR PEDIDO PARA WHATSAPP
-// ============================================
+    const nome = document
+        .getElementById("pedido-nome")
+        .value
+        .trim();
 
-function enviarPedidoWhatsApp() {
+    const telefone = document
+        .getElementById("pedido-telefone")
+        .value
+        .trim();
 
-    const nome =
-        document
-            .getElementById(
-                "pedido-nome"
-            )
-            .value
-            .trim();
+    const destinatario = document
+        .getElementById("pedido-destinatario")
+        .value
+        .trim();
 
+    const endereco = document
+        .getElementById("pedido-endereco")
+        .value
+        .trim();
 
-    const telefone =
-        document
-            .getElementById(
-                "pedido-telefone"
-            )
-            .value
-            .trim();
+    const dataEntrega = document
+        .getElementById("pedido-data")
+        .value;
 
+    const horario = document
+        .getElementById("pedido-horario")
+        .value;
 
-    const destinatario =
-        document
-            .getElementById(
-                "pedido-destinatario"
-            )
-            .value
-            .trim();
+    const mensagemFaixa = document
+        .getElementById("pedido-mensagem")
+        .value
+        .trim();
 
-
-    const endereco =
-        document
-            .getElementById(
-                "pedido-endereco"
-            )
-            .value
-            .trim();
+    const observacoes = document
+        .getElementById("pedido-observacoes")
+        .value
+        .trim();
 
 
-    const dataEntrega =
-        document
-            .getElementById(
-                "pedido-data"
-            )
-            .value;
+    // ============================================
+    // VALIDAR CAMPOS
+    // ============================================
 
-
-    const horario =
-        document
-            .getElementById(
-                "pedido-horario"
-            )
-            .value;
-
-
-    const mensagemFaixa =
-        document
-            .getElementById(
-                "pedido-mensagem"
-            )
-            .value
-            .trim();
-
-
-    const observacoes =
-        document
-            .getElementById(
-                "pedido-observacoes"
-            )
-            .value
-            .trim();
-
-
-    // Campos obrigatórios
-    if (
-        !nome ||
-        !telefone ||
-        !endereco
-    ) {
+    if (!nome || !telefone || !endereco) {
 
         alert(
             "Preencha seu nome, telefone e endereço de entrega."
@@ -858,12 +821,201 @@ function enviarPedidoWhatsApp() {
     }
 
 
+    // ============================================
+    // VERIFICAR LOGIN
+    // ============================================
+
+    if (typeof supabaseClient === "undefined") {
+
+        console.error(
+            "Supabase não foi encontrado."
+        );
+
+        alert(
+            "Não foi possível conectar ao sistema de pedidos."
+        );
+
+        return;
+    }
+
+
+    const {
+        data: { user },
+        error: userError
+    } = await supabaseClient.auth.getUser();
+
+
+    if (userError || !user) {
+
+        alert(
+            "Você precisa entrar na sua conta para finalizar o pedido."
+        );
+
+        window.location.href = "login.html";
+
+        return;
+    }
+
+
+    // ============================================
+    // GERAR NÚMERO DO PEDIDO
+    // ============================================
+
+    const numeroPedido =
+        "FP-" +
+        Date.now()
+            .toString()
+            .slice(-6) +
+        "-" +
+        Math.random()
+            .toString(36)
+            .substring(2, 5)
+            .toUpperCase();
+
+
+    const totalPedido =
+        calculateTotal();
+
+
+    const quantidadeItens =
+        countItems();
+
+
+    // Criamos uma cópia para salvar exatamente
+    // os produtos comprados naquele momento.
+
+    const produtosPedido =
+        cart.map(item => ({
+            id: item.id,
+            nome: item.name,
+            preco: Number(item.price),
+            quantidade: item.quantity,
+            imagem: item.image || ""
+        }));
+
+
+    // ============================================
+    // SALVAR PEDIDO NO SUPABASE
+    // ============================================
+
+    const botaoEnviar =
+        document.getElementById(
+            "pedido-enviar-btn"
+        );
+
+
+    if (botaoEnviar) {
+
+        botaoEnviar.disabled = true;
+
+        botaoEnviar.innerHTML =
+            "Salvando pedido...";
+
+    }
+
+
+    const {
+        data: pedidoSalvo,
+        error: pedidoError
+    } = await supabaseClient
+        .from("pedidos")
+        .insert({
+
+            numero_pedido:
+                numeroPedido,
+
+            user_id:
+                user.id,
+
+            nome_cliente:
+                nome,
+
+            telefone:
+                telefone,
+
+            destinatario:
+                destinatario || null,
+
+            endereco:
+                endereco,
+
+            data_entrega:
+                dataEntrega || null,
+
+            horario_entrega:
+                horario || null,
+
+            mensagem:
+                mensagemFaixa || null,
+
+            observacoes:
+                observacoes || null,
+
+            produtos:
+                produtosPedido,
+
+            quantidade_itens:
+                quantidadeItens,
+
+            total:
+                totalPedido,
+
+            status:
+                "Recebido"
+
+        })
+        .select()
+        .single();
+
+
+    if (pedidoError) {
+
+        console.error(
+            "Erro ao salvar pedido:",
+            pedidoError
+        );
+
+
+        alert(
+            "Não foi possível registrar seu pedido. Tente novamente."
+        );
+
+
+        if (botaoEnviar) {
+
+            botaoEnviar.disabled = false;
+
+            botaoEnviar.innerHTML =
+                '<i class="fa-brands fa-whatsapp"></i> Enviar pedido pelo WhatsApp';
+
+        }
+
+        return;
+    }
+
+
+    console.log(
+        "Pedido salvo:",
+        pedidoSalvo
+    );
+
+
+    // ============================================
+    // MONTAR MENSAGEM DO WHATSAPP
+    // ============================================
+
     const numeroWhatsApp =
         "5534992480848";
 
 
     let mensagem =
         "🌸 *NOVO PEDIDO - FLORES PIOLI* 🌸\n\n";
+
+
+    mensagem +=
+        "🧾 *PEDIDO: #" +
+        numeroPedido +
+        "*\n\n";
 
 
     mensagem +=
@@ -975,14 +1127,14 @@ function enviarPedidoWhatsApp() {
 
     mensagem +=
         "🛒 *Itens:* " +
-        countItems() +
+        quantidadeItens +
         "\n";
 
 
     mensagem +=
         "💰 *TOTAL: " +
         formatPrice(
-            calculateTotal()
+            totalPedido
         ) +
         "*\n";
 
@@ -1008,8 +1160,18 @@ function enviarPedidoWhatsApp() {
 
 
     mensagem +=
+        "\nPedido registrado como #" +
+        numeroPedido +
+        ".";
+
+
+    mensagem +=
         "\nGostaria de confirmar a disponibilidade e a entrega. 🌷";
 
+
+    // ============================================
+    // ABRIR WHATSAPP
+    // ============================================
 
     const link =
         "https://api.whatsapp.com/send?phone=" +
@@ -1020,10 +1182,26 @@ function enviarPedidoWhatsApp() {
         );
 
 
+    // Limpar carrinho somente depois
+    // de o pedido ter sido salvo.
+
+    cart = [];
+
+    saveCart();
+
+    updateCartUI();
+
+
+    fecharFormularioPedido();
+
+    closeCart();
+
+
     window.open(
         link,
         "_blank"
     );
+
 }
 
 
