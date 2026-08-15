@@ -723,3 +723,127 @@
     }
 
 }
+
+/* =========================================
+   BOTÃO VOLTAR
+========================================= */
+
+.pedido-voltar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-bottom: 28px;
+    padding: 11px 17px;
+
+    background: #ffffff;
+    color: #49383f;
+
+    border: 1px solid #e1d5da;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 14px
+        rgba(55, 35, 44, 0.05);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.pedido-voltar:hover {
+    background: #33272c;
+    color: #ffffff;
+
+    border-color: #33272c;
+
+    transform: translateX(-3px);
+}
+
+
+.pedido-voltar i {
+    font-size: 12px;
+}
+
+/* =========================================
+   STATUS ATUAL DO PEDIDO
+========================================= */
+
+.pedido-timeline {
+    display: block;
+}
+
+
+.timeline-etapa {
+    display: none;
+
+    min-height: auto;
+
+    padding: 22px;
+
+    align-items: center;
+
+    gap: 16px;
+
+    background: #faf7f8;
+
+    border: 1px solid #e8dde1;
+    border-radius: 10px;
+
+    opacity: 1;
+}
+
+
+.timeline-etapa.atual {
+    display: flex;
+
+    transform: none;
+
+    background: #fff8fb;
+
+    border-color: #dfbdca;
+
+    box-shadow:
+        0 8px 25px
+        rgba(65, 40, 50, 0.06);
+}
+
+
+.timeline-etapa.atual
+.timeline-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    margin-bottom: 0;
+
+    background: var(--rosa);
+    color: white;
+
+    font-size: 17px;
+}
+
+
+.timeline-etapa strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 0.92rem;
+}
+
+
+.timeline-etapa span {
+    font-size: 0.78rem;
+}
