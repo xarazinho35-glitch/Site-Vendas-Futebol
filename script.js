@@ -377,60 +377,31 @@ function updateCartUI() {
 
 function openCart() {
 
-    if (
-        !cartSidebar ||
-        !cartOverlay
-    ) {
+    if (!cartSidebar || !cartOverlay) {
         return;
     }
 
+    cartSidebar.classList.add("active");
+    cartOverlay.classList.add("active");
 
-    cartSidebar.classList.add(
-        "active"
-    );
-
-
-    cartOverlay.classList.add(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("cart-open");
 }
 
-document.body.classList.add("cart-open");
-
-
-// ============================================
-// FECHAR CARRINHO
-// ============================================
 
 function closeCart() {
 
-    if (
-        !cartSidebar ||
-        !cartOverlay
-    ) {
+    if (!cartSidebar || !cartOverlay) {
         return;
     }
 
+    cartSidebar.classList.remove("active");
+    cartOverlay.classList.remove("active");
 
-    cartSidebar.classList.remove(
-        "active"
-    );
-
-
-    cartOverlay.classList.remove(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "";
+    document.body.style.overflow = "";
+    document.body.classList.remove("cart-open");
 }
 
-document.body.classList.remove("cart-open");
 
 
 // ============================================
@@ -548,24 +519,25 @@ function abrirFormularioPedido() {
                 type="button"
                 class="pedido-modal-fechar"
                 id="pedido-modal-fechar"
+                aria-label="Fechar formulário"
             >
                 ×
             </button>
 
 
             <h2>
-                🌸 Finalizar Pedido
+                Finalizar Pedido
             </h2>
 
             <p class="pedido-modal-subtitulo">
-                Preencha os dados para enviarmos
-                seu pedido pelo WhatsApp.
+                Preencha os dados abaixo para concluir
+                seu pedido e falar conosco pelo WhatsApp.
             </p>
 
 
             <div class="pedido-form-group">
 
-                <label>
+                <label for="pedido-nome">
                     Seu nome *
                 </label>
 
@@ -573,6 +545,7 @@ function abrirFormularioPedido() {
                     type="text"
                     id="pedido-nome"
                     placeholder="Digite seu nome"
+                    autocomplete="name"
                 >
 
             </div>
@@ -580,7 +553,7 @@ function abrirFormularioPedido() {
 
             <div class="pedido-form-group">
 
-                <label>
+                <label for="pedido-telefone">
                     Telefone *
                 </label>
 
@@ -588,6 +561,8 @@ function abrirFormularioPedido() {
                     type="tel"
                     id="pedido-telefone"
                     placeholder="(34) 99999-9999"
+                    autocomplete="tel"
+                    inputmode="tel"
                 >
 
             </div>
@@ -595,7 +570,7 @@ function abrirFormularioPedido() {
 
             <div class="pedido-form-group">
 
-                <label>
+                <label for="pedido-destinatario">
                     Nome do destinatário
                 </label>
 
@@ -610,7 +585,7 @@ function abrirFormularioPedido() {
 
             <div class="pedido-form-group">
 
-                <label>
+                <label for="pedido-endereco">
                     Endereço de entrega *
                 </label>
 
@@ -618,6 +593,7 @@ function abrirFormularioPedido() {
                     type="text"
                     id="pedido-endereco"
                     placeholder="Rua, número, bairro..."
+                    autocomplete="street-address"
                 >
 
             </div>
@@ -627,8 +603,8 @@ function abrirFormularioPedido() {
 
                 <div class="pedido-form-group">
 
-                    <label>
-                        Data da entrega
+                    <label for="pedido-data">
+                        Data da entrega *
                     </label>
 
                     <input
@@ -641,7 +617,7 @@ function abrirFormularioPedido() {
 
                 <div class="pedido-form-group">
 
-                    <label>
+                    <label for="pedido-horario">
                         Horário
                     </label>
 
@@ -657,7 +633,7 @@ function abrirFormularioPedido() {
 
             <div class="pedido-form-group">
 
-                <label>
+                <label for="pedido-mensagem">
                     Mensagem da faixa/cartão
                 </label>
 
@@ -671,7 +647,7 @@ function abrirFormularioPedido() {
 
             <div class="pedido-form-group">
 
-                <label>
+                <label for="pedido-observacoes">
                     Observações
                 </label>
 
@@ -689,7 +665,8 @@ function abrirFormularioPedido() {
                 id="pedido-enviar-btn"
             >
                 <i class="fa-brands fa-whatsapp"></i>
-                Enviar pedido pelo WhatsApp
+
+                Finalizar pedido
             </button>
 
         </div>
@@ -706,6 +683,50 @@ function abrirFormularioPedido() {
         "hidden";
 
 
+    // ============================================
+    // DATA MÍNIMA = HOJE
+    // ============================================
+
+    const campoData =
+        document.getElementById(
+            "pedido-data"
+        );
+
+
+    if (campoData) {
+
+        const hoje =
+            new Date();
+
+
+        const ano =
+            hoje.getFullYear();
+
+
+        const mes =
+            String(
+                hoje.getMonth() + 1
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const dia =
+            String(
+                hoje.getDate()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        campoData.min =
+            `${ano}-${mes}-${dia}`;
+
+    }
+
+
     const fechar =
         document.getElementById(
             "pedido-modal-fechar"
@@ -718,10 +739,14 @@ function abrirFormularioPedido() {
         );
 
 
-    fechar.addEventListener(
-        "click",
-        fecharFormularioPedido
-    );
+    if (fechar) {
+
+        fechar.addEventListener(
+            "click",
+            fecharFormularioPedido
+        );
+
+    }
 
 
     overlay.addEventListener(
@@ -729,7 +754,8 @@ function abrirFormularioPedido() {
         function (event) {
 
             if (
-                event.target === overlay
+                event.target ===
+                overlay
             ) {
 
                 fecharFormularioPedido();
@@ -740,10 +766,14 @@ function abrirFormularioPedido() {
     );
 
 
-    enviar.addEventListener(
-        "click",
-        enviarPedidoWhatsApp
-    );
+    if (enviar) {
+
+        enviar.addEventListener(
+            "click",
+            enviarPedidoWhatsApp
+        );
+
+    }
 }
 
 
@@ -770,66 +800,179 @@ function fecharFormularioPedido() {
         "";
 }
 
+
+// ============================================
+// ENVIAR / SALVAR PEDIDO
+// ============================================
+
 async function enviarPedidoWhatsApp() {
 
-    const nome = document
-        .getElementById("pedido-nome")
-        .value
-        .trim();
+    const nome =
+        document
+            .getElementById(
+                "pedido-nome"
+            )
+            ?.value
+            .trim() || "";
 
-    const telefone = document
-        .getElementById("pedido-telefone")
-        .value
-        .trim();
 
-    const destinatario = document
-        .getElementById("pedido-destinatario")
-        .value
-        .trim();
+    const telefone =
+        document
+            .getElementById(
+                "pedido-telefone"
+            )
+            ?.value
+            .trim() || "";
 
-    const endereco = document
-        .getElementById("pedido-endereco")
-        .value
-        .trim();
 
-    const dataEntrega = document
-        .getElementById("pedido-data")
-        .value;
+    const destinatario =
+        document
+            .getElementById(
+                "pedido-destinatario"
+            )
+            ?.value
+            .trim() || "";
 
-    const horario = document
-        .getElementById("pedido-horario")
-        .value;
 
-    const mensagemFaixa = document
-        .getElementById("pedido-mensagem")
-        .value
-        .trim();
+    const endereco =
+        document
+            .getElementById(
+                "pedido-endereco"
+            )
+            ?.value
+            .trim() || "";
 
-    const observacoes = document
-        .getElementById("pedido-observacoes")
-        .value
-        .trim();
+
+    const dataEntrega =
+        document
+            .getElementById(
+                "pedido-data"
+            )
+            ?.value || "";
+
+
+    const horario =
+        document
+            .getElementById(
+                "pedido-horario"
+            )
+            ?.value || "";
+
+
+    const mensagemFaixa =
+        document
+            .getElementById(
+                "pedido-mensagem"
+            )
+            ?.value
+            .trim() || "";
+
+
+    const observacoes =
+        document
+            .getElementById(
+                "pedido-observacoes"
+            )
+            ?.value
+            .trim() || "";
 
 
     // ============================================
-    // VALIDAR CAMPOS
+    // VALIDAÇÕES
     // ============================================
 
-    if (!nome || !telefone || !endereco) {
+    if (
+        !nome ||
+        !telefone ||
+        !endereco ||
+        !dataEntrega
+    ) {
 
         alert(
-            "Preencha seu nome, telefone e endereço de entrega."
+            "Preencha nome, telefone, endereço e data da entrega."
         );
 
         return;
     }
 
 
+    // Telefone somente números
+    const telefoneNumeros =
+        telefone.replace(
+            /\D/g,
+            ""
+        );
+
+
+    if (
+        telefoneNumeros.length <
+        10
+    ) {
+
+        alert(
+            "Digite um telefone válido com DDD."
+        );
+
+        return;
+    }
+
+
+    // Não permitir data anterior a hoje
+    const hoje =
+        new Date();
+
+
+    hoje.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    const dataSelecionada =
+        new Date(
+            dataEntrega +
+            "T00:00:00"
+        );
+
+
+    if (
+        dataSelecionada <
+        hoje
+    ) {
+
+        alert(
+            "A data de entrega não pode ser anterior a hoje."
+        );
+
+        return;
+    }
+
+
+    if (
+        cart.length ===
+        0
+    ) {
+
+        alert(
+            "Seu carrinho está vazio."
+        );
+
+        fecharFormularioPedido();
+
+        return;
+    }
+
+
     // ============================================
-    // VERIFICAR LOGIN
+    // VERIFICAR SUPABASE
     // ============================================
 
-    if (typeof supabaseClient === "undefined") {
+    if (
+        typeof supabaseClient ===
+        "undefined"
+    ) {
 
         console.error(
             "Supabase não foi encontrado."
@@ -843,19 +986,50 @@ async function enviarPedidoWhatsApp() {
     }
 
 
+    // ============================================
+    // ABRIR ABA DO WHATSAPP ANTES DOS AWAITS
+    // Evita bloqueio de popup em alguns celulares
+    // ============================================
+
+    const whatsappWindow =
+        window.open(
+            "",
+            "_blank"
+        );
+
+
+    // ============================================
+    // VERIFICAR LOGIN
+    // ============================================
+
     const {
         data: { user },
         error: userError
-    } = await supabaseClient.auth.getUser();
+    } =
+        await supabaseClient
+            .auth
+            .getUser();
 
 
-    if (userError || !user) {
+    if (
+        userError ||
+        !user
+    ) {
+
+        if (whatsappWindow) {
+
+            whatsappWindow.close();
+
+        }
+
 
         alert(
             "Você precisa entrar na sua conta para finalizar o pedido."
         );
 
-        window.location.href = "login.html";
+
+        window.location.href =
+            "login.html";
 
         return;
     }
@@ -885,21 +1059,36 @@ async function enviarPedidoWhatsApp() {
         countItems();
 
 
-    // Criamos uma cópia para salvar exatamente
-    // os produtos comprados naquele momento.
+    // ============================================
+    // CÓPIA DOS PRODUTOS
+    // ============================================
 
     const produtosPedido =
-        cart.map(item => ({
-            id: item.id,
-            nome: item.name,
-            preco: Number(item.price),
-            quantidade: item.quantity,
-            imagem: item.image || ""
-        }));
+        cart.map(
+            item => ({
+                id:
+                    item.id,
+
+                nome:
+                    item.name,
+
+                preco:
+                    Number(
+                        item.price
+                    ),
+
+                quantidade:
+                    item.quantity,
+
+                imagem:
+                    item.image ||
+                    ""
+            })
+        );
 
 
     // ============================================
-    // SALVAR PEDIDO NO SUPABASE
+    // DESABILITAR BOTÃO
     // ============================================
 
     const botaoEnviar =
@@ -910,67 +1099,87 @@ async function enviarPedidoWhatsApp() {
 
     if (botaoEnviar) {
 
-        botaoEnviar.disabled = true;
+        botaoEnviar.disabled =
+            true;
+
 
         botaoEnviar.innerHTML =
-            "Salvando pedido...";
+            '<i class="fa-solid fa-spinner fa-spin"></i> Registrando pedido...';
 
     }
 
 
+    // ============================================
+    // SALVAR PEDIDO NO SUPABASE
+    // ============================================
+
     const {
         data: pedidoSalvo,
         error: pedidoError
-    } = await supabaseClient
-        .from("pedidos")
-        .insert({
+    } =
+        await supabaseClient
+            .from(
+                "pedidos"
+            )
+            .insert({
 
-            numero_pedido:
-                numeroPedido,
+                numero_pedido:
+                    numeroPedido,
 
-            user_id:
-                user.id,
+                user_id:
+                    user.id,
 
-            nome_cliente:
-                nome,
+                nome_cliente:
+                    nome,
 
-            telefone:
-                telefone,
+                telefone:
+                    telefone,
 
-            destinatario:
-                destinatario || null,
+                destinatario:
+                    destinatario ||
+                    null,
 
-            endereco:
-                endereco,
+                endereco:
+                    endereco,
 
-            data_entrega:
-                dataEntrega || null,
+                data_entrega:
+                    dataEntrega,
 
-            horario_entrega:
-                horario || null,
+                horario_entrega:
+                    horario ||
+                    null,
 
-            mensagem:
-                mensagemFaixa || null,
+                mensagem:
+                    mensagemFaixa ||
+                    null,
 
-            observacoes:
-                observacoes || null,
+                observacoes:
+                    observacoes ||
+                    null,
 
-            produtos:
-                produtosPedido,
+                produtos:
+                    produtosPedido,
 
-            quantidade_itens:
-                quantidadeItens,
+                quantidade_itens:
+                    quantidadeItens,
 
-            total:
-                totalPedido,
+                total:
+                    totalPedido,
 
-            status:
-                "Recebido"
+                status:
+                    "Recebido",
 
-        })
-        .select()
-        .single();
+                status_pagamento:
+                    "Aguardando pagamento"
 
+            })
+            .select()
+            .single();
+
+
+    // ============================================
+    // ERRO AO SALVAR
+    // ============================================
 
     if (pedidoError) {
 
@@ -980,6 +1189,13 @@ async function enviarPedidoWhatsApp() {
         );
 
 
+        if (whatsappWindow) {
+
+            whatsappWindow.close();
+
+        }
+
+
         alert(
             "Não foi possível registrar seu pedido. Tente novamente."
         );
@@ -987,12 +1203,15 @@ async function enviarPedidoWhatsApp() {
 
         if (botaoEnviar) {
 
-            botaoEnviar.disabled = false;
+            botaoEnviar.disabled =
+                false;
+
 
             botaoEnviar.innerHTML =
-                '<i class="fa-brands fa-whatsapp"></i> Enviar pedido pelo WhatsApp';
+                '<i class="fa-brands fa-whatsapp"></i> Finalizar pedido';
 
         }
+
 
         return;
     }
@@ -1013,11 +1232,11 @@ async function enviarPedidoWhatsApp() {
 
 
     let mensagem =
-        "🌸 *NOVO PEDIDO - FLORES PIOLI* 🌸\n\n";
+        "*NOVO PEDIDO - FLORES PIOLI*\n\n";
 
 
     mensagem +=
-        "🧾 *PEDIDO: #" +
+        "*Pedido: #" +
         numeroPedido +
         "*\n\n";
 
@@ -1054,16 +1273,12 @@ async function enviarPedidoWhatsApp() {
         "\n";
 
 
-    if (dataEntrega) {
-
-        mensagem +=
-            "Data da entrega: " +
-            formatarDataPedido(
-                dataEntrega
-            ) +
-            "\n";
-
-    }
+    mensagem +=
+        "Data da entrega: " +
+        formatarDataPedido(
+            dataEntrega
+        ) +
+        "\n";
 
 
     if (horario) {
@@ -1077,7 +1292,7 @@ async function enviarPedidoWhatsApp() {
 
 
     mensagem +=
-        "\n━━━━━━━━━━━━━━━━━━━━\n\n";
+        "\n-----------------------------\n\n";
 
 
     mensagem +=
@@ -1085,10 +1300,15 @@ async function enviarPedidoWhatsApp() {
 
 
     cart.forEach(
-        function (item, index) {
+        function (
+            item,
+            index
+        ) {
 
             const subtotal =
-                Number(item.price) *
+                Number(
+                    item.price
+                ) *
                 item.quantity;
 
 
@@ -1126,27 +1346,31 @@ async function enviarPedidoWhatsApp() {
 
 
     mensagem +=
-        "━━━━━━━━━━━━━━━━━━━━\n\n";
+        "-----------------------------\n\n";
 
 
     mensagem +=
-        "🛒 *Itens:* " +
+        "*Itens:* " +
         quantidadeItens +
         "\n";
 
 
     mensagem +=
-        "💰 *TOTAL: " +
+        "*TOTAL: " +
         formatPrice(
             totalPedido
         ) +
         "*\n";
 
 
+    mensagem +=
+        "*Pagamento:* Aguardando pagamento\n";
+
+
     if (mensagemFaixa) {
 
         mensagem +=
-            "\n💌 *Mensagem da faixa/cartão:*\n" +
+            "\n*Mensagem da faixa/cartão:*\n" +
             mensagemFaixa +
             "\n";
 
@@ -1156,7 +1380,7 @@ async function enviarPedidoWhatsApp() {
     if (observacoes) {
 
         mensagem +=
-            "\n📝 *Observações:*\n" +
+            "\n*Observações:*\n" +
             observacoes +
             "\n";
 
@@ -1170,11 +1394,11 @@ async function enviarPedidoWhatsApp() {
 
 
     mensagem +=
-        "\nGostaria de confirmar a disponibilidade e a entrega. 🌷";
+        "\nGostaria de confirmar a disponibilidade e a entrega.";
 
 
     // ============================================
-    // ABRIR WHATSAPP
+    // LINK WHATSAPP
     // ============================================
 
     const link =
@@ -1186,8 +1410,9 @@ async function enviarPedidoWhatsApp() {
         );
 
 
-    // Limpar carrinho somente depois
-    // de o pedido ter sido salvo.
+    // ============================================
+    // LIMPAR CARRINHO SOMENTE APÓS SALVAR
+    // ============================================
 
     cart = [];
 
@@ -1201,10 +1426,25 @@ async function enviarPedidoWhatsApp() {
     closeCart();
 
 
-    window.open(
-        link,
-        "_blank"
-    );
+    // ============================================
+    // ABRIR WHATSAPP
+    // ============================================
+
+    if (
+        whatsappWindow &&
+        !whatsappWindow.closed
+    ) {
+
+        whatsappWindow.location.href =
+            link;
+
+    } else {
+
+        // Fallback caso o navegador tenha bloqueado a nova aba
+        window.location.href =
+            link;
+
+    }
 
 }
 
@@ -1213,14 +1453,26 @@ async function enviarPedidoWhatsApp() {
 // FORMATAR DATA
 // ============================================
 
-function formatarDataPedido(data) {
+function formatarDataPedido(
+    data
+) {
+
+    if (!data) {
+        return "";
+    }
+
 
     const partes =
         data.split("-");
 
 
-    if (partes.length !== 3) {
+    if (
+        partes.length !==
+        3
+    ) {
+
         return data;
+
     }
 
 
