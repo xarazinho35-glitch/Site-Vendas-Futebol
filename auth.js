@@ -407,7 +407,7 @@ async function atualizarUsuarioHeader() {
             Sair
         </a>
 
-        <a href="#">
+        <a href="meus-pedidos.html">
             Meus pedidos
         </a>
 

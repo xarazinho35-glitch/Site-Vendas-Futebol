@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Meus Pedidos | Flores Pioli</title>
+
+    <meta
+        name="description"
+        content="Acompanhe seus pedidos realizados na Flores Pioli."
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- CSS PRINCIPAL -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-base.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="whatsapp.css">
+    <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="responsive-redesign.css">
+    <link rel="stylesheet" href="animations.css">
+
+
+    <!-- CSS DE MEUS PEDIDOS -->
+
+    <link rel="stylesheet" href="meus-pedidos.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         TOPO
+    ====================================== -->
+
+    <div class="top-bar">
+
+        <div class="container top-bar-content">
+
+            <span>
+                Atendimento cuidadoso para momentos especiais
+            </span>
+
+
+            <div
+                class="top-links"
+                id="user-area"
+            >
+
+                <a href="login.html">
+                    Entrar
+                </a>
+
+                <a href="cadastro.html">
+                    Cadastre-se
+                </a>
+
+                <a href="#">
+                    Acompanhar pedido
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="main-header">
+
+        <div class="container header-content">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="CoroasTradicionais.html"
+                class="brand"
+                aria-label="Flores Pioli - Página inicial"
+            >
+
+                <img
+                    src="logo-flores.png"
+                    alt="Flores Pioli"
+                    class="brand-logo"
+                >
+
+            </a>
+
+
+            <!-- CONTATOS -->
+
+            <div class="header-contact">
+
+
+                <div class="contact-block">
+
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="contact-label">
+                            Atendimento
+                        </span>
+
+                        <strong>
+                            (34) 99248-0848
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-block">
+
+                    <div class="contact-icon whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="contact-label">
+                            Dúvidas ou pedidos
+                        </span>
+
+                        <strong>
+                            Fale pelo WhatsApp
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARRINHO -->
+
+            <button
+                type="button"
+                class="cart-btn"
+                id="cart-btn"
+                aria-label="Abrir carrinho"
+            >
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span class="cart-text">
+                    Carrinho
+                </span>
+
+                <span
+                    class="cart-count"
+                    id="cart-count"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CATEGORIAS
+    ====================================== -->
+
+    <nav class="category-nav">
+
+        <div class="container category-content">
+
+            <a href="CoroasTradicionais.html">
+                Coroas Tradicionais
+            </a>
+
+            <a href="CoroasEspeciais.html">
+                Coroas Especiais
+            </a>
+
+            <a href="CoroasPremium.html">
+                Coroas Premium
+            </a>
+
+            <a href="ArranjosDeFlores.html">
+                Arranjos
+            </a>
+
+            <a href="Buques.html">
+                Buquês
+            </a>
+
+            <a href="HomenagensEspeciais.html">
+                Homenagens
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================
+         MEUS PEDIDOS
+    ====================================== -->
+
+    <main class="meus-pedidos-page">
+
+        <div class="container">
+
+
+            <div class="meus-pedidos-header">
+
+                <span class="section-eyebrow">
+                    Sua conta
+                </span>
+
+                <h1>
+                    Meus Pedidos
+                </h1>
+
+                <p>
+                    Acompanhe seus pedidos realizados na Flores Pioli.
+                </p>
+
+            </div>
+
+
+            <!-- CARREGANDO -->
+
+            <div
+                id="meus-pedidos-loading"
+                class="pedidos-loading"
+            >
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <p>
+                    Carregando seus pedidos...
+                </p>
+
+            </div>
+
+
+            <!-- SEM PEDIDOS -->
+
+            <div
+                id="meus-pedidos-vazio"
+                class="pedidos-vazio"
+                style="display: none;"
+            >
+
+                <i class="fa-regular fa-folder-open"></i>
+
+                <h3>
+                    Você ainda não fez nenhum pedido.
+                </h3>
+
+                <p>
+                    Quando você realizar uma compra,
+                    ela aparecerá aqui.
+                </p>
+
+                <a href="CoroasTradicionais.html">
+                    Ver produtos
+                </a>
+
+            </div>
+
+
+            <!-- LISTA GERADA PELO JAVASCRIPT -->
+
+            <div
+                id="meus-pedidos-lista"
+                class="meus-pedidos-lista"
+            ></div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+
+                <div>
+
+                    <img
+                        src="logo-flores.png"
+                        alt="Flores Pioli"
+                        class="footer-logo"
+                    >
+
+                    <p>
+                        Homenagens florais preparadas com
+                        cuidado, respeito e atenção aos detalhes.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Produtos
+                    </h3>
+
+                    <a href="CoroasTradicionais.html">
+                        Coroas Tradicionais
+                    </a>
+
+                    <a href="CoroasEspeciais.html">
+                        Coroas Especiais
+                    </a>
+
+                    <a href="CoroasPremium.html">
+                        Coroas Premium
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Atendimento
+                    </h3>
+
+                    <p>
+                        (34) 99248-0848
+                    </p>
+
+                    <p>
+                        Uberlândia - MG
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================
+         WHATSAPP
+    ====================================== -->
+
+    <a
+        class="whatsapp-float"
+        href="https://wa.me/5534992480848"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar com a Flores Pioli pelo WhatsApp"
+    >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <span>
+            Fale conosco
+        </span>
+
+    </a>
+
+
+    <!-- =====================================
+         SCRIPTS
+    ====================================== -->
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- LOGIN / USUÁRIO -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- MEUS PEDIDOS -->
+
+    <script src="meus-pedidos.js"></script>
+
+
+    <!-- ANIMAÇÕES -->
+
+    <script src="animations.js"></script>
+
+
+</body>
+
+</html>

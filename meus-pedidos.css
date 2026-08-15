@@ -1,0 +1,266 @@
+.meus-pedidos-page {
+    min-height: 70vh;
+
+    padding:
+        70px 0 100px;
+
+    background: #faf8f7;
+}
+
+
+.meus-pedidos-header {
+    max-width: 650px;
+
+    margin-bottom: 40px;
+}
+
+
+.meus-pedidos-header h1 {
+    margin-bottom: 10px;
+
+    color: #33272c;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2.8rem;
+
+    font-weight: 500;
+}
+
+
+.meus-pedidos-header p {
+    color: #7a6a70;
+}
+
+
+.meus-pedidos-lista {
+    display: grid;
+
+    gap: 18px;
+}
+
+
+.pedido-card {
+    padding: 25px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e9e0e3;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 28px
+        rgba(57, 36, 44, 0.05);
+}
+
+
+.pedido-card-topo {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+.pedido-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #9a878f;
+
+    font-size: 0.7rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+
+.pedido-card h2 {
+    color: #3d3035;
+
+    font-size: 1.15rem;
+}
+
+
+.pedido-status {
+    padding:
+        7px 12px;
+
+    border-radius: 50px;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+
+.status-recebido {
+    background: #fff4d7;
+    color: #8b6600;
+}
+
+
+.status-em-preparacao {
+    background: #eaf2ff;
+    color: #3463a8;
+}
+
+
+.status-saiu-para-entrega {
+    background: #e6f4ff;
+    color: #13729a;
+}
+
+
+.status-entregue {
+    background: #e9f8ef;
+    color: #277a49;
+}
+
+
+.status-cancelado {
+    background: #fdecec;
+    color: #a93c3c;
+}
+
+
+.pedido-card-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+
+.pedido-card-info div {
+    padding: 14px;
+
+    background: #faf7f8;
+
+    border-radius: 8px;
+}
+
+
+.pedido-card-info span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #97858c;
+
+    font-size: 0.7rem;
+}
+
+
+.pedido-card-info strong {
+    color: #45373d;
+
+    font-size: 0.87rem;
+}
+
+
+.pedido-detalhes-btn {
+    padding:
+        11px 17px;
+
+    background: #33272c;
+
+    color: #ffffff;
+
+    border: none;
+    border-radius: 7px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.pedido-detalhes-btn:hover {
+    background: var(--rosa);
+}
+
+
+.pedidos-loading,
+.pedidos-vazio,
+.pedidos-erro {
+    padding: 40px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e9e0e3;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: #77666d;
+}
+
+
+.pedidos-vazio a {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding:
+        11px 17px;
+
+    background: var(--rosa);
+
+    color: white;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+
+@media (max-width: 600px) {
+
+    .meus-pedidos-page {
+        padding:
+            45px 0 70px;
+    }
+
+
+    .meus-pedidos-header h1 {
+        font-size: 2.2rem;
+    }
+
+
+    .pedido-card-topo {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .pedido-card-info {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .pedido-detalhes-btn {
+        width: 100%;
+    }
+
+}

@@ -399,6 +399,8 @@ function openCart() {
         "hidden";
 }
 
+document.body.classList.add("cart-open");
+
 
 // ============================================
 // FECHAR CARRINHO
@@ -427,6 +429,8 @@ function closeCart() {
     document.body.style.overflow =
         "";
 }
+
+document.body.classList.remove("cart-open");
 
 
 // ============================================
