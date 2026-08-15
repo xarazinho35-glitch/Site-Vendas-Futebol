@@ -1,219 +1,985 @@
-/* ================================
-   PÁGINA DO PRODUTO
-================================ */
+/* =========================================
+   FLORES PIOLI - DETALHES DO PEDIDO
+========================================= */
 
-.produto-page {
-    min-height: 100vh;
 
-    padding: 125px 20px 60px;
+.pedido-page {
+    min-height: 75vh;
+
+    padding:
+        48px 0
+        95px;
+
+    background: #faf8f7;
 }
 
-.produto-detalhe {
-    max-width: 1200px;
 
-    margin: auto;
-    padding: 35px;
+/* =========================================
+   VOLTAR
+========================================= */
 
-    display: grid;
+.pedido-voltar {
+    display: inline-flex;
 
-    grid-template-columns: 1fr 1fr;
-
-    gap: 45px;
-
-    background: white;
-
-    border: 1px solid var(--rosa-borda);
-    border-radius: 22px;
-
-    box-shadow: var(--sombra);
-}
-
-.produto-foto {
-    min-height: 450px;
-
-    display: flex;
     align-items: center;
+
     justify-content: center;
 
-    background: var(--rosa-claro);
+    gap: 9px;
 
-    border-radius: 18px;
+    margin-bottom: 28px;
 
-    padding: 25px;
-}
+    padding:
+        11px 17px;
 
-.produto-foto img {
-    width: 100%;
-    max-height: 450px;
+    background: #ffffff;
 
-    object-fit: contain;
-}
+    color: #4a3a40;
 
-.voltar-btn {
-    margin-bottom: 20px;
+    border:
+        1px solid #e0d4d8;
 
-    padding: 10px 18px;
-
-    background: var(--rosa-claro);
-
-    color: var(--rosa);
-
-    border: 1px solid var(--rosa-borda);
-    border-radius: 9px;
-
-    cursor: pointer;
-}
-
-.produto-info-detalhe h1 {
-    margin-bottom: 10px;
-
-    font-size: 2.5rem;
-}
-
-.produto-avaliacao {
-    margin-bottom: 20px;
-}
-
-#produto-preco {
-    margin-bottom: 20px;
-
-    color: var(--rosa);
-
-    font-size: 2.2rem;
-}
-
-#produto-descricao {
-    margin-bottom: 25px;
-
-    color: var(--texto-claro);
-}
-
-.produto-opcoes h3,
-.produto-quantidade h3,
-.produto-mensagem h3 {
-    margin-bottom: 10px;
-}
-
-.tamanhos {
-    display: flex;
-
-    gap: 10px;
-
-    margin-bottom: 20px;
-}
-
-.tamanhos button {
-    padding: 11px 18px;
-
-    background: white;
-
-    border: 2px solid var(--rosa-borda);
-    border-radius: 9px;
-
-    cursor: pointer;
-}
-
-.tamanhos button.active,
-.tamanhos button:hover {
-    background: var(--rosa);
-
-    color: white;
-
-    border-color: var(--rosa);
-}
-
-.produto-mensagem {
-    margin-bottom: 20px;
-}
-
-.produto-mensagem textarea {
-    width: 100%;
-    min-height: 100px;
-
-    padding: 12px;
-
-    background: #fffafd;
-
-    border: 1px solid var(--rosa-borda);
-    border-radius: 10px;
-
-    resize: vertical;
-}
-
-.produto-mensagem small {
-    color: var(--texto-claro);
-}
-
-.produto-quantidade {
-    margin-bottom: 20px;
-}
-
-.produto-quantidade input {
-    width: 80px;
-
-    padding: 10px;
-
-    border: 1px solid var(--rosa-borda);
     border-radius: 8px;
-}
 
-.produto-botoes {
-    display: flex;
+    box-shadow:
+        0 4px 16px
+        rgba(60, 38, 47, 0.05);
 
-    gap: 10px;
-}
+    text-decoration: none;
 
-#btn-comprar-agora,
-#btn-add-produto {
-    flex: 1;
-
-    padding: 14px;
-
-    border-radius: 10px;
+    font-size: 0.8rem;
 
     font-weight: 700;
 
-    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
 }
 
-#btn-comprar-agora {
-    background: var(--rosa);
 
-    color: white;
+.pedido-voltar:hover {
+    background: #33272c;
 
-    border: none;
+    color: #ffffff;
+
+    border-color: #33272c;
+
+    transform:
+        translateX(-3px);
 }
 
-#btn-add-produto {
-    background: white;
 
-    color: var(--rosa);
-
-    border: 2px solid var(--rosa);
+.pedido-voltar i {
+    font-size: 12px;
 }
 
-.produto-beneficios {
-    margin-top: 20px;
-    padding: 18px;
 
-    background: var(--rosa-claro);
+
+/* =========================================
+   LOADING
+========================================= */
+
+.pedido-loading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        55px 25px;
+
+    background: #ffffff;
+
+    color: #7d6c73;
+
+    border:
+        1px solid #e8dfe2;
 
     border-radius: 12px;
 }
 
 
-/* ================================
-   ANIMAÇÃO
-================================ */
 
-@keyframes pulse {
-    50% {
-        transform: scale(1.15);
+/* =========================================
+   ERRO
+========================================= */
+
+.pedido-erro {
+    padding:
+        55px 25px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e8dfe2;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+.pedido-erro > i {
+    margin-bottom: 15px;
+
+    color: #c64074;
+
+    font-size: 32px;
+}
+
+
+.pedido-erro h2 {
+    margin-bottom: 8px;
+
+    color: #392d32;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 500;
+}
+
+
+.pedido-erro p {
+    margin-bottom: 20px;
+
+    color: #837178;
+}
+
+
+.pedido-erro a {
+    display: inline-flex;
+
+    padding:
+        10px 15px;
+
+    background: #33272c;
+
+    color: white;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+
+
+/* =========================================
+   CABEÇALHO DO PEDIDO
+========================================= */
+
+.pedido-header-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 20px;
+
+    padding:
+        28px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e9e0e3;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(60, 38, 47, 0.05);
+}
+
+
+.pedido-eyebrow {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #c64074;
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+.pedido-header-card h1 {
+    margin-bottom: 6px;
+
+    color: #34282d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2rem;
+
+    font-weight: 500;
+}
+
+
+.pedido-header-card p {
+    color: #8a777e;
+
+    font-size: 0.79rem;
+}
+
+
+
+/* =========================================
+   STATUS NO TOPO
+========================================= */
+
+.pedido-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        8px 13px;
+
+    border-radius: 50px;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.status-recebido {
+    background: #fff3d6;
+
+    color: #886300;
+}
+
+
+.status-em-preparacao {
+    background: #eaf2ff;
+
+    color: #3263a9;
+}
+
+
+.status-saiu-para-entrega {
+    background: #e4f5ff;
+
+    color: #16749d;
+}
+
+
+.status-entregue {
+    background: #e8f8ee;
+
+    color: #287a49;
+}
+
+
+.status-cancelado {
+    background: #fdeaea;
+
+    color: #a23939;
+}
+
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.pedido-card {
+    margin-bottom: 20px;
+
+    padding:
+        27px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e9e0e3;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 6px 24px
+        rgba(60, 38, 47, 0.035);
+}
+
+
+.pedido-card-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 22px;
+}
+
+
+.pedido-card-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #fbf0f4;
+
+    color: #c64074;
+
+    border-radius: 50%;
+}
+
+
+.pedido-card-title span:not(.pedido-card-icon) {
+    display: block;
+
+    margin-bottom: 1px;
+
+    color: #a08d94;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+    text-transform: uppercase;
+}
+
+
+.pedido-card-title h2 {
+    color: #3a2e33;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.35rem;
+
+    font-weight: 500;
+}
+
+
+
+/* =========================================
+   SOMENTE STATUS ATUAL
+========================================= */
+
+.status-atual-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding:
+        22px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid #e7dce0;
+
+    background: #faf7f8;
+}
+
+
+.status-atual-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+}
+
+
+.status-atual-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #98858c;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    text-transform: uppercase;
+}
+
+
+.status-atual-card h3 {
+    margin-bottom: 3px;
+
+    color: #403238;
+
+    font-size: 1rem;
+}
+
+
+.status-atual-card p {
+    color: #806e75;
+
+    font-size: 0.8rem;
+}
+
+
+
+/* RECEBIDO */
+
+.status-card-recebido {
+    background: #fffaf0;
+
+    border-color: #f0dfb8;
+}
+
+
+.status-card-recebido
+.status-atual-icon {
+    background: #fff0bf;
+
+    color: #957000;
+}
+
+
+
+/* PREPARAÇÃO */
+
+.status-card-preparacao {
+    background: #f6f9ff;
+
+    border-color: #d4e1f5;
+}
+
+
+.status-card-preparacao
+.status-atual-icon {
+    background: #e4edfb;
+
+    color: #3263a9;
+}
+
+
+
+/* ENTREGA */
+
+.status-card-entrega {
+    background: #f4fbff;
+
+    border-color: #cfe9f5;
+}
+
+
+.status-card-entrega
+.status-atual-icon {
+    background: #ddf3fd;
+
+    color: #13759e;
+}
+
+
+
+/* ENTREGUE */
+
+.status-card-entregue {
+    background: #f4fbf6;
+
+    border-color: #cfe8d7;
+}
+
+
+.status-card-entregue
+.status-atual-icon {
+    background: #ddf4e4;
+
+    color: #287d4b;
+}
+
+
+
+/* CANCELADO */
+
+.status-card-cancelado {
+    background: #fff6f6;
+
+    border-color: #f2d1d1;
+}
+
+
+.status-card-cancelado
+.status-atual-icon {
+    background: #fbe1e1;
+
+    color: #ac3d3d;
+}
+
+
+
+/* =========================================
+   PRODUTOS
+========================================= */
+
+.pedido-produtos {
+    display: grid;
+
+    gap: 12px;
+}
+
+
+.pedido-produto {
+    display: grid;
+
+    grid-template-columns:
+        80px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding:
+        14px;
+
+    background: #faf7f8;
+
+    border:
+        1px solid #eee5e8;
+
+    border-radius: 10px;
+}
+
+
+.pedido-produto-imagem {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+}
+
+
+.pedido-produto-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.pedido-produto-imagem i {
+    color: #c64074;
+
+    font-size: 25px;
+}
+
+
+.pedido-produto-info h3 {
+    margin-bottom: 8px;
+
+    color: #403238;
+
+    font-size: 0.92rem;
+}
+
+
+.pedido-produto-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px 20px;
+}
+
+
+.pedido-produto-meta span {
+    color: #8a777e;
+
+    font-size: 0.72rem;
+}
+
+
+.pedido-produto-meta strong {
+    color: #57474e;
+}
+
+
+.pedido-produto-preco {
+    text-align: right;
+}
+
+
+.pedido-produto-preco span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #a08d94;
+
+    font-size: 0.63rem;
+
+    text-transform: uppercase;
+}
+
+
+.pedido-produto-preco strong {
+    color: #c64074;
+
+    font-size: 1rem;
+}
+
+
+
+/* =========================================
+   ENTREGA
+========================================= */
+
+.pedido-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+
+.pedido-info-item {
+    padding:
+        16px;
+
+    background: #faf7f8;
+
+    border-radius: 9px;
+}
+
+
+.pedido-info-endereco {
+    grid-column:
+        span 2;
+}
+
+
+.pedido-info-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #9a878e;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.45px;
+}
+
+
+.pedido-info-item strong {
+    color: #47393f;
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+}
+
+
+
+/* =========================================
+   PERSONALIZAÇÃO
+========================================= */
+
+.pedido-personalizacao {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 13px;
+}
+
+
+.pedido-personalizacao > div {
+    padding:
+        18px;
+
+    background: #faf7f8;
+
+    border-radius: 9px;
+}
+
+
+.pedido-personalizacao span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #99868d;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.45px;
+}
+
+
+.pedido-personalizacao p {
+    color: #58494f;
+
+    font-size: 0.8rem;
+
+    line-height: 1.65;
+}
+
+
+
+/* =========================================
+   RESUMO
+========================================= */
+
+.pedido-resumo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 55px;
+
+    padding:
+        25px 28px;
+
+    background: #33272c;
+
+    border-radius: 12px;
+
+    color: #ffffff;
+}
+
+
+.pedido-resumo > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.pedido-resumo span {
+    color: #cbbcc2;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.pedido-resumo strong {
+    color: #ffffff;
+
+    font-size: 1rem;
+}
+
+
+.pedido-resumo-total
+strong {
+    font-size: 1.55rem;
+}
+
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 800px) {
+
+    .pedido-info-grid {
+        grid-template-columns:
+            1fr 1fr;
     }
+
+
+    .pedido-info-endereco {
+        grid-column:
+            span 2;
+    }
+
 }
 
-.cart-count.pulse {
-    animation: pulse 0.3s;
+
+@media (max-width: 600px) {
+
+    .pedido-page {
+        padding:
+            30px 0
+            70px;
+    }
+
+
+    .pedido-voltar {
+        width: 100%;
+
+        justify-content:
+            flex-start;
+    }
+
+
+    .pedido-header-card {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding:
+            22px 18px;
+    }
+
+
+    .pedido-header-card h1 {
+        font-size: 1.65rem;
+    }
+
+
+    .pedido-card {
+        padding:
+            21px 17px;
+    }
+
+
+    .status-atual-card {
+        align-items:
+            flex-start;
+
+        padding:
+            18px;
+    }
+
+
+    .status-atual-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .pedido-produto {
+        grid-template-columns:
+            65px
+            1fr;
+    }
+
+
+    .pedido-produto-imagem {
+        width: 65px;
+        height: 65px;
+    }
+
+
+    .pedido-produto-preco {
+        grid-column:
+            2;
+
+        text-align: left;
+    }
+
+
+    .pedido-info-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .pedido-info-endereco {
+        grid-column:
+            auto;
+    }
+
+
+    .pedido-personalizacao {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .pedido-resumo {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 16px;
+    }
+
+
+    .pedido-resumo-total {
+        padding-top: 15px;
+
+        border-top:
+            1px solid
+            rgba(
+                255,
+                255,
+                255,
+                0.12
+            );
+    }
+
 }
-
-
