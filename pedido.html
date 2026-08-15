@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Detalhes do Pedido | Flores Pioli</title>
+
+    <meta
+        name="description"
+        content="Veja os detalhes e acompanhe o status do seu pedido na Flores Pioli."
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-base.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="whatsapp.css">
+    <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="responsive-redesign.css">
+    <link rel="stylesheet" href="animations.css">
+
+    <link rel="stylesheet" href="pedido-pedido.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- TOPO -->
+
+    <div class="top-bar">
+
+        <div class="container top-bar-content">
+
+            <span>
+                Atendimento cuidadoso para momentos especiais
+            </span>
+
+
+            <div
+                class="top-links"
+                id="user-area"
+            >
+
+                <a href="login.html">
+                    Entrar
+                </a>
+
+                <a href="cadastro.html">
+                    Cadastre-se
+                </a>
+
+                <a href="#">
+                    Acompanhar pedido
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="main-header">
+
+        <div class="container header-content">
+
+
+            <a
+                href="CoroasTradicionais.html"
+                class="brand"
+            >
+
+                <img
+                    src="logo-flores.png"
+                    alt="Flores Pioli"
+                    class="brand-logo"
+                >
+
+            </a>
+
+
+            <div class="header-contact">
+
+
+                <div class="contact-block">
+
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="contact-label">
+                            Atendimento
+                        </span>
+
+                        <strong>
+                            (34) 99248-0848
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-block">
+
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="contact-label">
+                            Dúvidas ou pedidos
+                        </span>
+
+                        <strong>
+                            Fale pelo WhatsApp
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+    <!-- CATEGORIAS -->
+
+    <nav class="category-nav">
+
+        <div class="container category-content">
+
+            <a href="CoroasTradicionais.html">
+                Coroas Tradicionais
+            </a>
+
+            <a href="CoroasEspeciais.html">
+                Coroas Especiais
+            </a>
+
+            <a href="CoroasPremium.html">
+                Coroas Premium
+            </a>
+
+            <a href="ArranjosDeFlores.html">
+                Arranjos
+            </a>
+
+            <a href="Buques.html">
+                Buquês
+            </a>
+
+            <a href="HomenagensEspeciais.html">
+                Homenagens
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="pedido-detalhe-page">
+
+        <div class="container">
+
+
+            <a
+                href="meus-pedidos.html"
+                class="pedido-voltar"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Voltar para meus pedidos
+
+            </a>
+
+
+            <div
+                id="pedido-loading"
+                class="pedido-loading"
+            >
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <span>
+                    Carregando pedido...
+                </span>
+
+            </div>
+
+
+            <div
+                id="pedido-erro"
+                class="pedido-erro"
+                style="display: none;"
+            >
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                <h2>
+                    Pedido não encontrado
+                </h2>
+
+                <p>
+                    Não foi possível localizar este pedido.
+                </p>
+
+            </div>
+
+
+            <section
+                id="pedido-conteudo"
+                class="pedido-conteudo"
+                style="display: none;"
+            >
+
+
+                <!-- CABEÇALHO DO PEDIDO -->
+
+                <div class="pedido-topo">
+
+                    <div>
+
+                        <span class="pedido-kicker">
+                            Detalhes do pedido
+                        </span>
+
+                        <h1 id="pedido-numero">
+                            Pedido
+                        </h1>
+
+                        <p id="pedido-data-criacao"></p>
+
+                    </div>
+
+
+                    <span
+                        id="pedido-status"
+                        class="pedido-status"
+                    >
+                        Recebido
+                    </span>
+
+                </div>
+
+
+                <!-- ACOMPANHAMENTO -->
+
+                <section class="pedido-secao">
+
+                    <h2>
+                        Acompanhe seu pedido
+                    </h2>
+
+
+                    <div class="pedido-timeline">
+
+
+                        <div
+                            class="timeline-etapa"
+                            data-status="Recebido"
+                        >
+
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Pedido recebido
+                                </strong>
+
+                                <span>
+                                    Seu pedido foi registrado.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="timeline-etapa"
+                            data-status="Em preparação"
+                        >
+
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Em preparação
+                                </strong>
+
+                                <span>
+                                    Estamos preparando sua homenagem.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="timeline-etapa"
+                            data-status="Saiu para entrega"
+                        >
+
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Saiu para entrega
+                                </strong>
+
+                                <span>
+                                    Seu pedido está a caminho.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="timeline-etapa"
+                            data-status="Entregue"
+                        >
+
+                            <div class="timeline-icon">
+                                <i class="fa-solid fa-house-circle-check"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Entregue
+                                </strong>
+
+                                <span>
+                                    Pedido finalizado com sucesso.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- PRODUTOS -->
+
+                <section class="pedido-secao">
+
+                    <h2>
+                        Produtos
+                    </h2>
+
+
+                    <div
+                        id="pedido-produtos"
+                        class="pedido-produtos"
+                    ></div>
+
+                </section>
+
+
+                <!-- ENTREGA -->
+
+                <section class="pedido-secao">
+
+                    <h2>
+                        Informações da entrega
+                    </h2>
+
+
+                    <div class="pedido-info-grid">
+
+
+                        <div class="pedido-info-card">
+
+                            <span>
+                                Cliente
+                            </span>
+
+                            <strong id="pedido-cliente">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pedido-info-card">
+
+                            <span>
+                                Telefone
+                            </span>
+
+                            <strong id="pedido-telefone">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pedido-info-card">
+
+                            <span>
+                                Destinatário
+                            </span>
+
+                            <strong id="pedido-destinatario">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pedido-info-card">
+
+                            <span>
+                                Data da entrega
+                            </span>
+
+                            <strong id="pedido-data-entrega">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pedido-info-card">
+
+                            <span>
+                                Horário
+                            </span>
+
+                            <strong id="pedido-horario">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pedido-info-card pedido-info-endereco">
+
+                            <span>
+                                Endereço
+                            </span>
+
+                            <strong id="pedido-endereco">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- MENSAGEM -->
+
+                <section class="pedido-secao">
+
+                    <h2>
+                        Personalização
+                    </h2>
+
+
+                    <div class="pedido-textos">
+
+
+                        <div>
+
+                            <span>
+                                Mensagem da faixa/cartão
+                            </span>
+
+                            <p id="pedido-mensagem">
+                                Nenhuma mensagem informada.
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Observações
+                            </span>
+
+                            <p id="pedido-observacoes">
+                                Nenhuma observação informada.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- TOTAL -->
+
+                <section class="pedido-resumo">
+
+                    <div>
+
+                        <span>
+                            Quantidade de itens
+                        </span>
+
+                        <strong id="pedido-quantidade">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Total do pedido
+                        </span>
+
+                        <strong
+                            id="pedido-total"
+                            class="pedido-total-valor"
+                        >
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                </section>
+
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- WHATSAPP -->
+
+    <a
+        class="whatsapp-float"
+        href="https://wa.me/5534992480848"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <span>
+            Fale conosco
+        </span>
+
+    </a>
+
+
+    <!-- SCRIPTS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="auth.js?v=2"></script>
+
+    <script src="pedido.js"></script>
+
+    <script src="animations.js"></script>
+
+
+</body>
+
+</html>

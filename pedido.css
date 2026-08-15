@@ -1,0 +1,725 @@
+/* =========================================
+   FLORES PIOLI - DETALHES DO PEDIDO
+========================================= */
+
+.pedido-detalhe-page {
+    min-height: 75vh;
+
+    padding:
+        55px 0 100px;
+
+    background: #faf8f7;
+}
+
+
+/* VOLTAR */
+
+.pedido-voltar {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+
+    color: #77666d;
+
+    text-decoration: none;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+
+.pedido-voltar:hover {
+    color: var(--rosa);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* LOADING / ERRO */
+
+.pedido-loading,
+.pedido-erro {
+    padding:
+        55px 30px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e8dfe2;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: #796970;
+}
+
+
+.pedido-loading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.pedido-erro i {
+    margin-bottom: 15px;
+
+    color: var(--rosa);
+
+    font-size: 32px;
+}
+
+
+.pedido-erro h2 {
+    margin-bottom: 7px;
+
+    color: #3f3237;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 500;
+}
+
+
+/* TOPO */
+
+.pedido-topo {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 25px;
+
+    padding:
+        30px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e8dfe2;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(57, 36, 44, 0.05);
+}
+
+
+.pedido-kicker {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--rosa);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.pedido-topo h1 {
+    margin-bottom: 5px;
+
+    color: #34282d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2.1rem;
+
+    font-weight: 500;
+}
+
+
+.pedido-topo p {
+    color: #8a777e;
+
+    font-size: 0.8rem;
+}
+
+
+/* STATUS */
+
+.pedido-status {
+    padding:
+        8px 13px;
+
+    border-radius: 50px;
+
+    font-size: 0.73rem;
+
+    font-weight: 800;
+}
+
+
+.status-recebido {
+    background: #fff4d7;
+    color: #8b6600;
+}
+
+
+.status-em-preparacao {
+    background: #eaf2ff;
+    color: #3463a8;
+}
+
+
+.status-saiu-para-entrega {
+    background: #e5f5ff;
+    color: #176f96;
+}
+
+
+.status-entregue {
+    background: #e9f8ef;
+    color: #277a49;
+}
+
+
+.status-cancelado {
+    background: #fdecec;
+    color: #a63d3d;
+}
+
+
+/* SEÇÕES */
+
+.pedido-secao {
+    margin-bottom: 22px;
+
+    padding:
+        28px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e8dfe2;
+
+    border-radius: 12px;
+}
+
+
+.pedido-secao > h2 {
+    margin-bottom: 22px;
+
+    color: #3d3035;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.4rem;
+
+    font-weight: 500;
+}
+
+
+/* TIMELINE */
+
+.pedido-timeline {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+.timeline-etapa {
+    position: relative;
+
+    min-height: 120px;
+
+    padding: 18px;
+
+    background: #faf7f8;
+
+    border:
+        1px solid #eee5e8;
+
+    border-radius: 10px;
+
+    opacity: 0.52;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.timeline-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 14px;
+
+    background: #eee5e8;
+
+    color: #8e7a82;
+
+    border-radius: 50%;
+}
+
+
+.timeline-etapa strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #41343a;
+
+    font-size: 0.83rem;
+}
+
+
+.timeline-etapa span {
+    color: #8c7a81;
+
+    font-size: 0.7rem;
+
+    line-height: 1.5;
+}
+
+
+.timeline-etapa.concluida {
+    opacity: 1;
+
+    background: #f3fbf6;
+
+    border-color: #cfe8d8;
+}
+
+
+.timeline-etapa.concluida
+.timeline-icon {
+    background: #dff4e6;
+
+    color: #2e8550;
+}
+
+
+.timeline-etapa.atual {
+    opacity: 1;
+
+    transform:
+        translateY(-3px);
+
+    background: #fff8fb;
+
+    border-color: #deb9c8;
+
+    box-shadow:
+        0 8px 22px
+        rgba(72, 43, 55, 0.07);
+}
+
+
+.timeline-etapa.atual
+.timeline-icon {
+    background: var(--rosa);
+
+    color: #ffffff;
+}
+
+
+/* PRODUTOS */
+
+.pedido-produtos {
+    display: grid;
+
+    gap: 12px;
+}
+
+
+.pedido-produto {
+    display: grid;
+
+    grid-template-columns:
+        78px 1fr auto;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 14px;
+
+    background: #faf7f8;
+
+    border:
+        1px solid #eee5e8;
+
+    border-radius: 10px;
+}
+
+
+.pedido-produto-imagem {
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+}
+
+
+.pedido-produto-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.pedido-produto-imagem i {
+    color: var(--rosa);
+
+    font-size: 24px;
+}
+
+
+.pedido-produto-info h3 {
+    margin-bottom: 7px;
+
+    color: #3e3136;
+
+    font-size: 0.95rem;
+}
+
+
+.pedido-produto-info span {
+    display: block;
+
+    color: #88767d;
+
+    font-size: 0.74rem;
+}
+
+
+.pedido-produto-subtotal {
+    color: var(--rosa);
+
+    font-size: 1rem;
+
+    white-space: nowrap;
+}
+
+
+/* INFORMAÇÕES */
+
+.pedido-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+
+.pedido-info-card {
+    padding: 16px;
+
+    background: #faf7f8;
+
+    border-radius: 9px;
+}
+
+
+.pedido-info-endereco {
+    grid-column:
+        span 2;
+}
+
+
+.pedido-info-card span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #9b8990;
+
+    font-size: 0.67rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.pedido-info-card strong {
+    color: #44363c;
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+}
+
+
+/* TEXTOS */
+
+.pedido-textos {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 14px;
+}
+
+
+.pedido-textos > div {
+    padding: 18px;
+
+    background: #faf7f8;
+
+    border-radius: 9px;
+}
+
+
+.pedido-textos span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #9b8990;
+
+    font-size: 0.67rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.pedido-textos p {
+    color: #55464c;
+
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+}
+
+
+/* RESUMO */
+
+.pedido-resumo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 45px;
+
+    padding:
+        25px 28px;
+
+    background: #33272c;
+
+    color: #ffffff;
+
+    border-radius: 12px;
+}
+
+
+.pedido-resumo div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.pedido-resumo span {
+    color: #c8b9bf;
+
+    font-size: 0.68rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.pedido-resumo strong {
+    font-size: 0.95rem;
+}
+
+
+.pedido-total-valor {
+    color: #ffffff;
+
+    font-size: 1.5rem !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .pedido-timeline {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .pedido-info-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .pedido-info-endereco {
+        grid-column:
+            span 2;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .pedido-detalhe-page {
+        padding:
+            35px 0 70px;
+    }
+
+
+    .pedido-topo {
+        flex-direction: column;
+
+        padding: 22px;
+    }
+
+
+    .pedido-topo h1 {
+        font-size: 1.7rem;
+    }
+
+
+    .pedido-timeline {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .timeline-etapa {
+        min-height: auto;
+    }
+
+
+    .pedido-secao {
+        padding:
+            22px 18px;
+    }
+
+
+    .pedido-produto {
+        grid-template-columns:
+            65px 1fr;
+    }
+
+
+    .pedido-produto-imagem {
+        width: 65px;
+        height: 65px;
+    }
+
+
+    .pedido-produto-subtotal {
+        grid-column:
+            2;
+
+        margin-top: 4px;
+    }
+
+
+    .pedido-info-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .pedido-info-endereco {
+        grid-column:
+            auto;
+    }
+
+
+    .pedido-textos {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .pedido-resumo {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+    }
+
+
+    .pedido-resumo div:last-child {
+        padding-top: 15px;
+
+        border-top:
+            1px solid rgba(
+                255,
+                255,
+                255,
+                0.12
+            );
+    }
+
+}
