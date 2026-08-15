@@ -363,3 +363,67 @@
     }
 
 }
+
+/* =========================================
+   CORREÇÃO CARRINHO NO CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .cart-sidebar {
+        width: 100%;
+        max-width: 100%;
+
+        height: 100vh;
+        height: 100dvh;
+
+        max-height: 100dvh;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+
+    .cart-header {
+        flex-shrink: 0;
+    }
+
+
+    .cart-items {
+        flex: 1 1 auto;
+
+        min-height: 0;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        -webkit-overflow-scrolling: touch;
+
+        padding-bottom: 20px;
+    }
+
+
+    .cart-footer {
+        flex-shrink: 0;
+
+        position: relative;
+
+        padding:
+            18px
+            18px
+            calc(18px + env(safe-area-inset-bottom));
+
+        background: #ffffff;
+
+        z-index: 5;
+    }
+
+
+    .checkout-btn,
+    .clear-cart-btn {
+        min-height: 48px;
+    }
+
+}
