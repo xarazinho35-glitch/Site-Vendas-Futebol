@@ -506,6 +506,18 @@ function criarCardAdmin(
 
                 </div>
 
+                <div>
+
+    <span>
+        Pagamento
+    </span>
+
+    <strong class="admin-pagamento-texto">
+        ${pedido.status_pagamento || "Aguardando pagamento"}
+    </strong>
+
+</div>
+
 
             </div>
 
@@ -584,41 +596,225 @@ function criarCardAdmin(
 
             </div>
 
+            <div class="admin-pagamento-area">
+
+    <span>
+        Status do pagamento
+    </span>
+
+
+    <div class="admin-pagamento-buttons">
+
+        ${criarBotaoPagamento(
+            pedido,
+            "Aguardando pagamento"
+        )}
+
+        ${criarBotaoPagamento(
+            pedido,
+            "Pago"
+        )}
+
+        ${criarBotaoPagamento(
+            pedido,
+            "Cancelado"
+        )}
+
+    </div>
+
+</div>
+
 
 
             <div class="admin-card-actions">
 
+    <button
+        type="button"
+        class="admin-detalhes-btn"
+        onclick="toggleDetalhesAdmin('${pedido.id}')"
+    >
+        <i class="fa-regular fa-eye"></i>
+        Ver detalhes
+    </button>
 
-                <a
-                    href="pedido.html?numero=${encodeURIComponent(
-                        pedido.numero_pedido
-                    )}"
-                    target="_blank"
-                >
+    <a
+        href="https://wa.me/55${limparTelefoneAdmin(
+            pedido.telefone
+        )}"
+        target="_blank"
+        class="admin-whatsapp-link"
+    >
+        <i class="fa-brands fa-whatsapp"></i>
+        Falar com cliente
+    </a>
 
-                    <i class="fa-regular fa-eye"></i>
-
-                    Ver pedido
-
-                </a>
-
-
-                <a
-                    href="https://wa.me/55${limparTelefoneAdmin(
-                        pedido.telefone
-                    )}"
-                    target="_blank"
-                    class="admin-whatsapp-link"
-                >
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    Cliente
-
-                </a>
+</div>
 
 
-            </div>
+<div
+    class="admin-pedido-detalhes"
+    id="detalhes-${pedido.id}"
+>
+
+
+    <div class="admin-detalhes-grid">
+
+
+        <div>
+
+            <span>
+                Destinatário
+            </span>
+
+            <strong>
+                ${pedido.destinatario || "Não informado"}
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Data da entrega
+            </span>
+
+            <strong>
+                ${
+                    pedido.data_entrega
+                        ? formatarDataEntregaAdmin(
+                            pedido.data_entrega
+                        )
+                        : "Não informada"
+                }
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Horário
+            </span>
+
+            <strong>
+                ${
+                    pedido.horario_entrega
+                        ? String(
+                            pedido.horario_entrega
+                        ).slice(0, 5)
+                        : "Não informado"
+                }
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Endereço
+            </span>
+
+            <strong>
+                ${pedido.endereco || "-"}
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="admin-detalhes-texto">
+
+        <span>
+            Mensagem da faixa/cartão
+        </span>
+
+        <p>
+            ${
+                pedido.mensagem ||
+                "Nenhuma mensagem informada."
+            }
+        </p>
+
+    </div>
+
+
+    <div class="admin-detalhes-texto">
+
+        <span>
+            Observações
+        </span>
+
+        <p>
+            ${
+                pedido.observacoes ||
+                "Nenhuma observação informada."
+            }
+        </p>
+
+    </div>
+
+
+    <div class="admin-detalhes-produtos">
+
+        <span>
+            Produtos completos
+        </span>
+
+        ${
+            produtos.length > 0
+                ? produtos
+                    .map(
+                        function (produto) {
+
+                            return `
+
+                                <div class="admin-detalhe-produto">
+
+                                    <div>
+
+                                        <strong>
+                                            ${produto.quantidade}x
+                                            ${produto.nome}
+                                        </strong>
+
+                                        <span>
+                                            ${formatarPrecoAdmin(
+                                                produto.preco
+                                            )} cada
+                                        </span>
+
+                                    </div>
+
+                                    <strong>
+                                        ${formatarPrecoAdmin(
+                                            Number(
+                                                produto.preco
+                                            ) *
+                                            Number(
+                                                produto.quantidade
+                                            )
+                                        )}
+                                    </strong>
+
+                                </div>
+
+                            `;
+
+                        }
+                    )
+                    .join("")
+                : "Nenhum produto encontrado."
+        }
+
+    </div>
+
+
+</div>
 
 
         </article>
@@ -670,6 +866,133 @@ function criarBotaoStatus(
         </button>
 
     `;
+
+}
+
+function criarBotaoPagamento(
+    pedido,
+    status
+) {
+
+    const ativo =
+        pedido.status_pagamento ===
+        status;
+
+
+    return `
+
+        <button
+            type="button"
+            class="
+                admin-pagamento-btn
+                ${
+                    ativo
+                        ? "ativo"
+                        : ""
+                }
+            "
+            onclick="alterarPagamentoAdmin(
+                '${pedido.id}',
+                '${status}'
+            )"
+            ${
+                ativo
+                    ? "disabled"
+                    : ""
+            }
+        >
+
+            ${status}
+
+        </button>
+
+    `;
+
+}
+
+async function alterarPagamentoAdmin(
+    pedidoId,
+    novoStatus
+) {
+
+    const pedido =
+        adminPedidos.find(
+            function (item) {
+
+                return String(
+                    item.id
+                ) ===
+                String(
+                    pedidoId
+                );
+
+            }
+        );
+
+
+    if (!pedido) {
+        return;
+    }
+
+
+    const confirmar =
+        window.confirm(
+            "Alterar o pagamento do pedido #" +
+            pedido.numero_pedido +
+            " para \"" +
+            novoStatus +
+            "\"?"
+        );
+
+
+    if (!confirmar) {
+        return;
+    }
+
+
+    const {
+        error
+    } =
+        await supabaseClient
+            .from("pedidos")
+            .update({
+                status_pagamento:
+                    novoStatus
+            })
+            .eq(
+                "id",
+                pedidoId
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Erro ao atualizar pagamento:",
+            error
+        );
+
+
+        alert(
+            "Não foi possível atualizar o pagamento."
+        );
+
+        return;
+    }
+
+
+    pedido.status_pagamento =
+        novoStatus;
+
+
+    aplicarFiltrosAdmin();
+
+
+    mostrarNotificacaoAdmin(
+        "Pagamento atualizado para " +
+        novoStatus +
+        "."
+    );
 
 }
 
@@ -1141,5 +1464,59 @@ function colocarTextoAdmin(
             valor;
 
     }
+
+}
+
+function toggleDetalhesAdmin(
+    pedidoId
+) {
+
+    const detalhes =
+        document.getElementById(
+            "detalhes-" +
+            pedidoId
+        );
+
+
+    if (!detalhes) {
+        return;
+    }
+
+
+    detalhes.classList.toggle(
+        "aberto"
+    );
+
+}
+
+
+function formatarDataEntregaAdmin(
+    data
+) {
+
+    if (!data) {
+        return "-";
+    }
+
+
+    const partes =
+        String(data)
+            .split("-");
+
+
+    if (
+        partes.length !== 3
+    ) {
+        return data;
+    }
+
+
+    return (
+        partes[2] +
+        "/" +
+        partes[1] +
+        "/" +
+        partes[0]
+    );
 
 }
