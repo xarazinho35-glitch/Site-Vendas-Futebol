@@ -697,6 +697,13 @@ body {
             1fr 1fr;
     }
 
+    .admin-pagamento-buttons {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+}
+
 }
 
 
@@ -768,6 +775,386 @@ body {
 
     .admin-card-actions a {
         justify-content: center;
+    }
+
+}
+
+/* =========================================
+   DETALHES DO PEDIDO
+========================================= */
+
+.admin-detalhes-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    background: #f7f3f4;
+    color: #57474d;
+
+    border: none;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.admin-detalhes-btn:hover {
+    background: #33272c;
+    color: #ffffff;
+}
+
+
+.admin-pedido-detalhes {
+    display: none;
+
+    margin-top: 18px;
+    padding-top: 18px;
+
+    border-top:
+        1px solid #eee6e9;
+}
+
+
+.admin-pedido-detalhes.aberto {
+    display: block;
+
+    animation:
+        adminDetalhesAbrir
+        0.25s ease;
+}
+
+
+@keyframes adminDetalhesAbrir {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.admin-detalhes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+.admin-detalhes-grid > div {
+    padding: 13px;
+
+    background: #faf7f8;
+
+    border-radius: 8px;
+}
+
+
+.admin-detalhes-grid span,
+.admin-detalhes-texto > span,
+.admin-detalhes-produtos > span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #9a878e;
+
+    font-size: 0.63rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.45px;
+}
+
+
+.admin-detalhes-grid strong {
+    color: #47393f;
+
+    font-size: 0.8rem;
+
+    line-height: 1.5;
+}
+
+
+.admin-detalhes-texto {
+    margin-bottom: 10px;
+
+    padding: 14px;
+
+    background: #faf7f8;
+
+    border-radius: 8px;
+}
+
+
+.admin-detalhes-texto p {
+    color: #5e4e54;
+
+    font-size: 0.78rem;
+
+    line-height: 1.6;
+}
+
+
+.admin-detalhes-produtos {
+    margin-top: 15px;
+}
+
+
+.admin-detalhe-produto {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid #eee6e9;
+}
+
+
+.admin-detalhe-produto:last-child {
+    border-bottom: none;
+}
+
+
+.admin-detalhe-produto > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.admin-detalhe-produto strong {
+    color: #47393f;
+
+    font-size: 0.78rem;
+}
+
+
+.admin-detalhe-produto span {
+    color: #9a878e;
+
+    font-size: 0.68rem;
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-detalhes-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .admin-detalhe-produto {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+}
+
+/* =========================================
+   STATUS DO PAGAMENTO
+========================================= */
+
+.admin-pagamento-area {
+    margin-top: 18px;
+    padding-top: 18px;
+
+    border-top:
+        1px solid #eee6e9;
+}
+
+
+.admin-pagamento-area > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #8e7c83;
+
+    font-size: 0.67rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.admin-pagamento-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+
+.admin-pagamento-btn {
+    min-height: 36px;
+
+    padding:
+        0 12px;
+
+    background: #ffffff;
+
+    color: #66565c;
+
+    border:
+        1px solid #ded3d7;
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.admin-pagamento-btn:hover {
+    border-color: #c64074;
+
+    color: #c64074;
+}
+
+
+.admin-pagamento-btn.ativo {
+    background: #33272c;
+
+    color: #ffffff;
+
+    border-color: #33272c;
+
+    cursor: default;
+}
+
+/* =========================================
+   PAGAMENTO
+========================================= */
+
+.admin-pagamento-texto {
+    color: #c64074;
+}
+
+
+/* Área para alterar pagamento */
+
+.admin-pagamento-area {
+    margin-top: 18px;
+    padding-top: 18px;
+
+    border-top: 1px solid #eee6e9;
+}
+
+
+.admin-pagamento-area > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #8e7c83;
+
+    font-size: 0.67rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+.admin-pagamento-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.admin-pagamento-btn {
+    padding: 10px 14px;
+
+    background: #ffffff;
+    color: #66565c;
+
+    border: 1px solid #ded3d7;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.admin-pagamento-btn:hover {
+    color: #c64074;
+
+    border-color: #c64074;
+
+    transform: translateY(-1px);
+}
+
+
+.admin-pagamento-btn.ativo {
+    background: #33272c;
+    color: #ffffff;
+
+    border-color: #33272c;
+
+    cursor: default;
+}
+
+
+.admin-pagamento-btn.ativo:hover {
+    transform: none;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .admin-pagamento-buttons {
+        display: grid;
+
+        grid-template-columns: 1fr;
+    }
+
+    .admin-pagamento-btn {
+        width: 100%;
     }
 
 }
