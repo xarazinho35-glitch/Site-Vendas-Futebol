@@ -1,0 +1,365 @@
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .store-hero-content {
+        grid-template-columns:
+            1fr 0.8fr;
+
+        gap: 45px;
+    }
+
+
+    .store-hero h1 {
+        font-size: 3rem;
+    }
+
+
+    .header-contact
+    .contact-block:last-child {
+        display: none;
+    }
+
+
+    .footer-top {
+        grid-template-columns:
+            2fr 1fr 1fr;
+
+        gap: 40px;
+    }
+
+
+    .footer-column:last-child {
+        grid-column:
+            1 / -1;
+    }
+
+}
+
+
+
+@media (max-width: 850px) {
+
+    .main-header-content {
+        min-height: 88px;
+    }
+
+
+    .brand-logo {
+        width: 175px;
+    }
+
+
+    .header-contact {
+        display: none;
+    }
+
+
+    .store-hero {
+        padding:
+            55px 0;
+    }
+
+
+    .store-hero-content {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .store-hero-text {
+        max-width: 700px;
+    }
+
+
+    .store-hero-visual {
+        display: none;
+    }
+
+
+    .benefits-content {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .benefit-item {
+        padding:
+            13px 18px;
+
+        border-right: none;
+    }
+
+
+    .benefit-item:first-child {
+        padding-left: 18px;
+    }
+
+
+    .products-grid {
+        max-width: 650px;
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .products-support {
+        max-width: 650px;
+    }
+
+
+    .about-layout {
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+    }
+
+
+    .about-copy .section-title {
+        font-size: 2.35rem;
+    }
+
+
+    .contact-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .footer-top {
+        grid-template-columns:
+            1.5fr 1fr;
+    }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    .top-bar-content {
+        min-height: 34px;
+    }
+
+
+    .top-links {
+        gap: 12px;
+    }
+
+
+    .top-links a {
+        font-size: 0.72rem;
+    }
+
+
+    .main-header-content {
+        gap: 12px;
+
+        min-height: 80px;
+    }
+
+
+    .brand-logo {
+        width: 145px;
+    }
+
+
+    .main-header .cart-btn {
+        min-height: 43px;
+
+        padding:
+            0 13px;
+    }
+
+
+    .cart-text {
+        display: none;
+    }
+
+
+    .category-content a {
+        padding:
+            14px 15px;
+    }
+
+
+    .store-hero {
+        padding:
+            45px 0 50px;
+    }
+
+
+    .store-hero h1 {
+        font-size: 2.45rem;
+
+        letter-spacing: -1px;
+    }
+
+
+    .store-hero-text > p {
+        font-size: 0.94rem;
+    }
+
+
+    .store-hero-actions {
+        flex-direction: column;
+    }
+
+
+    .hero-primary-btn,
+    .hero-secondary-btn {
+        width: 100%;
+    }
+
+
+    .benefits-content {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 0;
+    }
+
+
+    .benefit-item {
+        padding:
+            13px 8px;
+
+        gap: 8px;
+    }
+
+
+    .benefit-item:first-child {
+        padding-left: 8px;
+    }
+
+
+    .benefit-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .benefit-item strong {
+        font-size: 0.7rem;
+    }
+
+
+    .benefit-item small {
+        display: none;
+    }
+
+
+    .redesigned-products {
+        padding:
+            60px 0 70px;
+    }
+
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+
+    .product-image {
+        height: 275px;
+    }
+
+
+    .product-info {
+        padding:
+            21px 18px 22px;
+    }
+
+
+    .product-description {
+        min-height: auto;
+    }
+
+
+    .product-buttons {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .products-support {
+        grid-template-columns:
+            auto 1fr;
+
+        padding:
+            18px;
+    }
+
+
+    .products-support a {
+        grid-column:
+            1 / -1;
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .redesigned-about {
+        padding:
+            70px 0;
+    }
+
+
+    .about-copy .section-title {
+        font-size: 2rem;
+    }
+
+
+    .about-points {
+        flex-direction: column;
+    }
+
+
+    .about-highlight {
+        padding:
+            30px 24px;
+    }
+
+
+    .redesigned-contact {
+        padding:
+            45px 0;
+    }
+
+
+    .contact-card {
+        padding:
+            30px 23px;
+    }
+
+
+    .contact-card h2 {
+        font-size: 1.65rem;
+    }
+
+
+    .contact-whatsapp-btn {
+        width: 100%;
+    }
+
+
+    .footer-top {
+        grid-template-columns:
+            1fr;
+
+        gap: 32px;
+    }
+
+
+    .footer-column:last-child {
+        grid-column: auto;
+    }
+
+}

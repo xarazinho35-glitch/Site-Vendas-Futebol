@@ -1,0 +1,221 @@
+/* =========================================
+   LOGIN E CADASTRO
+========================================= */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f6,
+            #fffafd
+        );
+}
+
+
+.auth-card {
+    width: 100%;
+    max-width: 470px;
+
+    padding: 40px;
+
+    background: white;
+
+    border:
+        1px solid var(--rosa-borda);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(190, 70, 120, 0.12);
+}
+
+
+.auth-logo {
+    display: block;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+
+.auth-logo img {
+    width: 190px;
+    max-height: 100px;
+
+    object-fit: contain;
+}
+
+
+.auth-card h1 {
+    margin-bottom: 8px;
+
+    text-align: center;
+
+    color: var(--texto);
+}
+
+
+.auth-subtitle {
+    margin-bottom: 28px;
+
+    text-align: center;
+
+    color: var(--texto-claro);
+}
+
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--texto);
+
+    font-weight: 700;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    padding: 13px;
+
+    border:
+        1px solid var(--rosa-borda);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 1rem;
+}
+
+
+.form-group input:focus {
+    border-color: var(--rosa);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(223, 76, 139, 0.10);
+}
+
+
+.auth-button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 5px;
+
+    background: var(--rosa);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.auth-button:hover {
+    background: var(--rosa-escuro);
+}
+
+
+.auth-footer {
+    margin-top: 22px;
+
+    text-align: center;
+
+    color: var(--texto-claro);
+}
+
+
+.auth-footer a {
+    color: var(--rosa);
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.back-store {
+    display: block;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: var(--texto-claro);
+
+    text-decoration: none;
+}
+
+
+.auth-message {
+    display: none;
+
+    margin-bottom: 18px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+.auth-message.success {
+    display: block;
+
+    background: #edf9f1;
+
+    color: #287544;
+}
+
+
+.auth-message.error {
+    display: block;
+
+    background: #fff0f3;
+
+    color: #b42350;
+}
+
+
+.auth-message.info {
+    display: block;
+
+    background: var(--rosa-claro);
+
+    color: var(--rosa-escuro);
+}
+
+
+.user-welcome {
+    color: var(--texto-claro);
+
+    font-weight: 700;
+}
+

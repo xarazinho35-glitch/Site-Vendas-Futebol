@@ -200,6 +200,32 @@ if (cadastroForm) {
 
 }
 
+async function reenviarConfirmacao(email) {
+
+    const { error } =
+        await supabaseClient.auth.resend({
+            type: "signup",
+            email: email,
+            options: {
+                emailRedirectTo:
+                    "https://xarazinho35-glitch.github.io/Site-Vendas-Futebol/login.html"
+            }
+        });
+
+    if (error) {
+        alert(
+            "Não foi possível reenviar o e-mail: " +
+            error.message
+        );
+
+        return;
+    }
+
+    alert(
+        "E-mail de confirmação reenviado! Verifique sua caixa de entrada e o spam."
+    );
+}
+
 
 // ==========================================
 // LOGIN

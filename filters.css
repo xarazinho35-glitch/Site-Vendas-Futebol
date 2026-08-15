@@ -1,0 +1,286 @@
+/* =========================================
+   FLORES PIOLI - BUSCA E FILTROS
+========================================= */
+
+.catalog-tools {
+    max-width: 920px;
+    margin: 0 auto 32px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+
+    align-items: center;
+}
+
+.catalog-search {
+    position: relative;
+}
+
+.catalog-search i {
+    position: absolute;
+
+    left: 16px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #9a878f;
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+.catalog-search input {
+    width: 100%;
+    min-height: 48px;
+
+    padding:
+        0 16px
+        0 44px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e7dde1;
+
+    border-radius: 9px;
+
+    color: #3c3035;
+
+    font-family: inherit;
+    font-size: 0.88rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.catalog-search input::placeholder {
+    color: #aa999f;
+}
+
+.catalog-search input:focus {
+    border-color: var(--rosa);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(198, 64, 116, 0.08);
+}
+
+
+/* ORDENAR */
+
+.catalog-sort select {
+    min-height: 48px;
+
+    padding:
+        0 38px 0 14px;
+
+    background: #ffffff;
+
+    color: #4d3f45;
+
+    border:
+        1px solid #e7dde1;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 650;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+/* FILTROS */
+
+.catalog-filters {
+    grid-column:
+        1 / -1;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+.catalog-filter-btn {
+    min-height: 36px;
+
+    padding:
+        0 13px;
+
+    background: #ffffff;
+
+    color: #6b5b62;
+
+    border:
+        1px solid #e4d8dd;
+
+    border-radius: 50px;
+
+    font-family: inherit;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.catalog-filter-btn:hover {
+    color: var(--rosa);
+
+    border-color:
+        #d9b7c5;
+
+    transform:
+        translateY(-1px);
+}
+
+.catalog-filter-btn.active {
+    background: #33272c;
+
+    color: #ffffff;
+
+    border-color: #33272c;
+}
+
+
+/* CONTADOR */
+
+.catalog-results-count {
+    margin-left: auto;
+
+    color: #9a878f;
+
+    font-size: 0.72rem;
+}
+
+
+/* SEM RESULTADOS */
+
+.catalog-empty {
+    max-width: 920px;
+
+    margin:
+        30px auto 0;
+
+    padding:
+        45px 25px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e8dfe2;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    display: none;
+}
+
+.catalog-empty.show {
+    display: block;
+}
+
+.catalog-empty i {
+    margin-bottom: 13px;
+
+    color: var(--rosa);
+
+    font-size: 30px;
+}
+
+.catalog-empty h3 {
+    margin-bottom: 6px;
+
+    color: #41343a;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.25rem;
+
+    font-weight: 500;
+}
+
+.catalog-empty p {
+    color: #8a777f;
+
+    font-size: 0.82rem;
+}
+
+
+/* ANIMAÇÃO AO FILTRAR */
+
+.product-card.catalog-hidden {
+    display: none;
+}
+
+.product-card.catalog-visible {
+    animation:
+        catalogAppear
+        0.3s ease;
+}
+
+@keyframes catalogAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+    .catalog-tools {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-sort {
+        width: 100%;
+    }
+
+    .catalog-sort select {
+        width: 100%;
+    }
+
+    .catalog-results-count {
+        width: 100%;
+
+        margin:
+            5px 0 0;
+
+        text-align: left;
+    }
+
+}

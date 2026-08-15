@@ -1,0 +1,438 @@
+/* ================================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 850px) {
+
+    .nav {
+        display: none;
+    }
+
+    .hero-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-logo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .produto-detalhe {
+        grid-template-columns: 1fr;
+    }
+
+    .produto-botoes {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 250px;
+    }
+
+    .cart-sidebar {
+        width: 100%;
+    }
+
+    .produto-detalhe {
+        padding: 20px;
+    }
+
+    .produto-info-detalhe h1 {
+        font-size: 2rem;
+    }
+}/* =========================================
+   NOVO TOPO - FLORES PIOLI
+========================================= */
+
+
+/* BARRA SUPERIOR */
+
+.top-bar {
+    background: #fff5f9;
+
+    border-bottom: 1px solid #f1d4e1;
+
+    font-size: 0.82rem;
+}
+
+.top-bar-content {
+    min-height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.top-info {
+    color: #8a6877;
+}
+
+.top-links {
+    display: flex;
+    gap: 18px;
+}
+
+.top-links a {
+    color: #745363;
+
+    text-decoration: none;
+}
+
+.top-links a:hover {
+    color: var(--rosa);
+}
+
+
+/* =========================================
+   HEADER PRINCIPAL
+========================================= */
+
+.main-header {
+    background: white;
+
+    border-bottom: 1px solid #f3d7e3;
+}
+
+.main-header-content {
+    min-height: 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* LOGO */
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 230px;
+
+    max-height: 90px;
+
+    object-fit: contain;
+}
+
+
+/* CONTATO */
+
+.header-contact {
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+.contact-block {
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.contact-label {
+    color: #aa8b98;
+
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+.contact-block strong {
+    color: #61404f;
+
+    font-size: 1.1rem;
+}
+
+
+/* CARRINHO */
+
+.main-header .cart-btn {
+    padding: 13px 18px;
+
+    border-radius: 12px;
+}
+
+.cart-text {
+    font-weight: 700;
+}
+
+
+/* =========================================
+   BARRA DE CATEGORIAS
+========================================= */
+
+.category-bar {
+    background: var(--rosa);
+}
+
+.category-content {
+    display: flex;
+
+    align-items: stretch;
+
+    justify-content: center;
+}
+
+.category-content a {
+    padding: 15px 18px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+.category-content a:hover {
+    background: var(--rosa-escuro);
+}
+
+.category-content .category-active {
+    background: var(--rosa-escuro);
+}
+
+
+/* =========================================
+   BENEFÍCIOS
+========================================= */
+
+.benefits-bar {
+    background: #fff;
+
+    border-bottom: 1px solid #f0dde5;
+
+    box-shadow:
+        0 4px 12px rgba(150, 70, 100, 0.05);
+}
+
+.benefits-content {
+    min-height: 65px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.benefit-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.benefit-item > span {
+    font-size: 1.3rem;
+}
+
+.benefit-item div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.benefit-item strong {
+    color: #573746;
+
+    font-size: 0.84rem;
+}
+
+.benefit-item small {
+    color: #9a7c89;
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================
+   INTRODUÇÃO DA PÁGINA
+========================================= */
+
+.page-intro {
+    padding: 50px 0 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffafd,
+            #fff5f9
+        );
+}
+
+.page-kicker {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--rosa);
+
+    font-size: 0.85rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.page-intro h1 {
+    margin-bottom: 10px;
+
+    color: #4a2938;
+
+    font-size: 2rem;
+
+    font-weight: 750;
+}
+
+.page-intro p {
+    color: #836875;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   AJUSTE DO CONTEÚDO
+========================================= */
+
+.main-content {
+    padding-top: 35px;
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 900px) {
+
+    .top-bar-content {
+        justify-content: center;
+    }
+
+    .top-info {
+        display: none;
+    }
+
+    .main-header-content {
+        min-height: 90px;
+    }
+
+    .header-contact {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 190px;
+    }
+
+    .category-content {
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .category-content a {
+        white-space: nowrap;
+    }
+
+    .benefits-content {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .top-links a:nth-child(2),
+    .top-links a:nth-child(3) {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 150px;
+    }
+
+    .cart-text {
+        display: none;
+    }
+
+    .benefits-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .benefit-item {
+        justify-content: flex-start;
+    }
+
+    .page-intro {
+        padding-top: 35px;
+    }
+
+    .page-intro h1 {
+        font-size: 1.6rem;
+    }
+
+}
+
