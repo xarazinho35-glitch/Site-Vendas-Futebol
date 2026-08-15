@@ -1,0 +1,470 @@
+/* =========================================
+   FLORES PIOLI - ACOMPANHAR PEDIDO
+========================================= */
+
+.acompanhar-page {
+    min-height: 75vh;
+
+    padding:
+        60px 0
+        100px;
+
+    background: #faf8f7;
+}
+
+
+/* HEADER */
+
+.acompanhar-header {
+    max-width: 650px;
+
+    margin-bottom: 30px;
+}
+
+
+.acompanhar-header h1 {
+    margin:
+        5px 0
+        8px;
+
+    color: #34282d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 2.7rem;
+
+    font-weight: 500;
+}
+
+
+.acompanhar-header p {
+    color: #7e6d74;
+
+    line-height: 1.6;
+}
+
+
+/* CARD FORM */
+
+.acompanhar-card {
+    max-width: 680px;
+
+    margin-bottom: 20px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e7dfe2;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 7px 25px
+        rgba(57, 36, 44, 0.04);
+}
+
+
+.acompanhar-form-group {
+    margin-bottom: 17px;
+}
+
+
+.acompanhar-form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #55454b;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+}
+
+
+.acompanhar-form-group input {
+    width: 100%;
+
+    min-height: 47px;
+
+    padding:
+        0 14px;
+
+    background: #fffdfd;
+
+    color: #44363c;
+
+    border:
+        1px solid #ded3d7;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+
+.acompanhar-form-group input:focus {
+    border-color: #c64074;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(198, 64, 116, 0.08);
+}
+
+
+.acompanhar-btn {
+    min-height: 47px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        0 18px;
+
+    background: #33272c;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.acompanhar-btn:hover {
+    background: #c64074;
+}
+
+
+.acompanhar-btn:disabled {
+    opacity: 0.7;
+
+    cursor: wait;
+}
+
+
+/* MENSAGEM */
+
+.acompanhar-mensagem {
+    max-width: 680px;
+
+    margin-bottom: 20px;
+
+    padding: 15px 18px;
+
+    border-radius: 8px;
+
+    font-size: 0.8rem;
+}
+
+
+.acompanhar-mensagem.info {
+    background: #edf4ff;
+
+    color: #35629c;
+}
+
+
+.acompanhar-mensagem.erro {
+    background: #fdecec;
+
+    color: #a03d3d;
+}
+
+
+/* RESULTADO */
+
+.acompanhar-resultado {
+    margin-top: 30px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e7dfe2;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 28px
+        rgba(57, 36, 44, 0.05);
+}
+
+
+.acompanhar-pedido-topo {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid #eee6e9;
+}
+
+
+.acompanhar-pedido-topo span:first-child {
+    color: #9b8990;
+
+    font-size: 0.66rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.acompanhar-pedido-topo h2 {
+    margin:
+        3px 0
+        4px;
+
+    color: #392d32;
+
+    font-size: 1.2rem;
+}
+
+
+.acompanhar-pedido-topo p {
+    color: #918087;
+
+    font-size: 0.72rem;
+}
+
+
+/* BADGE STATUS */
+
+.resultado-status {
+    padding:
+        7px 11px;
+
+    border-radius: 50px;
+
+    font-size: 0.69rem;
+
+    font-weight: 800;
+}
+
+
+.status-recebido {
+    background: #fff3d7;
+
+    color: #896400;
+}
+
+
+.status-em-preparacao {
+    background: #eaf2ff;
+
+    color: #3463a8;
+}
+
+
+.status-saiu-para-entrega {
+    background: #e3f5ff;
+
+    color: #16729a;
+}
+
+
+.status-entregue {
+    background: #e8f8ee;
+
+    color: #287a49;
+}
+
+
+.status-cancelado {
+    background: #fdeaea;
+
+    color: #a63c3c;
+}
+
+
+/* GRID */
+
+.acompanhar-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin:
+        22px 0;
+}
+
+
+.acompanhar-info {
+    padding: 15px;
+
+    background: #faf7f8;
+
+    border-radius: 8px;
+}
+
+
+.acompanhar-info span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #9a878e;
+
+    font-size: 0.63rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.acompanhar-info strong {
+    color: #47393f;
+
+    font-size: 0.8rem;
+}
+
+
+/* STATUS ATUAL */
+
+.acompanhar-status-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 20px;
+
+    background: #fff8fb;
+
+    border:
+        1px solid #e2c2cf;
+
+    border-radius: 10px;
+}
+
+
+.acompanhar-status-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #c64074;
+
+    color: #ffffff;
+
+    border-radius: 50%;
+}
+
+
+.acompanhar-status-card span {
+    color: #9a878e;
+
+    font-size: 0.63rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.acompanhar-status-card h3 {
+    margin:
+        2px 0
+        4px;
+
+    color: #403238;
+
+    font-size: 1rem;
+}
+
+
+.acompanhar-status-card p {
+    color: #806e75;
+
+    font-size: 0.78rem;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .acompanhar-page {
+        padding:
+            40px 0
+            70px;
+    }
+
+    .acompanhar-header h1 {
+        font-size: 2.15rem;
+    }
+
+    .acompanhar-card,
+    .acompanhar-resultado {
+        padding: 20px 17px;
+    }
+
+    .acompanhar-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .acompanhar-btn {
+        width: 100%;
+    }
+
+    .acompanhar-pedido-topo {
+        flex-direction: column;
+    }
+
+    .acompanhar-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .acompanhar-status-card {
+        align-items: flex-start;
+    }
+
+}

@@ -411,6 +411,10 @@ async function atualizarUsuarioHeader() {
             Meus pedidos
         </a>
 
+        <a href="acompanhar-pedido.html">
+            Acompanhar pedido
+        </a>
+
     `;
 
 

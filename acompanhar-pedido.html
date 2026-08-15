@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Acompanhar Pedido | Flores Pioli</title>
+
+    <meta
+        name="description"
+        content="Consulte o andamento do seu pedido na Flores Pioli."
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-base.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="whatsapp.css">
+    <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="responsive-redesign.css">
+    <link rel="stylesheet" href="animations.css">
+
+    <link rel="stylesheet" href="acompanhar-pedido.css?v=1">
+
+</head>
+
+
+<body>
+
+
+    <!-- TOPO -->
+
+    <div class="top-bar">
+
+        <div class="container top-bar-content">
+
+            <div class="top-info">
+                Atendimento cuidadoso para momentos especiais
+            </div>
+
+            <div
+                class="top-links"
+                id="user-area"
+            >
+
+                <a href="login.html">
+                    Entrar
+                </a>
+
+                <a href="cadastro.html">
+                    Cadastre-se
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="main-header">
+
+        <div class="container main-header-content">
+
+            <a
+                href="CoroasTradicionais.html"
+                class="brand"
+            >
+
+                <img
+                    src="logo-flores.png"
+                    alt="Flores Pioli"
+                    class="brand-logo"
+                >
+
+            </a>
+
+            <div class="header-contact">
+
+                <div class="contact-block">
+
+                    <span class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+
+                    <div>
+
+                        <span class="contact-label">
+                            Atendimento
+                        </span>
+
+                        <strong>
+                            (34) 99248-0848
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-block">
+
+                    <span class="contact-icon whatsapp-header-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </span>
+
+                    <div>
+
+                        <span class="contact-label">
+                            Dúvidas ou pedidos
+                        </span>
+
+                        <strong>
+                            Fale pelo WhatsApp
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CATEGORIAS -->
+
+    <nav class="category-bar">
+
+        <div class="container category-content">
+
+            <a href="CoroasTradicionais.html">
+                Coroas Tradicionais
+            </a>
+
+            <a href="CoroasEspeciais.html">
+                Coroas Especiais
+            </a>
+
+            <a href="CoroasPremium.html">
+                Coroas Premium
+            </a>
+
+            <a href="ArranjosDeFlores.html">
+                Arranjos
+            </a>
+
+            <a href="Buques.html">
+                Buquês
+            </a>
+
+            <a href="HomenagensEspeciais.html">
+                Homenagens
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="acompanhar-page">
+
+        <div class="container">
+
+
+            <div class="acompanhar-header">
+
+                <span class="section-eyebrow">
+                    Acompanhamento
+                </span>
+
+                <h1>
+                    Acompanhar pedido
+                </h1>
+
+                <p>
+                    Informe o número do pedido e o telefone
+                    utilizado na compra.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+
+            <section class="acompanhar-card">
+
+                <form id="acompanhar-form">
+
+
+                    <div class="acompanhar-form-group">
+
+                        <label for="acompanhar-numero">
+                            Número do pedido
+                        </label>
+
+                        <input
+                            type="text"
+                            id="acompanhar-numero"
+                            placeholder="Ex.: FP-192629-OCL"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="acompanhar-form-group">
+
+                        <label for="acompanhar-telefone">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="acompanhar-telefone"
+                            placeholder="(34) 99999-9999"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="acompanhar-btn"
+                        class="acompanhar-btn"
+                    >
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Consultar pedido
+
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+            <!-- MENSAGEM -->
+
+            <div
+                id="acompanhar-mensagem"
+                class="acompanhar-mensagem"
+                style="display: none;"
+            ></div>
+
+
+            <!-- RESULTADO -->
+
+            <section
+                id="acompanhar-resultado"
+                class="acompanhar-resultado"
+                style="display: none;"
+            >
+
+
+                <div class="acompanhar-pedido-topo">
+
+                    <div>
+
+                        <span>
+                            Pedido
+                        </span>
+
+                        <h2 id="resultado-numero">
+                            -
+                        </h2>
+
+                        <p id="resultado-data">
+                            -
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        id="resultado-status"
+                        class="resultado-status"
+                    >
+                        Recebido
+                    </span>
+
+                </div>
+
+
+                <div class="acompanhar-grid">
+
+
+                    <div class="acompanhar-info">
+
+                        <span>
+                            Cliente
+                        </span>
+
+                        <strong id="resultado-cliente">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acompanhar-info">
+
+                        <span>
+                            Itens
+                        </span>
+
+                        <strong id="resultado-itens">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acompanhar-info">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="resultado-total">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acompanhar-info">
+
+                        <span>
+                            Pagamento
+                        </span>
+
+                        <strong id="resultado-pagamento">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acompanhar-info">
+
+                        <span>
+                            Data da entrega
+                        </span>
+
+                        <strong id="resultado-data-entrega">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acompanhar-info">
+
+                        <span>
+                            Horário
+                        </span>
+
+                        <strong id="resultado-horario">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="acompanhar-status-card">
+
+                    <div
+                        id="resultado-status-icon"
+                        class="acompanhar-status-icon"
+                    >
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Status atual
+                        </span>
+
+                        <h3 id="resultado-status-titulo">
+                            Pedido recebido
+                        </h3>
+
+                        <p id="resultado-status-descricao">
+                            Seu pedido foi registrado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- WHATSAPP -->
+
+    <a
+        class="whatsapp-float"
+        href="https://api.whatsapp.com/send?phone=5534992480848&text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20meu%20pedido."
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <span>
+            Fale conosco
+        </span>
+
+    </a>
+
+
+    <!-- JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="auth.js?v=3"></script>
+
+    <script src="acompanhar-pedido.js?v=1"></script>
+
+    <script src="animations.js"></script>
+
+
+</body>
+
+</html>

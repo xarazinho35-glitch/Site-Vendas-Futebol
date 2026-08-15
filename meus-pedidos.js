@@ -170,7 +170,7 @@ function criarCardPedido(
         );
 
 
-    return `
+    return 
 
         <article class="pedido-card">
 
@@ -257,7 +257,17 @@ function criarCardPedido(
 
         </article>
 
-    `;
+    ;
+
+    <div class="pedido-pagamento-resumo">
+    <span>
+        Pagamento
+    </span>
+
+    <strong>
+        ${pedido.status_pagamento || "Aguardando pagamento"}
+    </strong>
+</div>
 }
 
 
