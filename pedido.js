@@ -26,7 +26,7 @@ document.addEventListener(
 
 
         // ======================================
-        // PEGAR NÚMERO DA URL
+        // NÚMERO DO PEDIDO NA URL
         // ======================================
 
         const parametros =
@@ -49,12 +49,32 @@ document.addEventListener(
             );
 
             return;
+
         }
 
 
         // ======================================
         // VERIFICAR LOGIN
         // ======================================
+
+        if (
+            typeof supabaseClient ===
+            "undefined"
+        ) {
+
+            console.error(
+                "Supabase não encontrado."
+            );
+
+            mostrarErroPedido(
+                loading,
+                erro
+            );
+
+            return;
+
+        }
+
 
         const {
             data: { user },
@@ -74,11 +94,12 @@ document.addEventListener(
                 "login.html";
 
             return;
+
         }
 
 
         // ======================================
-        // BUSCAR PEDIDO
+        // BUSCAR O PEDIDO
         // ======================================
 
         const {
@@ -116,18 +137,27 @@ document.addEventListener(
             );
 
             return;
+
         }
 
 
+        // ======================================
+        // MOSTRAR CONTEÚDO
+        // ======================================
+
         if (loading) {
+
             loading.style.display =
                 "none";
+
         }
 
 
         if (conteudo) {
+
             conteudo.style.display =
                 "block";
+
         }
 
 
@@ -149,14 +179,18 @@ function mostrarErroPedido(
 ) {
 
     if (loading) {
+
         loading.style.display =
             "none";
+
     }
 
 
     if (erro) {
+
         erro.style.display =
             "block";
+
     }
 
 }
@@ -170,14 +204,13 @@ function preencherPedido(
     pedido
 ) {
 
-
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-numero",
         "#" + pedido.numero_pedido
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-data-criacao",
         "Realizado em " +
         formatarDataHoraPedido(
@@ -186,77 +219,87 @@ function preencherPedido(
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-cliente",
         pedido.nome_cliente ||
         "-"
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-telefone",
         pedido.telefone ||
         "-"
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-destinatario",
         pedido.destinatario ||
         "Não informado"
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-endereco",
         pedido.endereco ||
         "-"
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-data-entrega",
+
         pedido.data_entrega
-            ? formatarDataPedidoDetalhe(
+            ? formatarDataPedido(
                 pedido.data_entrega
             )
             : "Não informada"
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-horario",
+
         pedido.horario_entrega
-            ? pedido.horario_entrega
-                  .slice(0, 5)
+            ? String(
+                pedido.horario_entrega
+            ).slice(
+                0,
+                5
+            )
             : "Não informado"
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-mensagem",
+
         pedido.mensagem ||
         "Nenhuma mensagem informada."
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-observacoes",
+
         pedido.observacoes ||
         "Nenhuma observação informada."
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-quantidade",
+
         pedido.quantidade_itens ||
         0
     );
 
 
-    colocarTexto(
+    colocarTextoPedido(
         "pedido-total",
-        formatarPrecoPedidoDetalhe(
+
+        formatarPrecoPedido(
             pedido.total
         )
     );
@@ -270,6 +313,249 @@ function preencherPedido(
     mostrarProdutosPedido(
         pedido.produtos
     );
+
+}
+
+
+// ==========================================
+// STATUS ATUAL
+// ==========================================
+
+function atualizarStatusPedido(
+    status
+) {
+
+    const statusAtual =
+        status ||
+        "Recebido";
+
+
+    const statusElemento =
+        document.getElementById(
+            "pedido-status"
+        );
+
+
+    if (statusElemento) {
+
+        statusElemento.textContent =
+            statusAtual;
+
+
+        statusElemento.className =
+            "pedido-status " +
+            classeStatusPedido(
+                statusAtual
+            );
+
+    }
+
+
+    const titulo =
+        document.getElementById(
+            "status-atual-titulo"
+        );
+
+
+    const descricao =
+        document.getElementById(
+            "status-atual-descricao"
+        );
+
+
+    const icon =
+        document.getElementById(
+            "status-atual-icon"
+        );
+
+
+    const card =
+        document.getElementById(
+            "status-atual-card"
+        );
+
+
+    const statusNormalizado =
+        normalizarStatusPedido(
+            statusAtual
+        );
+
+
+    let tituloStatus =
+        statusAtual;
+
+
+    let descricaoStatus =
+        "Acompanhe as atualizações do seu pedido.";
+
+
+    let iconeStatus =
+        "fa-box";
+
+
+    let classe =
+        "recebido";
+
+
+    // RECEBIDO
+
+    if (
+        statusNormalizado ===
+        "recebido"
+    ) {
+
+        tituloStatus =
+            "Pedido recebido";
+
+
+        descricaoStatus =
+            "Seu pedido foi registrado e já está em nosso sistema.";
+
+
+        iconeStatus =
+            "fa-check";
+
+
+        classe =
+            "recebido";
+
+    }
+
+
+    // PREPARAÇÃO
+
+    if (
+        statusNormalizado ===
+        "em preparacao"
+    ) {
+
+        tituloStatus =
+            "Em preparação";
+
+
+        descricaoStatus =
+            "Estamos preparando sua homenagem com todo cuidado.";
+
+
+        iconeStatus =
+            "fa-seedling";
+
+
+        classe =
+            "preparacao";
+
+    }
+
+
+    // ENTREGA
+
+    if (
+        statusNormalizado ===
+        "saiu para entrega"
+    ) {
+
+        tituloStatus =
+            "Saiu para entrega";
+
+
+        descricaoStatus =
+            "Seu pedido está a caminho do endereço informado.";
+
+
+        iconeStatus =
+            "fa-truck-fast";
+
+
+        classe =
+            "entrega";
+
+    }
+
+
+    // ENTREGUE
+
+    if (
+        statusNormalizado ===
+        "entregue"
+    ) {
+
+        tituloStatus =
+            "Pedido entregue";
+
+
+        descricaoStatus =
+            "Sua entrega foi concluída com sucesso.";
+
+
+        iconeStatus =
+            "fa-circle-check";
+
+
+        classe =
+            "entregue";
+
+    }
+
+
+    // CANCELADO
+
+    if (
+        statusNormalizado ===
+        "cancelado"
+    ) {
+
+        tituloStatus =
+            "Pedido cancelado";
+
+
+        descricaoStatus =
+            "Este pedido foi cancelado. Entre em contato conosco caso precise de ajuda.";
+
+
+        iconeStatus =
+            "fa-circle-xmark";
+
+
+        classe =
+            "cancelado";
+
+    }
+
+
+    if (titulo) {
+
+        titulo.textContent =
+            tituloStatus;
+
+    }
+
+
+    if (descricao) {
+
+        descricao.textContent =
+            descricaoStatus;
+
+    }
+
+
+    if (icon) {
+
+        icon.innerHTML =
+            '<i class="fa-solid ' +
+            iconeStatus +
+            '"></i>';
+
+    }
+
+
+    if (card) {
+
+        card.className =
+            "status-atual-card " +
+            "status-card-" +
+            classe;
+
+    }
 
 }
 
@@ -289,40 +575,56 @@ function mostrarProdutosPedido(
 
 
     if (!container) {
+
         return;
+
     }
 
 
     if (
-        !Array.isArray(produtos) ||
+        !Array.isArray(
+            produtos
+        ) ||
         produtos.length === 0
     ) {
 
         container.innerHTML = `
 
-            <p>
+            <div class="pedido-sem-produto">
                 Nenhum produto encontrado.
-            </p>
+            </div>
 
         `;
 
         return;
+
     }
 
 
     container.innerHTML =
         produtos
             .map(
-                function (produto) {
+                function (
+                    produto
+                ) {
+
+                    const preco =
+                        Number(
+                            produto.preco ||
+                            0
+                        );
+
+
+                    const quantidade =
+                        Number(
+                            produto.quantidade ||
+                            1
+                        );
 
 
                     const subtotal =
-                        Number(
-                            produto.preco
-                        ) *
-                        Number(
-                            produto.quantidade
-                        );
+                        preco *
+                        quantidade;
 
 
                     return `
@@ -337,7 +639,7 @@ function mostrarProdutosPedido(
                                         ? `
                                             <img
                                                 src="${produto.imagem}"
-                                                alt="${produto.nome}"
+                                                alt="${produto.nome || "Produto"}"
                                             >
                                         `
                                         : `
@@ -351,31 +653,43 @@ function mostrarProdutosPedido(
                             <div class="pedido-produto-info">
 
                                 <h3>
-                                    ${produto.nome}
+                                    ${produto.nome || "Produto"}
                                 </h3>
 
-                                <span>
-                                    Quantidade:
-                                    ${produto.quantidade}
-                                </span>
 
-                                <span>
-                                    Unitário:
-                                    ${formatarPrecoPedidoDetalhe(
-                                        produto.preco
-                                    )}
-                                </span>
+                                <div class="pedido-produto-meta">
+
+                                    <span>
+                                        Quantidade:
+                                        <strong>
+                                            ${quantidade}
+                                        </strong>
+                                    </span>
+
+
+                                    <span>
+                                        Unitário:
+                                        <strong>
+                                            ${formatarPrecoPedido(preco)}
+                                        </strong>
+                                    </span>
+
+                                </div>
 
                             </div>
 
 
-                            <strong class="pedido-produto-subtotal">
+                            <div class="pedido-produto-preco">
 
-                                ${formatarPrecoPedidoDetalhe(
-                                    subtotal
-                                )}
+                                <span>
+                                    Subtotal
+                                </span>
 
-                            </strong>
+                                <strong>
+                                    ${formatarPrecoPedido(subtotal)}
+                                </strong>
+
+                            </div>
 
 
                         </article>
@@ -390,109 +704,7 @@ function mostrarProdutosPedido(
 
 
 // ==========================================
-// STATUS
-// ==========================================
-
-function atualizarStatusPedido(
-    status
-) {
-
-    const statusElemento =
-        document.getElementById(
-            "pedido-status"
-        );
-
-
-    const statusAtual =
-        status ||
-        "Recebido";
-
-
-    if (statusElemento) {
-
-        statusElemento.textContent =
-            statusAtual;
-
-
-        statusElemento.className =
-            "pedido-status " +
-            classeStatusPedido(
-                statusAtual
-            );
-
-    }
-
-
-    const ordemStatus = [
-        "Recebido",
-        "Em preparação",
-        "Saiu para entrega",
-        "Entregue"
-    ];
-
-
-    const indiceAtual =
-        ordemStatus.findIndex(
-            function (item) {
-
-                return normalizarTextoStatus(
-                    item
-                ) ===
-                normalizarTextoStatus(
-                    statusAtual
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".timeline-etapa"
-        )
-        .forEach(
-            function (
-                etapa,
-                index
-            ) {
-
-                etapa.classList.remove(
-                    "concluida",
-                    "atual"
-                );
-
-
-                if (
-                    indiceAtual >= 0 &&
-                    index < indiceAtual
-                ) {
-
-                    etapa.classList.add(
-                        "concluida"
-                    );
-
-                }
-
-
-                if (
-                    indiceAtual >= 0 &&
-                    index === indiceAtual
-                ) {
-
-                    etapa.classList.add(
-                        "atual"
-                    );
-
-                }
-
-            }
-        );
-
-}
-
-
-// ==========================================
-// CLASSE STATUS
+// CLASSE DO STATUS
 // ==========================================
 
 function classeStatusPedido(
@@ -501,23 +713,22 @@ function classeStatusPedido(
 
     return (
         "status-" +
-        normalizarTextoStatus(
+        normalizarStatusPedido(
             status
+        ).replace(
+            /\s+/g,
+            "-"
         )
-            .replace(
-                /\s+/g,
-                "-"
-            )
     );
 
 }
 
 
 // ==========================================
-// NORMALIZAR
+// NORMALIZAR STATUS
 // ==========================================
 
-function normalizarTextoStatus(
+function normalizarStatusPedido(
     texto
 ) {
 
@@ -525,7 +736,9 @@ function normalizarTextoStatus(
         texto ||
         ""
     )
-        .normalize("NFD")
+        .normalize(
+            "NFD"
+        )
         .replace(
             /[\u0300-\u036f]/g,
             ""
@@ -537,10 +750,10 @@ function normalizarTextoStatus(
 
 
 // ==========================================
-// TEXTO
+// COLOCAR TEXTO
 // ==========================================
 
-function colocarTexto(
+function colocarTextoPedido(
     id,
     valor
 ) {
@@ -565,7 +778,7 @@ function colocarTexto(
 // PREÇO
 // ==========================================
 
-function formatarPrecoPedidoDetalhe(
+function formatarPrecoPedido(
     valor
 ) {
 
@@ -575,8 +788,11 @@ function formatarPrecoPedidoDetalhe(
     ).toLocaleString(
         "pt-BR",
         {
-            style: "currency",
-            currency: "BRL"
+            style:
+                "currency",
+
+            currency:
+                "BRL"
         }
     );
 
@@ -592,7 +808,9 @@ function formatarDataHoraPedido(
 ) {
 
     if (!data) {
+
         return "-";
+
     }
 
 
@@ -601,11 +819,20 @@ function formatarDataHoraPedido(
     ).toLocaleString(
         "pt-BR",
         {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
+            day:
+                "2-digit",
+
+            month:
+                "2-digit",
+
+            year:
+                "numeric",
+
+            hour:
+                "2-digit",
+
+            minute:
+                "2-digit"
         }
     );
 
@@ -613,27 +840,35 @@ function formatarDataHoraPedido(
 
 
 // ==========================================
-// DATA DE ENTREGA
+// DATA
 // ==========================================
 
-function formatarDataPedidoDetalhe(
+function formatarDataPedido(
     data
 ) {
 
     if (!data) {
+
         return "-";
+
     }
 
 
     const partes =
-        String(data)
-            .split("-");
+        String(
+            data
+        ).split(
+            "-"
+        );
 
 
     if (
-        partes.length !== 3
+        partes.length !==
+        3
     ) {
+
         return data;
+
     }
 
 

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Painel Administrativo | Flores Pioli</title>
+
+    <meta
+        name="description"
+        content="Painel administrativo da Flores Pioli."
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-base.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="responsive-redesign.css">
+
+    <link rel="stylesheet" href="admin.css?v=1">
+
+</head>
+
+<body>
+
+
+    <!-- =========================================
+         TOPO
+    ========================================== -->
+
+    <div class="admin-topbar">
+
+        <div class="container admin-topbar-content">
+
+            <div>
+
+                <span class="admin-top-label">
+                    Flores Pioli
+                </span>
+
+                <strong>
+                    Painel Administrativo
+                </strong>
+
+            </div>
+
+
+            <div class="admin-top-actions">
+
+                <a href="CoroasTradicionais.html">
+                    <i class="fa-solid fa-store"></i>
+                    Ver loja
+                </a>
+
+                <button
+                    type="button"
+                    id="admin-logout-btn"
+                >
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Sair
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         CONTEÚDO
+    ========================================== -->
+
+    <main class="admin-page">
+
+        <div class="container">
+
+
+            <!-- CABEÇALHO -->
+
+            <section class="admin-header">
+
+                <div>
+
+                    <span class="admin-eyebrow">
+                        Gestão de pedidos
+                    </span>
+
+                    <h1>
+                        Pedidos
+                    </h1>
+
+                    <p>
+                        Visualize os pedidos recebidos e atualize
+                        o andamento de cada entrega.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="admin-refresh-btn"
+                    class="admin-refresh-btn"
+                >
+
+                    <i class="fa-solid fa-rotate-right"></i>
+
+                    Atualizar
+
+                </button>
+
+            </section>
+
+
+
+            <!-- RESUMO -->
+
+            <section class="admin-stats">
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        Total de pedidos
+                    </span>
+
+                    <strong id="stat-total">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        Recebidos
+                    </span>
+
+                    <strong id="stat-recebidos">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        Em preparação
+                    </span>
+
+                    <strong id="stat-preparacao">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        Em entrega
+                    </span>
+
+                    <strong id="stat-entrega">
+                        0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- FILTROS -->
+
+            <section class="admin-filters">
+
+                <div class="admin-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="search"
+                        id="admin-search-input"
+                        placeholder="Buscar por pedido, cliente ou telefone..."
+                    >
+
+                </div>
+
+
+                <select
+                    id="admin-status-filter"
+                    aria-label="Filtrar por status"
+                >
+
+                    <option value="todos">
+                        Todos os status
+                    </option>
+
+                    <option value="Recebido">
+                        Recebido
+                    </option>
+
+                    <option value="Em preparação">
+                        Em preparação
+                    </option>
+
+                    <option value="Saiu para entrega">
+                        Saiu para entrega
+                    </option>
+
+                    <option value="Entregue">
+                        Entregue
+                    </option>
+
+                    <option value="Cancelado">
+                        Cancelado
+                    </option>
+
+                </select>
+
+            </section>
+
+
+
+            <!-- LOADING -->
+
+            <div
+                id="admin-loading"
+                class="admin-loading"
+            >
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Carregando pedidos...
+
+            </div>
+
+
+
+            <!-- ACESSO NEGADO -->
+
+            <div
+                id="admin-negado"
+                class="admin-negado"
+                style="display: none;"
+            >
+
+                <i class="fa-solid fa-lock"></i>
+
+                <h2>
+                    Acesso não autorizado
+                </h2>
+
+                <p>
+                    Esta conta não possui acesso ao painel administrativo.
+                </p>
+
+                <a href="CoroasTradicionais.html">
+                    Voltar para a loja
+                </a>
+
+            </div>
+
+
+
+            <!-- SEM PEDIDOS -->
+
+            <div
+                id="admin-vazio"
+                class="admin-vazio"
+                style="display: none;"
+            >
+
+                <i class="fa-regular fa-folder-open"></i>
+
+                <h2>
+                    Nenhum pedido encontrado
+                </h2>
+
+                <p>
+                    Os pedidos realizados pelo site aparecerão aqui.
+                </p>
+
+            </div>
+
+
+
+            <!-- LISTA -->
+
+            <section
+                id="admin-pedidos-lista"
+                class="admin-pedidos-lista"
+            ></section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         SUPABASE / JS
+    ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="auth.js?v=3"></script>
+
+    <script src="admin.js?v=1"></script>
+
+
+</body>
+
+</html>
