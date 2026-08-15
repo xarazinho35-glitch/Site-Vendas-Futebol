@@ -165,6 +165,12 @@ document.addEventListener(
             pedido
         );
 
+        colocarTextoPedido(
+    "pedido-pagamento",
+    pedido.status_pagamento ||
+    "Aguardando pagamento"
+);
+
     }
 );
 
